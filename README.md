@@ -5,8 +5,10 @@ IMSMS(Intelligent Message Service Management System)의 공식 웹사이트입�
 Apple iMessage 기반 프리미엄 기업 메시징 솔루션을 소개합니다.
 
 ## 🌐 라이브 사이트
-- **URL**: https://imsms.im
+- **메인 URL**: https://imsms.im
+- **www URL**: https://www.imsms.im
 - **CloudFront**: https://d2unsff4mplluw.cloudfront.net
+- **SSL 인증서**: AWS ACM (자동 갱신)
 
 ## 🚀 주요 특징
 - **1+1 메시지 혁명**: xMS 보내면 IMSMS 무료
@@ -14,11 +16,13 @@ Apple iMessage 기반 프리미엄 기업 메시징 솔루션을 소개합니다
 - **완벽한 호환성**: 별도 앱 설치 없이 iPhone 기본 메시지 앱 사용
 - **대용량 처리**: 시간당 100만 건, 1회 최대 10만 건 발송
 - **리치 미디어**: 이미지, 동영상, 파일 등 다양한 형식 지원
+- **회사소식**: 최신 뉴스, 이벤트, 파트너십 정보 제공
 
 ## 📁 프로젝트 구조
 ```
-imsms-website/
+imsms.im-website/
 ├── index.html           # 메인 페이지
+├── news-data.json      # 회사소식 데이터
 ├── assets/
 │   ├── images/         # 이미지 파일
 │   │   ├── imsms-logo.png
@@ -27,6 +31,7 @@ imsms-website/
 │   ├── css/            # 스타일시트
 │   └── js/             # JavaScript 파일
 ├── docs/               # 문서
+├── .gitignore          # Git 설정
 └── README.md          # 프로젝트 문서
 ```
 
@@ -52,20 +57,42 @@ imsms-website/
 
 ### S3 업로드
 ```bash
-aws s3 sync . s3://imsms-website/ --exclude ".git/*" --exclude "*.md" --delete
+aws s3 sync . s3://imsms-main-site/ \
+  --exclude ".git/*" \
+  --exclude ".DS_Store" \
+  --exclude "*.md" \
+  --exclude ".gitignore" \
+  --delete
 ```
 
 ### CloudFront 캐시 무효화
 ```bash
-aws cloudfront create-invalidation --distribution-id [DISTRIBUTION_ID] --paths "/*"
+aws cloudfront create-invalidation \
+  --distribution-id E3JKAFU5GHMQ5Z \
+  --paths "/*"
 ```
 
 ## 📝 업데이트 이력
 
-### 2024-09-30
-- 프로젝트 별도 디렉토리 분리
+### 2024-10-01 v1.2.0
+- 🎉 **회사소식 섹션 추가**
+  - 글로벌 엑스포 참가 소식 (MWC, SLUSH, WEBSUMMIT)
+  - 파트너십 체결 현황
+  - 제품 업데이트 정보
+  - 동적 뉴스 로딩 기능 구현
+- 🔒 **SSL 인증서 및 도메인 연결**
+  - imsms.im, www.imsms.im 도메인 정식 연결
+  - AWS ACM SSL 인증서 적용
+  - CloudFront 커스텀 도메인 설정
+- 🚀 **AWS 인프라 구성 완료**
+  - S3 정적 호스팅 (s3://imsms-main-site/)
+  - CloudFront CDN 배포 (E3JKAFU5GHMQ5Z)
+  - 자동 캐시 무효화 설정
+
+### 2024-09-30 v1.1.0
+- 프로젝트 별도 디렉토리 분리 (imsms.im-website)
 - 구조화된 폴더 구성
-- README 문서 작성
+- 초기 README 문서 작성
 
 ## 📞 문의
 - **이메일**: support@imsms.im
