@@ -1,0 +1,85 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "date": "2024-11-20",
+      "category": "엑스포",
+      "title": "SLUSH 2024 헬싱키 참가",
+      "description": "유럽 최대 스타트업 컨퍼런스 SLUSH 2024에서 IMSMS 솔루션을 소개하고 유럽 파트너들과 미팅을 진행했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=SLUSH+2024",
+      "tags": ["SLUSH", "헬싱키", "글로벌"]
+    },
+    {
+      "id": 2,
+      "date": "2024-11-13",
+      "category": "엑스포",
+      "title": "WEBSUMMIT 2024 리스본 참가",
+      "description": "포르투갈 리스본에서 개최된 WEBSUMMIT 2024에 참가하여 글로벌 IT 트렌드를 파악하고 새로운 비즈니스 기회를 모색했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=WEBSUMMIT+2024",
+      "tags": ["WEBSUMMIT", "리스본", "네트워킹"]
+    },
+    {
+      "id": 3,
+      "date": "2024-10-15",
+      "category": "파트너십",
+      "title": "goiMessage(포르투갈)와 파트너십 체결",
+      "description": "포르투갈 최대 메시징 서비스 업체 goiMessage와 IMSMS 유럽 진출을 위한 전략적 파트너십을 체결했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=Partnership",
+      "tags": ["파트너십", "포르투갈", "유럽진출"]
+    },
+    {
+      "id": 4,
+      "date": "2024-10-08",
+      "category": "엑스포",
+      "title": "JAPAN IT WEEK 2024 Autumn 참가",
+      "description": "일본 도쿄에서 열린 JAPAN IT WEEK 가을 전시회에 참가하여 일본 시장 진출을 위한 기반을 마련했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=JAPAN+IT+WEEK",
+      "tags": ["일본", "도쿄", "아시아시장"]
+    },
+    {
+      "id": 5,
+      "date": "2024-09-20",
+      "category": "제품업데이트",
+      "title": "IMSMS 3.0 대규모 업데이트",
+      "description": "AI 기반 메시지 최적화, 실시간 번역 기능, 향상된 보안 기능을 포함한 IMSMS 3.0 버전을 출시했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=IMSMS+3.0",
+      "tags": ["업데이트", "AI", "신기능"]
+    },
+    {
+      "id": 6,
+      "date": "2024-08-25",
+      "category": "파트너십",
+      "title": "Getwifi(카자흐스탄) BMT 성공",
+      "description": "카자흐스탄 최대 통신사 Getwifi와 IMSMS BMT를 성공적으로 완료하고 중앙아시아 진출을 확정했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=Getwifi+BMT",
+      "tags": ["카자흐스탄", "BMT", "중앙아시아"]
+    },
+    {
+      "id": 7,
+      "date": "2024-07-15",
+      "category": "인증",
+      "title": "ISO 27001 정보보안 인증 획득",
+      "description": "IMSMS가 국제 정보보안 표준 ISO 27001 인증을 획득하여 보안성과 신뢰성을 입증했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=ISO+27001",
+      "tags": ["인증", "보안", "ISO"]
+    },
+    {
+      "id": 8,
+      "date": "2024-06-10",
+      "category": "제품업데이트",
+      "title": "대용량 발송 성능 200% 향상",
+      "description": "새로운 분산 처리 아키텍처 도입으로 시간당 200만 건 메시지 발송이 가능하게 되었습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=Performance+Update",
+      "tags": ["성능개선", "대용량", "기술혁신"]
+    },
+    {
+      "id": 9,
+      "date": "2024-02-28",
+      "category": "엑스포",
+      "title": "MWC 2024 바르셀로나 참가",
+      "description": "세계 최대 모바일 전시회 MWC 2024에서 IMSMS를 선보이고 글로벌 통신사들과 협력 방안을 논의했습니다.",
+      "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=MWC+2024",
+      "tags": ["MWC", "바르셀로나", "모바일"]
+    }
+  ]
+}
