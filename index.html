@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSMS - 1+1 메시지 혁명 | xMS 보내면 IMSMS 무료!</title>
+    <meta name="description" content="Apple iMessage 기반 프리미엄 기업 메시징. 월 25만원 이상 사용 기업을 위한 최고의 비용 효율 솔루션">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #B92B27;
+            --primary-dark: #8B1A1A;
+            --primary-light: rgba(185, 43, 39, 0.1);
+            --primary-glass: rgba(185, 43, 39, 0.05);
+            --accent-pink: rgba(255, 192, 203, 0.3);
+            --glass-white: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --secondary: #000000;
+            --success: #34c759;
+            --warning: #ff9500;
+            --dark: #1c1c1e;
+            --gray: #8e8e93;
+            --light-gray: #f2f2f7;
+            --gradient-soft: linear-gradient(135deg, rgba(185, 43, 39, 0.1) 0%, rgba(255, 192, 203, 0.2) 100%);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #fef5f5 50%, #fff5f5 100%);
+        }
+
+        /* Liquid Glass Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.2);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3);
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section with Liquid Glass Effect */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(255, 192, 203, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(185, 43, 39, 0.1) 100%),
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&q=80') center/cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--dark);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 8px 30px rgba(185, 43, 39, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(185, 43, 39, 0.4);
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--glass-border);
+            color: var(--dark);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Revolutionary Section */
+        .revolutionary {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fef8f8 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Glass Formula Display */
+        .formula-display {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .formula-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .formula-item {
+            text-align: center;
+        }
+
+        .formula-label {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .formula-operator {
+            font-size: 2rem;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        /* Service Overview with Glass Cards */
+        .service-overview {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 245, 245, 0.9) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-soft);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(185, 43, 39, 0.15);
+            background: rgba(255, 255, 255, 0.7);
+            border-color: rgba(185, 43, 39, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-soft);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.1);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-description {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Credit System with Soft Background */
+        .credit-system {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 192, 203, 0.2) 0%, rgba(255, 245, 245, 0.5) 100%);
+            position: relative;
+        }
+
+        .credit-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .credit-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .credit-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(185, 43, 39, 0.2);
+            border-color: rgba(185, 43, 39, 0.3);
+        }
+
+        .credit-amount {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .credit-price {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .credit-unit {
+            color: var(--gray);
+        }
+
+        /* Pricing Section with Glass Table */
+        .pricing {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fef8f8 100%);
+        }
+
+        .pricing-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: rgba(185, 43, 39, 0.9);
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .table-cell {
+            padding: 1.5rem;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .table-cell:last-child {
+            border-right: none;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            border-bottom: 1px solid rgba(185, 43, 39, 0.05);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .table-row:hover {
+            background: rgba(255, 192, 203, 0.1);
+        }
+
+        .highlight-cell {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Tech Specs with Glass Effect */
+        .tech-specs {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 245, 245, 0.9) 100%);
+        }
+
+        .dashboard-mockup {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .mockup-header {
+            background: rgba(185, 43, 39, 0.9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px 10px 0 0;
+            margin: -2rem -2rem 2rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .spec-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: 1px solid rgba(185, 43, 39, 0.1);
+        }
+
+        .spec-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-value {
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        /* Demo Section with Glass Mockup */
+        .demo {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 192, 203, 0.3) 0%, rgba(255, 255, 255, 0.7) 100%),
+                        url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&h=1080&q=80') center/cover;
+            text-align: center;
+            position: relative;
+        }
+
+        .demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .device-mockup {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin: 3rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .demo-screen {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            min-height: 300px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fef8f8 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 30px rgba(185, 43, 39, 0.1);
+            border-color: rgba(185, 43, 39, 0.2);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 192, 203, 0.1);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            line-height: 1.8;
+            color: var(--gray);
+            display: none;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.9) 0%, rgba(139, 26, 26, 0.9) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .formula-value {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header, .table-row {
+                font-size: 0.9rem;
+            }
+
+            .credit-amount {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Glass shimmer effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <img src="https://d2unsff4mplluw.cloudfront.net/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
+            <div class="nav-links">
+                <a href="#service">서비스</a>
+                <a href="#pricing">요금</a>
+                <a href="#demo">체험</a>
+                <a href="#contact">문의</a>
+                <a href="https://console.imsms.im" class="nav-cta">관리자 콘솔</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate-in">
+            <h1><span>xMS</span> 보내면 <span>IMSMS</span> 무료!</h1>
+            <p class="hero-subtitle">1+1 메시지 혁명, 대한민국 최초 Apple iMessage 기반 기업 메시징 서비스</p>
+            <div class="hero-buttons">
+                <a href="https://console.imsms.im" class="btn-primary">지금 시작하기</a>
+                <a href="#demo" class="btn-secondary">무료 체험</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revolutionary Concept -->
+    <section class="revolutionary">
+        <div class="container">
+            <h2 class="section-title"><span>1+1</span> 메시지 혁명</h2>
+            <div class="formula-display">
+                <div class="formula-row">
+                    <div class="formula-item">
+                        <div class="formula-label">기존 발송</div>
+                        <div class="formula-value">xMS</div>
+                    </div>
+                    <div class="formula-operator">+</div>
+                    <div class="formula-item">
+                        <div class="formula-label">무료 추가</div>
+                        <div class="formula-value">IMSMS</div>
+                    </div>
+                    <div class="formula-operator">=</div>
+                    <div class="formula-item">
+                        <div class="formula-label">총 발송량</div>
+                        <div class="formula-value">2배</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; color: var(--gray); font-size: 1.1rem;">
+                    xMS, 알림톡, 친구톡 발송 시 동일 수량의 IMSMS를 무료로 제공합니다
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section id="service" class="service-overview">
+        <div class="container">
+            <h2 class="section-title">Apple이 보증하는 <span>프리미엄 메시징</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Apple 생태계 통합</h3>
+                    <p class="feature-description">
+                        iPhone, iPad, Mac, Apple Watch 모든 기기에서 실시간 동기화.
+                        고객이 어떤 Apple 기기를 사용하든 메시지가 즉시 전달됩니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">End-to-End 암호화</h3>
+                    <p class="feature-description">
+                        Apple의 최고 수준 보안 기술로 모든 메시지를 완벽하게 보호.
+                        민감한 기업 정보도 안심하고 전송할 수 있습니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">실시간 전송 상태</h3>
+                    <p class="feature-description">
+                        읽음 확인, 입력 중 표시 등 iMessage만의 프리미엄 기능.
+                        고객과의 실시간 소통이 가능합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">고급 분석 대시보드</h3>
+                    <p class="feature-description">
+                        발송률, 읽음률, 클릭률을 실시간으로 모니터링.
+                        AI 기반 인사이트로 캠페인 효과를 극대화하세요.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">타겟 마케팅</h3>
+                    <p class="feature-description">
+                        Apple 사용자 대상 프리미엄 마케팅 전략 실행.
+                        구매력 높은 고객층에게 효과적으로 도달합니다.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">즉시 시작</h3>
+                    <p class="feature-description">
+                        복잡한 연동 없이 5분 만에 시작.
+                        기존 시스템과 완벽한 호환성을 제공합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit System -->
+    <section class="credit-system">
+        <div class="container">
+            <h2 class="section-title">투명한 <span>크레딧 시스템</span></h2>
+            <div class="credit-cards">
+                <div class="credit-card">
+                    <div class="credit-amount">100</div>
+                    <div class="credit-price">₩10,000</div>
+                    <div class="credit-unit">크레딧당 100원</div>
+                </div>
+                <div class="credit-card">
+                    <div class="credit-amount">1,000</div>
+                    <div class="credit-price">₩90,000</div>
+                    <div class="credit-unit">크레딧당 90원 (10% 할인)</div>
+                </div>
+                <div class="credit-card">
+                    <div class="credit-amount">10,000</div>
+                    <div class="credit-price">₩800,000</div>
+                    <div class="credit-unit">크레딧당 80원 (20% 할인)</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
+                * 크레딧은 영구 사용 가능하며, 유효기간이 없습니다
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">월 발송량별 <span>예상 비용</span></h2>
+            <div class="pricing-table">
+                <div class="table-header">
+                    <div class="table-cell">월 발송량</div>
+                    <div class="table-cell">필요 크레딧</div>
+                    <div class="table-cell">예상 비용</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">1만건</div>
+                    <div class="table-cell">10,000</div>
+                    <div class="table-cell highlight-cell">80만원</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">5만건</div>
+                    <div class="table-cell">50,000</div>
+                    <div class="table-cell highlight-cell">400만원</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">10만건</div>
+                    <div class="table-cell">100,000</div>
+                    <div class="table-cell highlight-cell">800만원</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">50만건</div>
+                    <div class="table-cell">500,000</div>
+                    <div class="table-cell highlight-cell">4,000만원</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
+                * 대량 발송 시 추가 할인 협의 가능
+            </p>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="tech-specs">
+        <div class="container">
+            <h2 class="section-title">기술 <span>사양</span></h2>
+            <div class="dashboard-mockup">
+                <div class="mockup-header">
+                    <h3 style="margin: 0;">IMSMS 관리자 대시보드</h3>
+                </div>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-title">발송 속도</div>
+                        <div class="spec-value">초당 1,000건</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">API 응답시간</div>
+                        <div class="spec-value">&lt; 100ms</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">가동률</div>
+                        <div class="spec-value">99.99%</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">보안 인증</div>
+                        <div class="spec-value">ISO 27001</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">지원 형식</div>
+                        <div class="spec-value">REST API, SDK</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-title">데이터 센터</div>
+                        <div class="spec-value">AWS 서울 리전</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="demo-container">
+            <h2 class="section-title">지금 바로 <span>체험하세요</span></h2>
+            <div class="device-mockup">
+                <div class="demo-screen">
+                    <p style="color: var(--dark); font-size: 1.2rem; margin-bottom: 2rem;">
+                        테스트 메시지를 발송해보세요
+                    </p>
+                    <form style="text-align: left;" onsubmit="alert('테스트 메시지가 발송되었습니다!'); return false;">
+                        <input type="tel" placeholder="수신번호 (010-xxxx-xxxx)"
+                               style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid rgba(185, 43, 39, 0.2); border-radius: 10px; font-size: 1.1rem; background: rgba(255, 255, 255, 0.8);">
+                        <textarea placeholder="메시지 내용을 입력하세요"
+                                  style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid rgba(185, 43, 39, 0.2); border-radius: 10px; font-size: 1.1rem; height: 100px; resize: none; background: rgba(255, 255, 255, 0.8);"></textarea>
+                        <button type="submit"
+                                style="width: 100%; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(185, 43, 39, 0.3);"
+                                onmouseover="this.style.background='#8B1A1A'"
+                                onmouseout="this.style.background='#B92B27'">
+                            테스트 발송
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; color: var(--dark); opacity: 0.9;">
+                * 실제 과금 없이 무료로 테스트 가능합니다
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2 class="section-title">자주 묻는 <span>질문</span></h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    IMSMS란 무엇인가요?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    IMSMS는 Apple의 iMessage 인프라를 활용한 기업용 메시징 서비스입니다.
+                    일반 SMS/LMS와 달리 무료로 발송 가능하며, 읽음 확인, 타이핑 표시 등
+                    프리미엄 기능을 제공합니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    어떤 기업에 적합한가요?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    월 25만원 이상 문자 발송 비용을 지출하는 모든 기업에 적합합니다.
+                    특히 프리미엄 브랜드, 금융, 헬스케어, 이커머스 등
+                    고객 경험을 중시하는 기업에 최적화되어 있습니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    기존 시스템과 연동이 가능한가요?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    네, 가능합니다. REST API와 각종 SDK를 제공하여
+                    기존 CRM, ERP, 마케팅 자동화 툴과 쉽게 연동할 수 있습니다.
+                    전담 엔지니어가 연동을 지원해드립니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    보안은 안전한가요?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Apple의 End-to-End 암호화 기술로 모든 메시지가 보호됩니다.
+                    ISO 27001 인증을 보유하고 있으며,
+                    금융권 수준의 보안 체계를 갖추고 있습니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    발송 실패 시 어떻게 되나요?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    iMessage 발송 실패 시 자동으로 일반 SMS로 대체 발송됩니다.
+                    이 경우 별도 요금이 부과되지만,
+                    메시지는 100% 전달됩니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>지금 시작하세요</h2>
+            <p>메시지 발송 비용을 절반으로 줄이고, 고객 경험은 두 배로 높이세요</p>
+            <a href="https://console.imsms.im" class="btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3rem; background: white; color: var(--primary);">
+                무료 가입하기
+            </a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>전화</strong> 1599-0000
+                </div>
+                <div class="contact-item">
+                    <strong>이메일</strong> contact@imsms.im
+                </div>
+                <div class="contact-item">
+                    <strong>영업시간</strong> 평일 09:00 - 18:00
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="https://d2unsff4mplluw.cloudfront.net/imsms-logo-header.png" alt="IMSMS" class="footer-logo" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
+            <div class="footer-links">
+                <a href="#">서비스 약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">API 문서</a>
+                <a href="#">파트너 프로그램</a>
+                <a href="https://console.imsms.im">관리자 콘솔</a>
+            </div>
+            <div class="copyright">
+                © 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and sections
+        document.querySelectorAll('.feature-card, .credit-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
