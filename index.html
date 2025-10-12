@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMSMS - 1+1 메시지 혁명 | xMS 보내면 IMSMS 무료!</title>
+    <title>IMSMS - 1+1 메시지 혁명 | SMS 보내면 IMSMS 무료!</title>
     <meta name="description" content="Apple iMessage 기반 프리미엄 기업 메시징. 월 25만원 이상 사용 기업을 위한 최고의 비용 효율 솔루션">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -49,6 +50,7 @@
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
             z-index: 1000;
             padding: 0.5rem 0;
+            overflow: visible; /* 배지가 잘리지 않도록 */
         }
 
         .nav-container {
@@ -58,6 +60,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo-img {
@@ -99,9 +102,100 @@
             color: var(--primary);
         }
 
+        /* 현재 페이지 표시 - 기본 링크용 */
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active:not([href="what-is-imsms.html"])::after {
+            width: 100%;
+        }
+
+        /* IMSMS란 메뉴 강조 스타일 */
+        .nav-links a[href="what-is-imsms.html"] {
+            position: relative;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.5rem 1rem 0.5rem 0.8rem;
+            margin: 0 0.5rem;
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.1) 0%, rgba(255, 192, 203, 0.15) 100%);
+            border-radius: 25px;
+            animation: pulseGlow 2s ease-in-out infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a[href="what-is-imsms.html"]::before {
+            content: "🔥";
+            font-size: 16px;
+            animation: fireShake 1s ease-in-out infinite;
+        }
+
+        /* 확인 말풍선을 위한 별도 요소 */
+        .nav-links a[href="what-is-imsms.html"]::after {
+            content: "확인";
+            position: absolute;
+            top: -12px;
+            right: -5px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px 15px 15px 3px;
+            font-size: 10px;
+            font-weight: 600;
+            animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 3px 10px rgba(185, 43, 39, 0.3);
+            height: auto;
+            width: auto;
+            bottom: auto;
+            left: auto;
+        }
+
+        /* IMSMS란 메뉴 호버시 밑줄 안나타나게 */
+        .nav-links a[href="what-is-imsms.html"]:hover::after {
+            content: "확인";
+            width: auto;
+        }
+
+
+        @keyframes fireShake {
+            0%, 100% {
+                transform: rotate(-5deg) scale(1);
+            }
+            25% {
+                transform: rotate(5deg) scale(1.1);
+            }
+            50% {
+                transform: rotate(-3deg) scale(1.05);
+            }
+            75% {
+                transform: rotate(3deg) scale(1.1);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(185, 43, 39, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(185, 43, 39, 0.5);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-3px);
+            }
+        }
+
         .nav-cta {
             background: var(--primary);
-            color: white;
+            color: white !important;
             padding: 0.8rem 1.8rem;
             border-radius: 30px;
             text-decoration: none;
@@ -111,6 +205,7 @@
         }
 
         .nav-cta:hover {
+            color: white !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3);
             background: var(--primary-dark);
@@ -126,6 +221,205 @@
             align-items: center;
             position: relative;
         }
+
+        /* IMSMS 메인 CTA 스타일 */
+        .hero-main-cta {
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .cta-guide {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .guide-arrow {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: bounceDown 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .guide-text {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .guide-time {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .hero-imsms-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.2rem;
+            background: white;
+            padding: 1.5rem 3rem;
+            border-radius: 80px;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 10px 40px rgba(185, 43, 39, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 3px solid rgba(185, 43, 39, 0.2);
+            overflow: visible;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 40px rgba(185, 43, 39, 0.2);
+            }
+            10% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 45px rgba(185, 43, 39, 0.25);
+            }
+            20% {
+                transform: scale(1);
+                box-shadow: 0 10px 40px rgba(185, 43, 39, 0.2);
+            }
+            30% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 45px rgba(185, 43, 39, 0.25);
+            }
+            40% {
+                transform: scale(1);
+                box-shadow: 0 10px 40px rgba(185, 43, 39, 0.2);
+            }
+        }
+
+        /* 펄스 효과 */
+        .hero-imsms-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 80px;
+            background: rgba(185, 43, 39, 0.15);
+            z-index: -1;
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                width: 100%;
+                height: 100%;
+                opacity: 0.8;
+            }
+            100% {
+                width: 120%;
+                height: 120%;
+                opacity: 0;
+            }
+        }
+
+        .hero-imsms-button:hover {
+            animation-play-state: paused;
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(185, 43, 39, 0.35);
+            border-color: var(--primary);
+        }
+
+        .button-badge {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            animation: shake 2s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .button-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .button-text strong {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .button-text small {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .button-arrow {
+            font-size: 2rem;
+            color: var(--primary);
+            animation: slideRight 1s ease-in-out infinite;
+        }
+
+        @keyframes slideRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .hero-imsms-button {
+                padding: 1.2rem 2rem;
+                gap: 0.8rem;
+            }
+
+            .button-icon {
+                font-size: 2rem;
+            }
+
+            .button-text strong {
+                font-size: 1.1rem;
+            }
+
+            .button-text small {
+                font-size: 0.85rem;
+            }
+        }
+
 
         .hero::before {
             content: '';
@@ -159,12 +453,358 @@
             color: var(--primary);
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
+        /* Hero Subtitle 텍스트 디자인 */
+        .hero-subtitle-wrapper {
+            margin: 2rem auto 0;
+            text-align: center;
+            animation: fadeInUp 1s ease 0.3s both;
+            position: relative;
+        }
+
+        .subtitle-text-content {
+            font-size: 1.15rem;
+            line-height: 1.7;
             color: var(--dark);
-            opacity: 0.9;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 2.5rem;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05),
+                        0 1px 5px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            max-width: 700px;
+        }
+
+        .highlight-solution {
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .highlight-solution::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), rgba(185, 43, 39, 0.3));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .subtitle-text-content:hover .highlight-solution::after {
+            transform: scaleX(1);
+        }
+
+        .subtitle-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            border-radius: 100px;
+            box-shadow: 0 10px 40px rgba(185, 43, 39, 0.08),
+                        0 2px 10px rgba(0, 0, 0, 0.04),
+                        inset 0 1px 2px rgba(255, 255, 255, 1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subtitle-flow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: flowShimmer 4s infinite;
+        }
+
+        @keyframes flowShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .subtitle-step {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.5rem 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .subtitle-step[data-step="1"] {
+            animation: slideInLeft 0.8s ease 0.4s both;
+        }
+
+        .subtitle-step[data-step="2"] {
+            animation: fadeIn 0.8s ease 0.6s both;
+            border-left: 1px solid rgba(185, 43, 39, 0.1);
+            border-right: 1px solid rgba(185, 43, 39, 0.1);
+        }
+
+        .subtitle-step.highlight {
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.08), rgba(255, 192, 203, 0.12));
+            border-radius: 50px;
+            animation: slideInRight 0.8s ease 0.8s both;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 0 20px rgba(185, 43, 39, 0.2);
+            }
+            50% {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 0 30px rgba(185, 43, 39, 0.3);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px) scale(1.05);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1.05);
+            }
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #fff, #fafafa);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 2px rgba(255, 255, 255, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .step-icon span {
+            font-size: 1.3rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .subtitle-step[data-step="1"] .step-icon {
+            background: linear-gradient(135deg, #e8f4f8, #d1e9f0);
+            color: #2c7a9f;
+            font-weight: 800;
+        }
+
+        .subtitle-step[data-step="2"] .step-icon {
+            background: linear-gradient(135deg, #fff9e6, #ffedcc);
+        }
+
+        .subtitle-step.highlight .step-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            box-shadow: 0 6px 20px rgba(185, 43, 39, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 6px 20px rgba(185, 43, 39, 0.25);
+            }
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 8px 25px rgba(185, 43, 39, 0.35);
+            }
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.2rem;
+        }
+
+        .step-label {
+            font-size: 0.95rem;
+            color: #2c2c2e;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+
+        .subtitle-step.highlight .step-label {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00c853, #00a843);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 3px 12px rgba(0, 200, 83, 0.4);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.5rem;
+            position: relative;
+        }
+
+        .flow-arrow svg {
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+
+        .flow-arrow svg path {
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .flow-arrow::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: arrowFlow 2s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes arrowFlow {
+            0% { transform: translateX(-20px); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateX(20px); opacity: 0; }
+        }
+
+        @keyframes slideArrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        .subtitle-description {
+            margin-top: 1rem;
+        }
+
+        .desc-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 6px 20px rgba(185, 43, 39, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .desc-highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .desc-highlight::before {
+            content: '✨';
+            font-size: 1rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .desc-highlight::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .hero-buttons {
@@ -247,46 +887,211 @@
 
         /* Glass Formula Display */
         .formula-display {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
             padding: 3rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(185, 43, 39, 0.08),
+                        0 5px 15px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        .formula-row {
+        .formula-flow-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 2rem 0;
             flex-wrap: wrap;
         }
 
-        .formula-item {
+        .formula-step {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(185, 43, 39, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 140px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .formula-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.15);
+        }
+
+        .formula-step.highlight {
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.05), rgba(255, 192, 203, 0.08));
+            border-color: var(--primary);
+            animation: highlightPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes highlightPulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+            50% {
+                box-shadow: 0 6px 20px rgba(185, 43, 39, 0.2);
+            }
+        }
+
+        .formula-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(185, 43, 39, 0.05);
+            border-radius: 15px;
+        }
+
+        .formula-icon {
+            font-size: 2rem;
+        }
+
+        .formula-logo {
+            width: 40px;
+            height: auto;
         }
 
         .formula-label {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--gray);
             margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .formula-value {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-cost {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .formula-cost.free {
+            background: linear-gradient(135deg, #00c853, #00a843);
+            color: white;
+            font-weight: 700;
+            animation: freeBadgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes freeBadgePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .formula-plus, .formula-equals {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            animation: symbolFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes symbolFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .formula-result {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-width: 140px;
+            height: 220px;
+            animation: resultGlow 2s ease-in-out infinite;
+            border: 2px solid transparent;
+        }
+
+        @keyframes resultGlow {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(185, 43, 39, 0.25);
+            }
+            50% {
+                box-shadow: 0 12px 35px rgba(185, 43, 39, 0.35);
+            }
+        }
+
+        .result-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .result-text {
+            text-align: center;
+        }
+
+        .result-main {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+
+        .result-sub {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .formula-description {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(185, 43, 39, 0.1);
+        }
+
+        .formula-main-text {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-main-text strong {
             color: var(--primary);
         }
 
-        .formula-operator {
-            font-size: 2rem;
+        .formula-sub-text {
             color: var(--gray);
-            font-weight: 300;
+            font-size: 1rem;
         }
 
         /* Service Overview with Glass Cards */
@@ -365,47 +1170,98 @@
             position: relative;
         }
 
-        .credit-cards {
+        .credit-system .section-title::after {
+            width: 100%;
+            margin: 1rem 0 0 0;
+        }
+
+        .credit-system .section-title {
+            display: inline-block;
+            width: auto;
+        }
+
+        .credit-usage-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 3rem auto;
         }
 
-        .credit-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 2rem;
+        .credit-category {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .credit-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(185, 43, 39, 0.2);
-            border-color: rgba(185, 43, 39, 0.3);
+        .credit-category:hover {
+            box-shadow: 0 15px 40px rgba(185, 43, 39, 0.12);
+            border-color: rgba(185, 43, 39, 0.2);
         }
 
-        .credit-amount {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .credit-price {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(185, 43, 39, 0.1);
         }
 
-        .credit-unit {
-            color: var(--gray);
+        .category-icon {
+            font-size: 1.8rem;
+            display: inline-block;
+        }
+
+        .credit-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .credit-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .credit-item:hover {
+            background: white;
+            border-color: rgba(185, 43, 39, 0.15);
+        }
+
+        .item-name {
+            font-size: 1rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .item-credit {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(185, 43, 39, 0.08);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+
+        .item-credit.free {
+            background: linear-gradient(135deg, #00c853, #00a843);
+            color: white;
+            font-weight: 800;
         }
 
         /* Pricing Section with Glass Table */
@@ -460,6 +1316,348 @@
         .highlight-cell {
             font-weight: 700;
             color: var(--primary);
+        }
+
+        /* Competitive Pricing Section */
+        .competitive-pricing-intro {
+            max-width: 1000px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .pricing-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-challenge {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 950px;
+            margin: 0 auto 3rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 3px solid #e5e7eb;
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .comparison-card.highlight {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .comparison-card.highlight:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .comparison-card .badge {
+            position: absolute;
+            top: -18px;
+            right: 25px;
+            background: linear-gradient(135deg, #B92B27 0%, #8B1A1A 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .comparison-card .price-container {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .comparison-card .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .comparison-card .price .won {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .comparison-card .price-label {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card .formula-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .comparison-card:not(.highlight) .formula-badge {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 2px solid #d1d5db;
+        }
+
+        .comparison-card.highlight .formula-badge {
+            background: linear-gradient(135deg, #B92B27 0%, #8B1A1A 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.5);
+        }
+
+        .comparison-card .message-type {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 15px;
+        }
+
+        .comparison-card:not(.highlight) .message-type {
+            background: #f5f5f5;
+            color: #999;
+            border: 2px dashed #d1d5db;
+        }
+
+        .comparison-card.highlight .message-type {
+            background: linear-gradient(135deg, #B92B27 0%, #8B1A1A 100%);
+            font-size: 1.5rem;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.5);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .comparison-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .comparison-card:not(.highlight) li:before {
+            color: var(--primary);
+        }
+
+        .comparison-card.highlight li:before {
+            color: var(--primary);
+        }
+
+        .pricing-bottom-cta {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .pricing-bottom-cta p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-bottom-cta p strong {
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(185, 43, 39, 0.05);
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.1);
+        }
+
+        .benefit-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .benefit-text {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Quote Form */
+        .quote-form-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(185, 43, 39, 0.15);
+            border: 2px solid rgba(185, 43, 39, 0.1);
+        }
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(185, 43, 39, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .quote-submit-btn {
+            width: 100%;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.3);
+            margin-top: 1rem;
+            box-sizing: border-box;
+        }
+
+        .quote-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(185, 43, 39, 0.4);
+        }
+
+        .quote-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .quote-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder,
+        .form-group select {
+            color: #999;
         }
 
         /* Tech Specs with Glass Effect */
@@ -556,6 +1754,214 @@
             border-radius: 15px;
             padding: 2rem;
             min-height: 300px;
+        }
+
+        /* Demo Experience Styles */
+        .demo-experience-wrapper {
+            margin-top: 3rem;
+        }
+
+        .demo-qr-section {
+            display: block;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .demo-qr-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(185, 43, 39, 0.15);
+            display: inline-block;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code img {
+            display: block;
+            border-radius: 10px;
+        }
+
+        .qr-instruction {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .demo-button-section {
+            display: none;
+        }
+
+        .demo-info-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            margin: 0;
+            color: var(--dark);
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .demo-consent {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(185, 43, 39, 0.1);
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .consent-notice {
+            margin-top: 0.8rem;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .demo-send-button {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(185, 43, 39, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .demo-send-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(185, 43, 39, 0.4);
+        }
+
+        .demo-send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .button-icon {
+            font-size: 1.5rem;
+        }
+
+        .demo-preview {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-preview h3 {
+            margin: 0 0 1.5rem 0;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .message-preview {
+            background: #e5e5ea;
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+
+        .message-bubble {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 18px;
+            padding: 1.2rem 1.5rem;
+            max-width: 80%;
+            margin-left: auto;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(185, 43, 39, 0.2);
+        }
+
+        .message-bubble p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .message-bubble p:first-child {
+            margin-top: 0;
+        }
+
+        .message-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Mobile specific */
+        @media (max-width: 768px) {
+            .demo-qr-section {
+                display: none;
+            }
+
+            .demo-button-section {
+                display: block;
+            }
+
+            .demo-container {
+                max-width: 100%;
+            }
         }
 
         /* FAQ Section */
@@ -789,7 +2195,12 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            object-position: center;
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-pink) 100%);
+        }
+
+        .news-card[data-category="특허"] .news-image {
+            object-position: top center;
         }
 
         .news-content {
@@ -862,6 +2273,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .btn-more-news:hover {
@@ -870,18 +2283,270 @@
             transform: scale(1.05);
         }
 
+        .btn-more-news:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* News Popup Modal */
+        .news-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .news-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+            margin: 20px;
+            position: relative;
+        }
+
+        .modal-header {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .news-modal[data-category="파트너십"] .modal-header img {
+            object-position: center 35%;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal-category {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .modal-date {
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .modal-description {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .modal-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .modal-tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .modal-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .modal-btn-secondary {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .modal-btn-secondary:hover {
+            background: #e0e0e5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.2rem;
+            .subtitle-text-content {
+                font-size: 1rem;
+                padding: 1.2rem 1.5rem;
+                margin: 0 1rem;
             }
 
-            .formula-value {
-                font-size: 2rem;
+            .subtitle-flow {
+                padding: 1rem 1.2rem;
+                border-radius: 60px;
+            }
+
+            .subtitle-step {
+                padding: 0.4rem 1rem;
+                gap: 0.5rem;
+            }
+
+            .subtitle-step[data-step="2"] {
+                border-left: 1px solid rgba(185, 43, 39, 0.1);
+                border-right: 1px solid rgba(185, 43, 39, 0.1);
+            }
+
+            .step-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+                border-radius: 12px;
+            }
+
+            .step-icon span {
+                font-size: 1.1rem;
+            }
+
+            .step-label {
+                font-size: 0.85rem;
+            }
+
+            .flow-arrow svg {
+                width: 25px;
+                height: 15px;
+            }
+
+            .desc-highlight {
+                font-size: 0.85rem;
+                padding: 0.5rem 1.3rem;
+            }
+
+            .desc-highlight::before {
+                font-size: 0.9rem;
+            }
+
+            .formula-flow-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .formula-step {
+                min-width: 250px;
+            }
+
+            .formula-plus, .formula-equals {
+                transform: rotate(90deg);
+            }
+
+            .formula-result {
+                margin-top: 1rem;
             }
 
             .nav-links {
@@ -910,6 +2575,80 @@
 
             .news-header h2 {
                 font-size: 2rem;
+            }
+
+            .comparison-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .comparison-card.highlight {
+                transform: scale(1);
+            }
+
+            .comparison-card.highlight:hover {
+                transform: translateY(-5px);
+            }
+
+            .comparison-card .price {
+                font-size: 2.8rem;
+            }
+
+            .comparison-card .formula-badge {
+                font-size: 1.5rem;
+            }
+
+            .comparison-card .message-type {
+                font-size: 1.1rem;
+            }
+
+            .comparison-card.highlight .message-type {
+                font-size: 1.3rem;
+            }
+
+            .comparison-card li {
+                font-size: 0.95rem;
+            }
+
+            .pricing-subtitle {
+                font-size: 1rem;
+            }
+
+            .pricing-challenge {
+                font-size: 1.2rem;
+            }
+
+            .benefit-text {
+                font-size: 1rem;
+            }
+
+            .quote-form-container {
+                padding: 2rem 1.5rem;
+                margin: 2rem 1rem 0;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .quote-form {
+                gap: 1rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .quote-submit-btn {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+
+            .modal-body {
+                padding: 30px 20px;
             }
 
             .news-section {
@@ -954,8 +2693,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <img src="https://d2unsff4mplluw.cloudfront.net/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
+            <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
             <div class="nav-links">
+                <a href="what-is-imsms.html">IMSMS란</a>
                 <a href="#service">서비스</a>
                 <a href="#pricing">요금</a>
                 <a href="#demo">체험</a>
@@ -969,39 +2709,81 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content animate-in">
-            <h1><span>xMS</span> 보내면 <span>IMSMS</span> 무료!</h1>
-            <p class="hero-subtitle">1+1 메시지 혁명, 대한민국 최초 Apple iMessage 기반 기업 메시징 서비스</p>
-            <div class="hero-buttons">
-                <a href="https://console.imsms.im" class="btn-primary">지금 시작하기</a>
-                <a href="#demo" class="btn-secondary">무료 체험</a>
+            <h1><span>SMS 1건</span> 보내면, <span>IMSMS 1건</span> 무료발송!</h1>
+            <div class="hero-subtitle-wrapper">
+                <p class="subtitle-text-content">
+                    SMS 발송만으로 크레딧이 쌓이고, Apple iMessage<br>
+                    프리미엄 메시징을 추가 비용 없이 발송하는 <span class="highlight-solution">메시징 솔루션</span>
+                </p>
+            </div>
+
+            <!-- IMSMS 소개 강조 CTA -->
+            <div class="hero-main-cta">
+                <div class="cta-guide">
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.3rem; margin-top: -1.5rem;">
+                        <img src="assets/images/imsms-logo.png" alt="IMSMS" style="width: 120px; height: auto; animation: bounceDown 1.5s ease-in-out infinite;">
+                    </div>
+                </div>
+                <a href="what-is-imsms.html" class="hero-imsms-button">
+                    <span class="button-badge">확인</span>
+                    <span class="button-icon">💡</span>
+                    <span class="button-text">
+                        <strong>IMSMS란 무엇인가요?</strong>
+                        <small>클릭하여 자세히 알아보기</small>
+                    </span>
+                    <span class="button-arrow">→</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Revolutionary Concept -->
-    <section class="revolutionary">
+    <section id="revolutionary" class="revolutionary">
         <div class="container">
             <h2 class="section-title"><span>1+1</span> 메시지 혁명</h2>
             <div class="formula-display">
-                <div class="formula-row">
-                    <div class="formula-item">
-                        <div class="formula-label">기존 발송</div>
-                        <div class="formula-value">xMS</div>
+                <div class="formula-flow-container">
+                    <div class="formula-step">
+                        <div class="formula-icon-wrapper">
+                            <span class="formula-icon">📱</span>
+                        </div>
+                        <div class="formula-label">SMS</div>
+                        <div class="formula-value">1건</div>
+                        <div class="formula-cost">유료</div>
                     </div>
-                    <div class="formula-operator">+</div>
-                    <div class="formula-item">
-                        <div class="formula-label">무료 추가</div>
-                        <div class="formula-value">IMSMS</div>
+
+                    <div class="formula-plus">
+                        <span class="plus-symbol">+</span>
                     </div>
-                    <div class="formula-operator">=</div>
-                    <div class="formula-item">
-                        <div class="formula-label">총 발송량</div>
-                        <div class="formula-value">2배</div>
+
+                    <div class="formula-step highlight">
+                        <div class="formula-icon-wrapper">
+                            <img src="assets/images/imsms-logo.png" alt="IMSMS" class="formula-logo">
+                        </div>
+                        <div class="formula-label">IMSMS</div>
+                        <div class="formula-value">1건</div>
+                        <div class="formula-cost free">무료</div>
+                    </div>
+
+                    <div class="formula-equals">
+                        <span class="equals-symbol">=</span>
+                    </div>
+
+                    <div class="formula-result">
+                        <div class="result-icon">✨</div>
+                        <div class="result-main">2건 발송</div>
+                        <div class="result-sub">1건 비용으로</div>
                     </div>
                 </div>
-                <p style="text-align: center; margin-top: 2rem; color: var(--gray); font-size: 1.1rem;">
-                    xMS, 알림톡, 친구톡 발송 시 동일 수량의 IMSMS를 무료로 제공합니다
-                </p>
+
+                <div class="formula-description">
+                    <p class="formula-main-text">
+                        <strong>1건의 SMS 비용</strong>으로 <strong>2건의 메시지</strong>를 발송하세요
+                    </p>
+                    <p class="formula-sub-text">
+                        ** SMS, LMS, MMS 발송 시에 IMSMS를 무료로 제공합니다
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -1009,14 +2791,14 @@
     <!-- Service Overview -->
     <section id="service" class="service-overview">
         <div class="container">
-            <h2 class="section-title">Apple이 보증하는 <span>프리미엄 메시징</span></h2>
+            <h2 class="section-title">아이폰 전용 <span>프리미엄 메시징 서비스 IMSMS</span></h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💎</div>
-                    <h3 class="feature-title">Apple 생태계 통합</h3>
+                    <h3 class="feature-title">아이폰에 문자메시지 전송</h3>
                     <p class="feature-description">
-                        iPhone, iPad, Mac, Apple Watch 모든 기기에서 실시간 동기화.
-                        고객이 어떤 Apple 기기를 사용하든 메시지가 즉시 전달됩니다.
+                        iPhone, iPad, Mac, Apple Watch 모든 기기에서 iMessage로 전송.
+                        이용자의 전화번호로 Apple 기기를 사용하든 메시지가 즉시 전달됩니다.
                     </p>
                 </div>
                 <div class="feature-card">
@@ -1053,10 +2835,10 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">즉시 시작</h3>
+                    <h3 class="feature-title">다양한 상호작용 메시징</h3>
                     <p class="feature-description">
-                        복잡한 연동 없이 5분 만에 시작.
-                        기존 시스템과 완벽한 호환성을 제공합니다.
+                        양방향 메시징을 기반으로 대화형 서비스를 제공하여
+                        이용자들에게 직접적인 정보 제공을 지원합니다.
                     </p>
                 </div>
             </div>
@@ -1066,25 +2848,65 @@
     <!-- Credit System -->
     <section class="credit-system">
         <div class="container">
-            <h2 class="section-title">투명한 <span>크레딧 시스템</span></h2>
-            <div class="credit-cards">
-                <div class="credit-card">
-                    <div class="credit-amount">100</div>
-                    <div class="credit-price">₩10,000</div>
-                    <div class="credit-unit">크레딧당 100원</div>
+            <h2 class="section-title">적립된 크레딧을 통해 <span>IMSMS의 다양한 기능과 서비스를 이용</span></h2>
+
+            <div class="credit-usage-grid">
+                <!-- IMSMS 발송 -->
+                <div class="credit-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">📱</span>
+                        IMSMS 발송
+                    </h3>
+                    <div class="credit-items">
+                        <div class="credit-item">
+                            <span class="item-name">SMS/LMS 발송</span>
+                            <span class="item-credit">1크레딧</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="item-name">MMS 발송</span>
+                            <span class="item-credit">2크레딧</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="credit-card">
-                    <div class="credit-amount">1,000</div>
-                    <div class="credit-price">₩90,000</div>
-                    <div class="credit-unit">크레딧당 90원 (10% 할인)</div>
+
+                <!-- IMSMS 계정 설정 -->
+                <div class="credit-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">⚙️</span>
+                        IMSMS 계정 설정
+                    </h3>
+                    <div class="credit-items">
+                        <div class="credit-item">
+                            <span class="item-name">발송계정 신규 설정</span>
+                            <span class="item-credit">100,000 크레딧</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="item-name">발송계정 추가/재설정</span>
+                            <span class="item-credit">80,000 크레딧</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="credit-card">
-                    <div class="credit-amount">10,000</div>
-                    <div class="credit-price">₩800,000</div>
-                    <div class="credit-unit">크레딧당 80원 (20% 할인)</div>
+
+                <!-- IMSMS 부가기능 -->
+                <div class="credit-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">✨</span>
+                        IMSMS 부가기능
+                    </h3>
+                    <div class="credit-items">
+                        <div class="credit-item">
+                            <span class="item-name">수신동의 기능</span>
+                            <span class="item-credit free">무료</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="item-name">HLR LOOKUP</span>
+                            <span class="item-credit">100/1크레딧</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
+
+            <p style="text-align: center; margin-top: 3rem; color: var(--gray); font-size: 1.1rem;">
                 * 크레딧은 영구 사용 가능하며, 유효기간이 없습니다
             </p>
         </div>
@@ -1093,74 +2915,97 @@
     <!-- Pricing Table -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">월 발송량별 <span>예상 비용</span></h2>
-            <div class="pricing-table">
-                <div class="table-header">
-                    <div class="table-cell">월 발송량</div>
-                    <div class="table-cell">필요 크레딧</div>
-                    <div class="table-cell">예상 비용</div>
+            <h2 class="section-title">시장 최저가 <span>요금제</span></h2>
+
+            <div class="competitive-pricing-intro">
+                <p class="pricing-subtitle">📱 SMS, LMS, MMS, 카카오 알림톡, IMSMS</p>
+                <p class="pricing-challenge">🤔 정말 최저가일까요? 직접 비교해보세요!</p>
+
+                <div class="comparison-cards">
+                    <div class="comparison-card">
+                        <h3>타사 평균</h3>
+                        <div class="price-container">
+                            <div class="price">
+                                <span>9</span>
+                                <span class="won">원</span>
+                            </div>
+                            <div class="formula-badge">1+0</div>
+                            <div class="price-label">1건 발송</div>
+                            <div class="message-type">SMS만</div>
+                        </div>
+                        <ul>
+                            <li>SMS만 발송</li>
+                            <li>자동전환 없음</li>
+                            <li>비용 최적화 기능 없음</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card highlight">
+                        <div class="badge">같은 가격에 2배!</div>
+                        <h3>IMSMS</h3>
+                        <div class="price-container">
+                            <div class="price">
+                                <span>9</span>
+                                <span class="won">원</span>
+                            </div>
+                            <div class="formula-badge">1+1</div>
+                            <div class="price-label">2건 발송</div>
+                            <div class="message-type">SMS + IMSMS</div>
+                        </div>
+                        <ul>
+                            <li>SMS 1건 + IMSMS 1건</li>
+                            <li>IMSMS 실패시 SMS 자동 발송</li>
+                            <li>메시지 내용에 맞춘 비용절감</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="table-row">
-                    <div class="table-cell">1만건</div>
-                    <div class="table-cell">10,000</div>
-                    <div class="table-cell highlight-cell">80만원</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">5만건</div>
-                    <div class="table-cell">50,000</div>
-                    <div class="table-cell highlight-cell">400만원</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">10만건</div>
-                    <div class="table-cell">100,000</div>
-                    <div class="table-cell highlight-cell">800만원</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">50만건</div>
-                    <div class="table-cell">500,000</div>
-                    <div class="table-cell highlight-cell">4,000만원</div>
+
+                <div class="pricing-bottom-cta">
+                    <p><strong>같은 가격, 2배의 메시지 발송</strong><br>
+                    <span style="color: var(--gray); font-size: 0.95rem;">고객사의 발송량과 용도에 맞는 최적의 요금제를 제안해드립니다</span></p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
-                * 대량 발송 시 추가 할인 협의 가능
-            </p>
-        </div>
-    </section>
 
-    <!-- Technical Specifications -->
-    <section class="tech-specs">
-        <div class="container">
-            <h2 class="section-title">기술 <span>사양</span></h2>
-            <div class="dashboard-mockup">
-                <div class="mockup-header">
-                    <h3 style="margin: 0;">IMSMS 관리자 대시보드</h3>
-                </div>
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-title">발송 속도</div>
-                        <div class="spec-value">초당 1,000건</div>
+            <!-- Quote Request Form -->
+            <div class="quote-form-container">
+                <form id="quoteForm" class="quote-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="companyName">고객사명 *</label>
+                            <input type="text" id="companyName" name="companyName" required placeholder="회사명을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactName">담당자명 *</label>
+                            <input type="text" id="contactName" name="contactName" required placeholder="이름을 입력하세요">
+                        </div>
                     </div>
-                    <div class="spec-item">
-                        <div class="spec-title">API 응답시간</div>
-                        <div class="spec-value">&lt; 100ms</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">이메일 *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처 *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                        </div>
                     </div>
-                    <div class="spec-item">
-                        <div class="spec-title">가동률</div>
-                        <div class="spec-value">99.99%</div>
+                    <div class="form-group">
+                        <label for="monthlyVolume">예상 월 발송량</label>
+                        <select id="monthlyVolume" name="monthlyVolume">
+                            <option value="">선택하세요</option>
+                            <option value="1만건 미만">1만건 미만</option>
+                            <option value="1만~10만건">1만~10만건</option>
+                            <option value="10만~50만건">10만~50만건</option>
+                            <option value="50만~100만건">50만~100만건</option>
+                            <option value="100만건 이상">100만건 이상</option>
+                        </select>
                     </div>
-                    <div class="spec-item">
-                        <div class="spec-title">보안 인증</div>
-                        <div class="spec-value">ISO 27001</div>
+                    <div class="form-group">
+                        <label for="message">문의 내용</label>
+                        <textarea id="message" name="message" rows="4" placeholder="자세한 문의 내용을 입력해주세요"></textarea>
                     </div>
-                    <div class="spec-item">
-                        <div class="spec-title">지원 형식</div>
-                        <div class="spec-value">REST API, SDK</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">데이터 센터</div>
-                        <div class="spec-value">AWS 서울 리전</div>
-                    </div>
-                </div>
+                    <button type="submit" class="quote-submit-btn">견적 문의하기</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1168,28 +3013,52 @@
     <!-- Demo Section -->
     <section id="demo" class="demo">
         <div class="demo-container">
-            <h2 class="section-title">지금 바로 <span>체험하세요</span></h2>
-            <div class="device-mockup">
-                <div class="demo-screen">
-                    <p style="color: var(--dark); font-size: 1.2rem; margin-bottom: 2rem;">
-                        테스트 메시지를 발송해보세요
-                    </p>
-                    <form style="text-align: left;" onsubmit="alert('테스트 메시지가 발송되었습니다!'); return false;">
-                        <input type="tel" placeholder="수신번호 (010-xxxx-xxxx)"
-                               style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid rgba(185, 43, 39, 0.2); border-radius: 10px; font-size: 1.1rem; background: rgba(255, 255, 255, 0.8);">
-                        <textarea placeholder="메시지 내용을 입력하세요"
-                                  style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid rgba(185, 43, 39, 0.2); border-radius: 10px; font-size: 1.1rem; height: 100px; resize: none; background: rgba(255, 255, 255, 0.8);"></textarea>
-                        <button type="submit"
-                                style="width: 100%; padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(185, 43, 39, 0.3);"
-                                onmouseover="this.style.background='#8B1A1A'"
-                                onmouseout="this.style.background='#B92B27'">
-                            테스트 발송
-                        </button>
-                    </form>
+            <h2 class="section-title">당신의 iPhone에서 <span>직접 체험해보세요</span></h2>
+
+            <div class="demo-experience-wrapper">
+                <!-- QR Code Section (Desktop) -->
+                <div class="demo-qr-section" id="qrSection">
+                    <div class="demo-qr-box">
+                        <div id="qrcode" class="qr-code"></div>
+                        <p class="qr-instruction">📱 QR 스캔 시 메시지앱이 열립니다.<br>'IMSMS 데모 수신동의' 메시지를 그대로 전송하세요.<br>데모 메시지를 즉시 보내드립니다.</p>
+                    </div>
+                </div>
+
+                <!-- Direct Button Section (Mobile) -->
+                <div class="demo-button-section" id="buttonSection">
+                    <div class="demo-info-box">
+                        <div class="demo-step">
+                            <span class="step-number">1</span>
+                            <p class="step-text">아래 버튼을 눌러 iMessage를 열어주세요</p>
+                        </div>
+                        <div class="demo-step">
+                            <span class="step-number">2</span>
+                            <p class="step-text">"IMSMS 데모 신청" 메시지를 전송하세요</p>
+                        </div>
+                        <div class="demo-step">
+                            <span class="step-number">3</span>
+                            <p class="step-text">자동으로 IMSMS 데모 메시지를 받아보세요</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-consent">
+                        <label class="consent-checkbox">
+                            <input type="checkbox" id="demoConsent">
+                            <span class="checkmark"></span>
+                            <span class="consent-text">메시지 수신을 동의합니다</span>
+                        </label>
+                        <p class="consent-notice">* 데모 메시지 1회 발송 후 자동으로 삭제됩니다</p>
+                    </div>
+
+                    <button class="demo-send-button" id="demoSendBtn" disabled>
+                        <span class="button-icon">💬</span>
+                        <span class="button-text">iMessage로 데모 신청하기</span>
+                    </button>
                 </div>
             </div>
-            <p style="margin-top: 2rem; color: var(--dark); opacity: 0.9;">
-                * 실제 과금 없이 무료로 테스트 가능합니다
+
+            <p style="margin-top: 2rem; color: var(--dark); opacity: 0.9; text-align: center;">
+                * iPhone 사용자만 체험 가능하며, 수신동의 메시지 발송 시에 별도의 비용이 발생하지 않습니다.
             </p>
         </div>
     </section>
@@ -1272,7 +3141,7 @@
                 <!-- 뉴스 카드들이 JavaScript로 동적으로 삽입됩니다 -->
             </div>
             <div class="news-more">
-                <a href="#" class="btn-more-news">더 많은 소식 보기</a>
+                <button class="btn-more-news" onclick="loadMoreNews()">더 많은 소식 보기</button>
             </div>
         </div>
     </section>
@@ -1287,9 +3156,6 @@
             </a>
             <div class="contact-info">
                 <div class="contact-item">
-                    <strong>전화</strong> 1599-0000
-                </div>
-                <div class="contact-item">
                     <strong>이메일</strong> contact@imsms.im
                 </div>
                 <div class="contact-item">
@@ -1299,16 +3165,64 @@
         </div>
     </section>
 
+    <!-- News Detail Modal -->
+    <div id="newsModal" class="news-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeNewsModal()">&times;</button>
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span id="modalCategory" class="modal-category"></span>
+                    <span id="modalDate" class="modal-date"></span>
+                </div>
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalDescription" class="modal-description"></p>
+                <div id="modalTags" class="modal-tags"></div>
+                <div class="modal-actions">
+                    <button class="modal-btn modal-btn-secondary" onclick="closeNewsModal()">닫기</button>
+                    <button class="modal-btn modal-btn-primary" onclick="shareNews()">공유하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="https://d2unsff4mplluw.cloudfront.net/imsms-logo-header.png" alt="IMSMS" class="footer-logo" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
+            <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="footer-logo" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
             <div class="footer-links">
                 <a href="#">서비스 약관</a>
                 <a href="#">개인정보처리방침</a>
                 <a href="#">API 문서</a>
                 <a href="#">파트너 프로그램</a>
                 <a href="https://console.imsms.im">관리자 콘솔</a>
+            </div>
+            <div class="company-info" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: center;">
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLAYER (팀플레이어)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 593-77-00117<br>
+                            대표이사: 김은경<br>
+                            설립: 2016년 11월 1일<br>
+                            경기도 용인시 기흥구 동백로 22
+                        </p>
+                    </div>
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLEAN co.,LTD (주식회사 팀플리언)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 746-86-03029<br>
+                            대표이사: 김원철<br>
+                            설립: 2024년 4월 1일<br>
+                            서울 마포구 매봉산로 18 마포비즈플라자 602호
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                    IMSMS는 TEAMPLAYER와 TEAMPLEAN이 공동 운영하는 서비스입니다.
+                </div>
             </div>
             <div class="copyright">
                 © 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다.
@@ -1346,48 +3260,158 @@
             });
         });
 
+        // News data management
+        let allNewsData = [];
+        let currentNewsCount = 6;
+
         // Load news data
         async function loadNews() {
             try {
                 const response = await fetch('news-data.json');
                 const data = await response.json();
-                const newsGrid = document.getElementById('newsGrid');
+                allNewsData = data.news;
 
-                // 최신 6개 뉴스만 표시
-                const latestNews = data.news.slice(0, 6);
-
-                latestNews.forEach(item => {
-                    const newsCard = document.createElement('div');
-                    newsCard.className = 'news-card';
-
-                    const formattedDate = new Date(item.date).toLocaleDateString('ko-KR', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
-
-                    newsCard.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}" class="news-image">
-                        <div class="news-content">
-                            <div class="news-meta">
-                                <span class="news-category">${item.category}</span>
-                                <span class="news-date">${formattedDate}</span>
-                            </div>
-                            <h3 class="news-title">${item.title}</h3>
-                            <p class="news-description">${item.description}</p>
-                            <div class="news-tags">
-                                ${item.tags.map(tag => `<span class="news-tag">#${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    `;
-
-                    newsGrid.appendChild(newsCard);
-                });
+                displayNews(6);
             } catch (error) {
                 console.error('Failed to load news:', error);
                 document.getElementById('newsGrid').innerHTML = '<p style="text-align: center; color: var(--gray);">뉴스를 불러올 수 없습니다.</p>';
             }
         }
+
+        // Display news items
+        function displayNews(count) {
+            const newsGrid = document.getElementById('newsGrid');
+            newsGrid.innerHTML = ''; // Clear existing news
+
+            const newsToShow = allNewsData.slice(0, count);
+
+            newsToShow.forEach((item, index) => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'news-card';
+                newsCard.setAttribute('data-category', item.category);
+                newsCard.onclick = () => openNewsModal(item);
+                newsCard.style.cursor = 'pointer';
+
+                const formattedDate = new Date(item.date).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                newsCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="news-image">
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-category">${item.category}</span>
+                            <span class="news-date">${formattedDate}</span>
+                        </div>
+                        <h3 class="news-title">${item.title}</h3>
+                        <p class="news-description">${item.description}</p>
+                        <div class="news-tags">
+                            ${item.tags.map(tag => `<span class="news-tag">#${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+
+                newsGrid.appendChild(newsCard);
+            });
+
+            // Update button visibility
+            const moreButton = document.querySelector('.btn-more-news');
+            if (moreButton) {
+                if (count >= allNewsData.length) {
+                    moreButton.style.display = 'none';
+                } else {
+                    moreButton.style.display = 'inline-block';
+                }
+            }
+        }
+
+        // Load more news function
+        function loadMoreNews() {
+            currentNewsCount = allNewsData.length; // Show all news
+            displayNews(currentNewsCount);
+
+            // Smooth scroll to news section
+            const newsSection = document.getElementById('news');
+            if (newsSection) {
+                newsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Open news modal
+        function openNewsModal(newsItem) {
+            const modal = document.getElementById('newsModal');
+            modal.setAttribute('data-category', newsItem.category);
+
+            const formattedDate = new Date(newsItem.date).toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Set modal content
+            document.getElementById('modalImage').src = newsItem.image;
+            document.getElementById('modalImage').alt = newsItem.title;
+            document.getElementById('modalCategory').textContent = newsItem.category;
+            document.getElementById('modalDate').textContent = formattedDate;
+            document.getElementById('modalTitle').textContent = newsItem.title;
+            document.getElementById('modalDescription').textContent = newsItem.description;
+
+            // Set tags
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = newsItem.tags.map(tag =>
+                `<span class="modal-tag">#${tag}</span>`
+            ).join('');
+
+            // Store current news item for sharing
+            window.currentNewsItem = newsItem;
+
+            // Show modal
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close news modal
+        function closeNewsModal() {
+            const modal = document.getElementById('newsModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Share news
+        function shareNews() {
+            if (window.currentNewsItem && navigator.share) {
+                navigator.share({
+                    title: window.currentNewsItem.title,
+                    text: window.currentNewsItem.description,
+                    url: window.location.href
+                }).catch(err => console.log('Share failed:', err));
+            } else {
+                // Fallback: Copy to clipboard
+                const text = `${window.currentNewsItem.title}\n${window.currentNewsItem.description}\n${window.location.href}`;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('링크가 클립보드에 복사되었습니다!');
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                });
+            }
+        }
+
+        // Close modal on outside click
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('newsModal');
+            if (event.target === modal) {
+                closeNewsModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeNewsModal();
+            }
+        });
 
         // Load news when DOM is ready
         document.addEventListener('DOMContentLoaded', loadNews);
@@ -1413,6 +3437,166 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(el);
+        });
+    </script>
+
+    <script>
+        // 네비게이션 활성 상태 관리
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+            const sections = document.querySelectorAll('section[id]');
+
+            // 스크롤 시 현재 섹션 감지
+            function setActiveLink() {
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                // 스크롤이 최상단에 있을 때
+                if (window.scrollY < 100) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    return;
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+
+                    // 현재 섹션과 매칭되는 링크에 active 추가
+                    if (link.getAttribute('href').includes('#' + currentSection)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // 클릭 시 active 클래스 즉시 업데이트
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // IMSMS란 링크는 제외 (다른 페이지로 이동)
+                    if (this.getAttribute('href').startsWith('what-is-imsms.html')) {
+                        return;
+                    }
+
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // 스크롤 이벤트 리스너
+            window.addEventListener('scroll', setActiveLink);
+
+            // 초기 설정
+            setActiveLink();
+        });
+
+        // Generate QR Code
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrcodeElement = document.getElementById('qrcode');
+            if (qrcodeElement && typeof QRCode !== 'undefined') {
+                qrcodeElement.innerHTML = ''; // Clear previous QR code
+                const message = encodeURIComponent('IMSMS 데모 수신동의');
+                new QRCode(qrcodeElement, {
+                    text: 'imessage://demo@teamplayer.co.kr?body=' + message,
+                    width: 250,
+                    height: 250,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        });
+
+        // Demo consent and button
+        const demoConsent = document.getElementById('demoConsent');
+        const demoSendBtn = document.getElementById('demoSendBtn');
+
+        if (demoConsent && demoSendBtn) {
+            demoConsent.addEventListener('change', function() {
+                demoSendBtn.disabled = !this.checked;
+            });
+
+            demoSendBtn.addEventListener('click', function() {
+                // iMessage URL scheme
+                const message = encodeURIComponent('IMSMS 데모 수신동의');
+                const imessageUrl = 'imessage://demo@teamplayer.co.kr?body=' + message;
+
+                // Check if iOS device
+                const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+
+                if (isIOS) {
+                    window.location.href = imessageUrl;
+                } else {
+                    alert('이 기능은 iPhone에서만 사용 가능합니다.\n\n데스크톱에서는 QR 코드를 iPhone 카메라로 스캔해주세요.');
+                }
+            });
+        }
+
+        // Quote form submission
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector('.quote-submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '전송 중...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                companyName: document.getElementById('companyName').value,
+                contactName: document.getElementById('contactName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                monthlyVolume: document.getElementById('monthlyVolume').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('https://wt4gnzumnu3ceev2brux6bh4f40gbiki.lambda-url.ap-northeast-2.on.aws/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+
+                const responseText = await response.text();
+                console.log('Response body:', responseText);
+
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    console.error('Failed to parse JSON:', e);
+                    throw new Error('서버 응답을 처리할 수 없습니다.');
+                }
+
+                console.log('Parsed result:', result);
+
+                if (response.ok && result.success !== false) {
+                    alert(`${formData.contactName} 님. 견적문의주셔서 감사드립니다.\n빠른 시일 내에 연락드리겠습니다.`);
+                    this.reset();
+                } else {
+                    const errorMsg = result.error || result.details || '전송 중 오류가 발생했습니다.';
+                    alert('❌ ' + errorMsg);
+                    console.error('Server error:', result);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('❌ 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n' + error.message);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
