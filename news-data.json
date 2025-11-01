@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "id": 13,
+      "date": "2025-10-23",
+      "category": "수상",
+      "title": "서울지방중소벤처기업청장상 수상",
+      "description": "주식회사 팀플리언(대표이사 김원철)이 창의성과 전문성을 지닌 기업인으로서 서울지역 창업 생태계 활성화에 기여한 공로와 노력을 인정받아 서울지방중소벤처기업청장 표창을 수상했습니다. 이번 수상은 IMSMS 솔루션의 혁신성과 시장 경쟁력을 공식적으로 인정받은 의미 있는 성과입니다.",
+      "image": "assets/images/Commendation_1.jpg",
+      "additionalImages": ["assets/images/Commendation_2.jpg"],
+      "tags": ["수상", "표창장", "창업생태계"]
+    },
+    {
       "id": 11,
       "date": "2025-06-12",
       "category": "특허",

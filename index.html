@@ -2701,7 +2701,7 @@
                 <a href="#demo">체험</a>
                 <a href="#news">소식</a>
                 <a href="#contact">문의</a>
-                <a href="https://console.imsms.im" class="nav-cta">관리자 콘솔</a>
+                <a href="https://console.imsms.im" class="nav-cta" target="_blank" rel="noopener noreferrer">관리자 콘솔</a>
             </div>
         </div>
     </nav>
@@ -3156,10 +3156,10 @@
             </a>
             <div class="contact-info">
                 <div class="contact-item">
-                    <strong>이메일</strong> contact@imsms.im
+                    <strong>이메일</strong> teamplayer@teamplayer.co.kr
                 </div>
                 <div class="contact-item">
-                    <strong>영업시간</strong> 평일 09:00 - 18:00
+                    <strong>대표번호</strong> +82 1522-8061
                 </div>
             </div>
         </div>
@@ -3179,6 +3179,7 @@
                 </div>
                 <h2 id="modalTitle" class="modal-title"></h2>
                 <p id="modalDescription" class="modal-description"></p>
+                <div id="modalAdditionalImages" class="modal-additional-images"></div>
                 <div id="modalTags" class="modal-tags"></div>
                 <div class="modal-actions">
                     <button class="modal-btn modal-btn-secondary" onclick="closeNewsModal()">닫기</button>
@@ -3197,7 +3198,7 @@
                 <a href="#">개인정보처리방침</a>
                 <a href="#">API 문서</a>
                 <a href="#">파트너 프로그램</a>
-                <a href="https://console.imsms.im">관리자 콘솔</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer">관리자 콘솔</a>
             </div>
             <div class="company-info" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
                 <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: center;">
@@ -3357,6 +3358,18 @@
             document.getElementById('modalDate').textContent = formattedDate;
             document.getElementById('modalTitle').textContent = newsItem.title;
             document.getElementById('modalDescription').textContent = newsItem.description;
+
+            // Set additional images if available
+            const additionalImagesContainer = document.getElementById('modalAdditionalImages');
+            if (newsItem.additionalImages && newsItem.additionalImages.length > 0) {
+                additionalImagesContainer.innerHTML = newsItem.additionalImages.map(imgSrc =>
+                    `<img src="${imgSrc}" alt="${newsItem.title}" class="modal-additional-image" style="width: 100%; max-width: 600px; margin: 1rem auto; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">`
+                ).join('');
+                additionalImagesContainer.style.display = 'block';
+            } else {
+                additionalImagesContainer.innerHTML = '';
+                additionalImagesContainer.style.display = 'none';
+            }
 
             // Set tags
             const tagsContainer = document.getElementById('modalTags');
