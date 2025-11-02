@@ -3,111 +3,351 @@
     {
       "id": 13,
       "date": "2025-10-23",
-      "category": "수상",
-      "title": "서울지방중소벤처기업청장상 수상",
-      "description": "주식회사 팀플리언(대표이사 김원철)이 창의성과 전문성을 지닌 기업인으로서 서울지역 창업 생태계 활성화에 기여한 공로와 노력을 인정받아 서울지방중소벤처기업청장 표창을 수상했습니다. 이번 수상은 IMSMS 솔루션의 혁신성과 시장 경쟁력을 공식적으로 인정받은 의미 있는 성과입니다.",
+      "category": {
+        "ko": "수상",
+        "en": "Award",
+        "ja": "受賞",
+        "pt": "Prêmio"
+      },
+      "title": {
+        "ko": "서울지방중소벤처기업청장상 수상",
+        "en": "Seoul SMEs and Startups Agency Director's Award",
+        "ja": "ソウル地方中小ベンチャー企業庁長賞受賞",
+        "pt": "Prêmio do Diretor da Agência de PMEs de Seul"
+      },
+      "description": {
+        "ko": "주식회사 팀플리언(대표이사 김원철)이 창의성과 전문성을 지닌 기업인으로서 서울지역 창업 생태계 활성화에 기여한 공로와 노력을 인정받아 서울지방중소벤처기업청장 표창을 수상했습니다. 이번 수상은 IMSMS 솔루션의 혁신성과 시장 경쟁력을 공식적으로 인정받은 의미 있는 성과입니다.",
+        "en": "TEAMPLEAN co.,LTD (CEO Kim Won-chul) received a commendation from the Seoul SMEs and Startups Agency Director for their creative and professional contributions to revitalizing Seoul's startup ecosystem. This award officially recognizes the innovation and market competitiveness of the IMSMS solution.",
+        "ja": "株式会社チームプリアン（代表取締役キム・ウォンチョル）が、創造性と専門性を備えた企業人としてソウル地域のスタートアップエコシステムの活性化に貢献した功労と努力が認められ、ソウル地方中小ベンチャー企業庁長表彰を受賞しました。今回の受賞は、IMSMSソリューションの革新性と市場競争力が公式に認められた意義深い成果です。",
+        "pt": "TEAMPLEAN co.,LTD (CEO Kim Won-chul) recebeu uma comenda do Diretor da Agência de PMEs e Startups de Seul por suas contribuições criativas e profissionais para revitalizar o ecossistema de startups de Seul. Este prêmio reconhece oficialmente a inovação e competitividade de mercado da solução IMSMS."
+      },
       "image": "assets/images/Commendation_1.jpg",
       "additionalImages": ["assets/images/Commendation_2.jpg"],
-      "tags": ["수상", "표창장", "창업생태계"]
+      "tags": {
+        "ko": ["수상", "표창장", "창업생태계"],
+        "en": ["Award", "Commendation", "Startup Ecosystem"],
+        "ja": ["受賞", "表彰状", "スタートアップエコシステム"],
+        "pt": ["Prêmio", "Comenda", "Ecossistema de Startups"]
+      }
     },
     {
       "id": 11,
       "date": "2025-06-12",
-      "category": "특허",
-      "title": "기업형 아이메시지 문자수신 동의 및 브랜드 정보 공유 특허 등록",
-      "description": "기업형 아이메시지 기반의 이용자 문자수신 동의 및 브랜드 정보 공유 방법에 대한 특허(제10-2821409호)를 등록하여 IMSMS의 혁신적인 마케팅 솔루션 기술을 법적으로 보호받게 되었습니다.",
+      "category": {
+        "ko": "특허",
+        "en": "Patent",
+        "ja": "特許",
+        "pt": "Patente"
+      },
+      "title": {
+        "ko": "기업형 아이메시지 문자수신 동의 및 브랜드 정보 공유 특허 등록",
+        "en": "Patent Registration for Enterprise iMessage Consent and Brand Information Sharing",
+        "ja": "企業型iMessage受信同意およびブランド情報共有特許登録",
+        "pt": "Registro de Patente para Consentimento de iMessage Empresarial e Compartilhamento de Informações de Marca"
+      },
+      "description": {
+        "ko": "기업형 아이메시지 기반의 이용자 문자수신 동의 및 브랜드 정보 공유 방법에 대한 특허(제10-2821409호)를 등록하여 IMSMS의 혁신적인 마케팅 솔루션 기술을 법적으로 보호받게 되었습니다.",
+        "en": "IMSMS has secured legal protection for its innovative marketing solution technology by registering a patent (No. 10-2821409) for enterprise iMessage-based user consent and brand information sharing methods.",
+        "ja": "企業型iMessageベースのユーザー受信同意およびブランド情報共有方法に関する特許（第10-2821409号）を登録し、IMSMSの革新的なマーケティングソリューション技術が法的に保護されることになりました。",
+        "pt": "IMSMS garantiu proteção legal para sua inovadora tecnologia de solução de marketing ao registrar uma patente (Nº 10-2821409) para métodos de consentimento do usuário e compartilhamento de informações de marca baseados em iMessage empresarial."
+      },
       "image": "assets/images/cert_10-2821409.jpg",
-      "tags": ["특허", "브랜드정보", "수신동의"]
+      "tags": {
+        "ko": ["특허", "브랜드정보", "수신동의"],
+        "en": ["Patent", "Brand Information", "User Consent"],
+        "ja": ["特許", "ブランド情報", "受信同意"],
+        "pt": ["Patente", "Informações de Marca", "Consentimento"]
+      }
     },
     {
       "id": 1,
       "date": "2025-04-09",
-      "category": "엑스포",
-      "title": "JAPAN IT WEEK 2025 춘계 참가",
-      "description": "일본 도쿄 빅사이트에서 개최되는 JAPAN IT WEEK 2025 춘계 전시회에 참가하여 일본 시장 확대 및 신규 파트너십을 추진할 예정입니다.",
+      "category": {
+        "ko": "엑스포",
+        "en": "Expo",
+        "ja": "エキスポ",
+        "pt": "Exposição"
+      },
+      "title": {
+        "ko": "JAPAN IT WEEK 2025 춘계 참가",
+        "en": "Participation in JAPAN IT WEEK 2025 Spring",
+        "ja": "JAPAN IT WEEK 2025春季参加",
+        "pt": "Participação no JAPAN IT WEEK 2025 Primavera"
+      },
+      "description": {
+        "ko": "일본 도쿄 빅사이트에서 개최되는 JAPAN IT WEEK 2025 춘계 전시회에 참가하여 일본 시장 확대 및 신규 파트너십을 추진할 예정입니다.",
+        "en": "We will participate in JAPAN IT WEEK 2025 Spring held at Tokyo Big Sight to expand into the Japanese market and pursue new partnerships.",
+        "ja": "日本の東京ビッグサイトで開催されるJAPAN IT WEEK 2025春季展示会に参加し、日本市場拡大および新規パートナーシップを推進する予定です。",
+        "pt": "Participaremos do JAPAN IT WEEK 2025 Primavera realizado no Tokyo Big Sight para expandir para o mercado japonês e buscar novas parcerias."
+      },
       "image": "assets/images/japanitweek2025.png",
-      "tags": ["일본", "도쿄", "2025전시회"]
+      "tags": {
+        "ko": ["일본", "도쿄", "2025전시회"],
+        "en": ["Japan", "Tokyo", "2025 Exhibition"],
+        "ja": ["日本", "東京", "2025展示会"],
+        "pt": ["Japão", "Tóquio", "Exposição 2025"]
+      }
     },
     {
       "id": 4,
       "date": "2025-01-10",
-      "category": "파트너십",
-      "title": "goiMessage(포르투갈)와 파트너십 체결",
-      "description": "포르투갈 최대 메시징 서비스 업체 goiMessage와 IMSMS 유럽 진출을 위한 전략적 파트너십을 체결했습니다.",
+      "category": {
+        "ko": "파트너십",
+        "en": "Partnership",
+        "ja": "パートナーシップ",
+        "pt": "Parceria"
+      },
+      "title": {
+        "ko": "goiMessage(포르투갈)와 파트너십 체결",
+        "en": "Partnership Agreement with goiMessage (Portugal)",
+        "ja": "goiMessage（ポルトガル）とパートナーシップ締結",
+        "pt": "Acordo de Parceria com goiMessage (Portugal)"
+      },
+      "description": {
+        "ko": "포르투갈 최대 메시징 서비스 업체 goiMessage와 IMSMS 유럽 진출을 위한 전략적 파트너십을 체결했습니다.",
+        "en": "We have established a strategic partnership with goiMessage, Portugal's largest messaging service provider, for IMSMS expansion into Europe.",
+        "ja": "ポルトガル最大のメッセージングサービス企業goiMessageと、IMSMSのヨーロッパ進出のための戦略的パートナーシップを締結しました。",
+        "pt": "Estabelecemos uma parceria estratégica com a goiMessage, o maior provedor de serviços de mensagens de Portugal, para a expansão do IMSMS na Europa."
+      },
       "image": "assets/images/goiMessage.JPG",
-      "tags": ["파트너십", "포르투갈", "유럽진출"]
+      "tags": {
+        "ko": ["파트너십", "포르투갈", "유럽진출"],
+        "en": ["Partnership", "Portugal", "European Expansion"],
+        "ja": ["パートナーシップ", "ポルトガル", "ヨーロッパ進出"],
+        "pt": ["Parceria", "Portugal", "Expansão Europeia"]
+      }
     },
     {
       "id": 12,
       "date": "2024-12-16",
-      "category": "특허",
-      "title": "분산처리기술 기반 기업형 아이메시지 대량 발송 특허 등록",
-      "description": "분산처리기술 기반의 기업형 아이메시지 대량 발송 방법 및 시스템에 대한 특허(제10-2744527호)를 등록하여 IMSMS의 대용량 메시지 처리 핵심 기술력을 인정받았습니다.",
+      "category": {
+        "ko": "특허",
+        "en": "Patent",
+        "ja": "特許",
+        "pt": "Patente"
+      },
+      "title": {
+        "ko": "분산처리기술 기반 기업형 아이메시지 대량 발송 특허 등록",
+        "en": "Patent Registration for Distributed Processing-based Enterprise iMessage Bulk Sending",
+        "ja": "分散処理技術ベースの企業型iMessage大量送信特許登録",
+        "pt": "Registro de Patente para Envio em Massa de iMessage Empresarial Baseado em Processamento Distribuído"
+      },
+      "description": {
+        "ko": "분산처리기술 기반의 기업형 아이메시지 대량 발송 방법 및 시스템에 대한 특허(제10-2744527호)를 등록하여 IMSMS의 대용량 메시지 처리 핵심 기술력을 인정받았습니다.",
+        "en": "IMSMS has been recognized for its core technology in high-volume message processing by registering a patent (No. 10-2744527) for distributed processing-based enterprise iMessage bulk sending methods and systems.",
+        "ja": "分散処理技術ベースの企業型iMessage大量送信方法およびシステムに関する特許（第10-2744527号）を登録し、IMSMSの大容量メッセージ処理核心技術力が認められました。",
+        "pt": "IMSMS foi reconhecido por sua tecnologia central em processamento de mensagens de alto volume ao registrar uma patente (Nº 10-2744527) para métodos e sistemas de envio em massa de iMessage empresarial baseados em processamento distribuído."
+      },
       "image": "assets/images/cert_10-2744527.jpg",
-      "tags": ["특허", "분산처리", "대량발송"]
+      "tags": {
+        "ko": ["특허", "분산처리", "대량발송"],
+        "en": ["Patent", "Distributed Processing", "Bulk Sending"],
+        "ja": ["特許", "分散処理", "大量送信"],
+        "pt": ["Patente", "Processamento Distribuído", "Envio em Massa"]
+      }
     },
     {
       "id": 2,
       "date": "2024-11-20",
-      "category": "엑스포",
-      "title": "SLUSH 2024 헬싱키 참가",
-      "description": "유럽 최대 스타트업 컨퍼런스 SLUSH 2024에서 IMSMS 솔루션을 소개하고 유럽 파트너들과 미팅을 진행했습니다.",
+      "category": {
+        "ko": "엑스포",
+        "en": "Expo",
+        "ja": "エキスポ",
+        "pt": "Exposição"
+      },
+      "title": {
+        "ko": "SLUSH 2024 헬싱키 참가",
+        "en": "Participation in SLUSH 2024 Helsinki",
+        "ja": "SLUSH 2024ヘルシンキ参加",
+        "pt": "Participação no SLUSH 2024 Helsinque"
+      },
+      "description": {
+        "ko": "유럽 최대 스타트업 컨퍼런스 SLUSH 2024에서 IMSMS 솔루션을 소개하고 유럽 파트너들과 미팅을 진행했습니다.",
+        "en": "We showcased the IMSMS solution and held meetings with European partners at SLUSH 2024, Europe's largest startup conference.",
+        "ja": "ヨーロッパ最大のスタートアップカンファレンスSLUSH 2024でIMSMSソリューションを紹介し、ヨーロッパのパートナーとのミーティングを行いました。",
+        "pt": "Apresentamos a solução IMSMS e realizamos reuniões com parceiros europeus no SLUSH 2024, a maior conferência de startups da Europa."
+      },
       "image": "assets/images/slush2024.JPG",
-      "tags": ["SLUSH", "헬싱키", "글로벌"]
+      "tags": {
+        "ko": ["SLUSH", "헬싱키", "글로벌"],
+        "en": ["SLUSH", "Helsinki", "Global"],
+        "ja": ["SLUSH", "ヘルシンキ", "グローバル"],
+        "pt": ["SLUSH", "Helsinque", "Global"]
+      }
     },
     {
       "id": 3,
       "date": "2024-11-13",
-      "category": "엑스포",
-      "title": "WEBSUMMIT 2024 리스본 참가",
-      "description": "포르투갈 리스본에서 개최된 WEBSUMMIT 2024에 참가하여 글로벌 IT 트렌드를 파악하고 새로운 비즈니스 기회를 모색했습니다.",
+      "category": {
+        "ko": "엑스포",
+        "en": "Expo",
+        "ja": "エキスポ",
+        "pt": "Exposição"
+      },
+      "title": {
+        "ko": "WEBSUMMIT 2024 리스본 참가",
+        "en": "Participation in WEBSUMMIT 2024 Lisbon",
+        "ja": "WEBSUMMIT 2024リスボン参加",
+        "pt": "Participação no WEBSUMMIT 2024 Lisboa"
+      },
+      "description": {
+        "ko": "포르투갈 리스본에서 개최된 WEBSUMMIT 2024에 참가하여 글로벌 IT 트렌드를 파악하고 새로운 비즈니스 기회를 모색했습니다.",
+        "en": "We participated in WEBSUMMIT 2024 held in Lisbon, Portugal to understand global IT trends and explore new business opportunities.",
+        "ja": "ポルトガルのリスボンで開催されたWEBSUMMIT 2024に参加し、グローバルITトレンドを把握し、新しいビジネス機会を模索しました。",
+        "pt": "Participamos do WEBSUMMIT 2024 realizado em Lisboa, Portugal para compreender as tendências globais de TI e explorar novas oportunidades de negócios."
+      },
       "image": "assets/images/websummit2024.JPG",
-      "tags": ["WEBSUMMIT", "리스본", "네트워킹"]
+      "tags": {
+        "ko": ["WEBSUMMIT", "리스본", "네트워킹"],
+        "en": ["WEBSUMMIT", "Lisbon", "Networking"],
+        "ja": ["WEBSUMMIT", "リスボン", "ネットワーキング"],
+        "pt": ["WEBSUMMIT", "Lisboa", "Networking"]
+      }
     },
     {
       "id": 5,
       "date": "2024-10-08",
-      "category": "엑스포",
-      "title": "JAPAN IT WEEK 2024 Autumn 참가",
-      "description": "일본 도쿄에서 열린 JAPAN IT WEEK 가을 전시회에 참가하여 일본 시장 진출을 위한 기반을 마련했습니다.",
+      "category": {
+        "ko": "엑스포",
+        "en": "Expo",
+        "ja": "エキスポ",
+        "pt": "Exposição"
+      },
+      "title": {
+        "ko": "JAPAN IT WEEK 2024 Autumn 참가",
+        "en": "Participation in JAPAN IT WEEK 2024 Autumn",
+        "ja": "JAPAN IT WEEK 2024 Autumn参加",
+        "pt": "Participação no JAPAN IT WEEK 2024 Outono"
+      },
+      "description": {
+        "ko": "일본 도쿄에서 열린 JAPAN IT WEEK 가을 전시회에 참가하여 일본 시장 진출을 위한 기반을 마련했습니다.",
+        "en": "We participated in JAPAN IT WEEK Autumn held in Tokyo, Japan to establish a foundation for entering the Japanese market.",
+        "ja": "日本の東京で開催されたJAPAN IT WEEK秋季展示会に参加し、日本市場進出のための基盤を整えました。",
+        "pt": "Participamos do JAPAN IT WEEK Outono realizado em Tóquio, Japão para estabelecer uma base para entrar no mercado japonês."
+      },
       "image": "assets/images/japanitweek2024.png",
-      "tags": ["일본", "도쿄", "아시아시장"]
+      "tags": {
+        "ko": ["일본", "도쿄", "아시아시장"],
+        "en": ["Japan", "Tokyo", "Asian Market"],
+        "ja": ["日本", "東京", "アジア市場"],
+        "pt": ["Japão", "Tóquio", "Mercado Asiático"]
+      }
     },
     {
       "id": 6,
       "date": "2024-09-20",
-      "category": "제품업데이트",
-      "title": "IMSMS 2.0 대규모 업데이트",
-      "description": "AI 기반 메시지 최적화, 실시간 번역 기능, 향상된 보안 기능을 포함한 IMSMS 2.0 버전을 출시했습니다.",
+      "category": {
+        "ko": "제품업데이트",
+        "en": "Product Update",
+        "ja": "製品アップデート",
+        "pt": "Atualização de Produto"
+      },
+      "title": {
+        "ko": "IMSMS 2.0 대규모 업데이트",
+        "en": "IMSMS 2.0 Major Update",
+        "ja": "IMSMS 2.0大規模アップデート",
+        "pt": "IMSMS 2.0 Atualização Importante"
+      },
+      "description": {
+        "ko": "AI 기반 메시지 최적화, 실시간 번역 기능, 향상된 보안 기능을 포함한 IMSMS 2.0 버전을 출시했습니다.",
+        "en": "We launched IMSMS 2.0 featuring AI-based message optimization, real-time translation, and enhanced security features.",
+        "ja": "AIベースのメッセージ最適化、リアルタイム翻訳機能、強化されたセキュリティ機能を含むIMSMS 2.0バージョンをリリースしました。",
+        "pt": "Lançamos o IMSMS 2.0 com otimização de mensagens baseada em IA, tradução em tempo real e recursos de segurança aprimorados."
+      },
       "image": "assets/images/imsms2_0.png",
-      "tags": ["업데이트", "AI", "신기능"]
+      "tags": {
+        "ko": ["업데이트", "AI", "신기능"],
+        "en": ["Update", "AI", "New Features"],
+        "ja": ["アップデート", "AI", "新機能"],
+        "pt": ["Atualização", "IA", "Novos Recursos"]
+      }
     },
     {
       "id": 7,
       "date": "2024-08-25",
-      "category": "파트너십",
-      "title": "Getwifi(카자흐스탄) BMT 성공",
-      "description": "카자흐스탄 최대 통신사 Getwifi와 IMSMS BMT를 성공적으로 완료하고 중앙아시아 진출을 확정했습니다.",
+      "category": {
+        "ko": "파트너십",
+        "en": "Partnership",
+        "ja": "パートナーシップ",
+        "pt": "Parceria"
+      },
+      "title": {
+        "ko": "Getwifi(카자흐스탄) BMT 성공",
+        "en": "Successful BMT with Getwifi (Kazakhstan)",
+        "ja": "Getwifi（カザフスタン）BMT成功",
+        "pt": "BMT Bem-sucedido com Getwifi (Cazaquistão)"
+      },
+      "description": {
+        "ko": "카자흐스탄 최대 통신사 Getwifi와 IMSMS BMT를 성공적으로 완료하고 중앙아시아 진출을 확정했습니다.",
+        "en": "We successfully completed IMSMS BMT with Getwifi, Kazakhstan's largest telecom provider, and confirmed expansion into Central Asia.",
+        "ja": "カザフスタン最大の通信会社GetwifiとIMSMS BMTを成功裏に完了し、中央アジア進出を確定しました。",
+        "pt": "Concluímos com sucesso o BMT IMSMS com a Getwifi, o maior provedor de telecomunicações do Cazaquistão, e confirmamos a expansão para a Ásia Central."
+      },
       "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=Getwifi+BMT",
-      "tags": ["카자흐스탄", "BMT", "중앙아시아"]
+      "tags": {
+        "ko": ["카자흐스탄", "BMT", "중앙아시아"],
+        "en": ["Kazakhstan", "BMT", "Central Asia"],
+        "ja": ["カザフスタン", "BMT", "中央アジア"],
+        "pt": ["Cazaquistão", "BMT", "Ásia Central"]
+      }
     },
     {
       "id": 9,
       "date": "2024-06-10",
-      "category": "제품업데이트",
-      "title": "대용량 발송 성능 200% 향상",
-      "description": "새로운 분산 처리 아키텍처 도입으로 시간당 200만 건 메시지 발송이 가능하게 되었습니다.",
+      "category": {
+        "ko": "제품업데이트",
+        "en": "Product Update",
+        "ja": "製品アップデート",
+        "pt": "Atualização de Produto"
+      },
+      "title": {
+        "ko": "대용량 발송 성능 200% 향상",
+        "en": "200% Improvement in Bulk Sending Performance",
+        "ja": "大容量送信性能200%向上",
+        "pt": "Melhoria de 200% no Desempenho de Envio em Massa"
+      },
+      "description": {
+        "ko": "새로운 분산 처리 아키텍처 도입으로 시간당 200만 건 메시지 발송이 가능하게 되었습니다.",
+        "en": "With the introduction of a new distributed processing architecture, we can now send 2 million messages per hour.",
+        "ja": "新しい分散処理アーキテクチャの導入により、1時間あたり200万件のメッセージ送信が可能になりました。",
+        "pt": "Com a introdução de uma nova arquitetura de processamento distribuído, agora podemos enviar 2 milhões de mensagens por hora."
+      },
       "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=Performance+Update",
-      "tags": ["성능개선", "대용량", "기술혁신"]
+      "tags": {
+        "ko": ["성능개선", "대용량", "기술혁신"],
+        "en": ["Performance Improvement", "High Volume", "Technology Innovation"],
+        "ja": ["性能改善", "大容量", "技術革新"],
+        "pt": ["Melhoria de Desempenho", "Alto Volume", "Inovação Tecnológica"]
+      }
     },
     {
       "id": 10,
       "date": "2024-02-28",
-      "category": "엑스포",
-      "title": "MWC 2024 바르셀로나 참가",
-      "description": "세계 최대 모바일 전시회 MWC 2024에서 IMSMS를 선보이고 글로벌 통신사들과 협력 방안을 논의했습니다.",
+      "category": {
+        "ko": "엑스포",
+        "en": "Expo",
+        "ja": "エキスポ",
+        "pt": "Exposição"
+      },
+      "title": {
+        "ko": "MWC 2024 바르셀로나 참가",
+        "en": "Participation in MWC 2024 Barcelona",
+        "ja": "MWC 2024バルセロナ参加",
+        "pt": "Participação no MWC 2024 Barcelona"
+      },
+      "description": {
+        "ko": "세계 최대 모바일 전시회 MWC 2024에서 IMSMS를 선보이고 글로벌 통신사들과 협력 방안을 논의했습니다.",
+        "en": "We showcased IMSMS at MWC 2024, the world's largest mobile exhibition, and discussed collaboration opportunities with global telecom providers.",
+        "ja": "世界最大のモバイル展示会MWC 2024でIMSMSを披露し、グローバル通信会社と協力方策を協議しました。",
+        "pt": "Apresentamos o IMSMS no MWC 2024, a maior exposição móvel do mundo, e discutimos oportunidades de colaboração com provedores de telecomunicações globais."
+      },
       "image": "https://via.placeholder.com/400x300/B92B27/ffffff?text=MWC+2024",
-      "tags": ["MWC", "바르셀로나", "모바일"]
+      "tags": {
+        "ko": ["MWC", "바르셀로나", "모바일"],
+        "en": ["MWC", "Barcelona", "Mobile"],
+        "ja": ["MWC", "バルセロナ", "モバイル"],
+        "pt": ["MWC", "Barcelona", "Móvel"]
+      }
     }
   ]
 }

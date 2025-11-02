@@ -29,28 +29,530 @@
             --gray: #8e8e93;
             --light-gray: #f2f2f7;
             --gradient-soft: linear-gradient(135deg, rgba(185, 43, 39, 0.1) 0%, rgba(255, 192, 203, 0.2) 100%);
+
+            /* Light mode (default) */
+            --bg-primary: #ffffff;
+            --bg-secondary: #fef5f5;
+            --bg-tertiary: #fff5f5;
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --nav-bg: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(255, 255, 255, 0.3);
+            --shadow-color: rgba(31, 38, 135, 0.07);
+        }
+
+        /* ============================================
+           SIMPLIFIED DARK MODE - BASIC & READABLE
+           ============================================ */
+
+        [data-theme="dark"] {
+            --bg-primary: #1e1e1e;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #ffffff;
+            --primary: #ff3b30;
+            --primary-dark: #cc2e24;
+        }
+
+        /* GLOBAL WHITE TEXT RULE - TOP PRIORITY */
+        [data-theme="dark"],
+        [data-theme="dark"] body,
+        [data-theme="dark"] * {
+            color: #ffffff !important;
+        }
+
+        /* Basic Dark Background */
+        [data-theme="dark"] body {
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        [data-theme="dark"] nav {
+            background: rgba(30, 30, 30, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .nav-links a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .nav-links a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Logo */
+        [data-theme="dark"] .logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* All Headings - WHITE */
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] h4,
+        [data-theme="dark"] h5,
+        [data-theme="dark"] h6 {
+            color: #ffffff !important;
+        }
+
+        /* All Paragraphs and Text - WHITE */
+        [data-theme="dark"] p,
+        [data-theme="dark"] span,
+        [data-theme="dark"] div,
+        [data-theme="dark"] li {
+            color: #ffffff !important;
+        }
+
+        /* Links */
+        [data-theme="dark"] a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Cards - Dark Background with White Text */
+        [data-theme="dark"] .card,
+        [data-theme="dark"] .glass-card,
+        [data-theme="dark"] .service-card,
+        [data-theme="dark"] .pricing-card,
+        [data-theme="dark"] .news-card,
+        [data-theme="dark"] .feature-item,
+        [data-theme="dark"] .stat-card,
+        [data-theme="dark"] .faq-item {
+            background: #2d2d2d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Card Hover */
+        [data-theme="dark"] .card:hover,
+        [data-theme="dark"] .glass-card:hover,
+        [data-theme="dark"] .service-card:hover,
+        [data-theme="dark"] .pricing-card:hover,
+        [data-theme="dark"] .news-card:hover,
+        [data-theme="dark"] .feature-item:hover {
+            background: #3a3a3a;
+            border-color: #ff3b30;
+        }
+
+        /* Buttons */
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn-primary,
+        [data-theme="dark"] .cta-button,
+        [data-theme="dark"] .nav-cta {
+            background: #ff3b30;
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .btn:hover,
+        [data-theme="dark"] .btn-primary:hover,
+        [data-theme="dark"] .cta-button:hover,
+        [data-theme="dark"] .nav-cta:hover {
+            background: #cc2e24;
+        }
+
+        [data-theme="dark"] .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff3b30;
+        }
+
+        /* Forms */
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            background: #2d2d2d;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] input::placeholder,
+        [data-theme="dark"] textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] input:focus,
+        [data-theme="dark"] textarea:focus,
+        [data-theme="dark"] select:focus {
+            border-color: #ff3b30;
+            background: #3a3a3a;
+        }
+
+        [data-theme="dark"] label {
+            color: #ffffff !important;
+        }
+
+        /* Tables */
+        [data-theme="dark"] table {
+            background: #2d2d2d;
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] th {
+            background: #3a3a3a;
+            color: #ffffff !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] td {
+            color: #ffffff !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] tr:hover {
+            background: #3a3a3a;
+        }
+
+        /* Footer */
+        [data-theme="dark"] footer {
+            background: #2d2d2d;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] footer p,
+        [data-theme="dark"] footer h4,
+        [data-theme="dark"] footer a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] footer a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Theme Toggle */
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ff3b30;
+        }
+
+        /* Language Selector */
+        [data-theme="dark"] .language-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .lang-btn {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .lang-btn.active {
+            background: #ff3b30;
+            color: #ffffff;
+        }
+
+        /* Tabs */
+        [data-theme="dark"] .tab-button {
+            background: #2d2d2d;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .tab-button.active {
+            background: #ff3b30;
+            color: #ffffff !important;
+            border-color: #ff3b30;
+        }
+
+        [data-theme="dark"] .tab-button:hover {
+            background: #3a3a3a;
+        }
+
+        /* Override ANY inline color styles */
+        [data-theme="dark"] [style*="color"] {
+            color: #ffffff !important;
+        }
+
+        /* Ensure all content text is bright white */
+        [data-theme="dark"] .content,
+        [data-theme="dark"] .description,
+        [data-theme="dark"] .text-content,
+        [data-theme="dark"] article,
+        [data-theme="dark"] section p,
+        [data-theme="dark"] .hero-subtitle-wrapper,
+        [data-theme="dark"] .subtitle-text-content,
+        [data-theme="dark"] .feature-description,
+        [data-theme="dark"] .feature-card p,
+        [data-theme="dark"] .service-card p,
+        [data-theme="dark"] .pricing-card p,
+        [data-theme="dark"] .news-card p,
+        [data-theme="dark"] .faq-answer,
+        [data-theme="dark"] .formula-description,
+        [data-theme="dark"] .formula-label,
+        [data-theme="dark"] .formula-cost,
+        [data-theme="dark"] .formula-value,
+        [data-theme="dark"] .result-main,
+        [data-theme="dark"] .result-sub,
+        [data-theme="dark"] .cta-feature,
+        [data-theme="dark"] .credit-info,
+        [data-theme="dark"] .company-info,
+        [data-theme="dark"] .copyright {
+            color: #ffffff !important;
+        }
+
+        /* Hero Section - Ensure White Text */
+        /* Hero section - keep light background with BLACK text in dark mode */
+        [data-theme="dark"] .hero,
+        [data-theme="dark"] .hero *,
+        [data-theme="dark"] .hero-content,
+        [data-theme="dark"] .hero-content *,
+        [data-theme="dark"] .hero h1,
+        [data-theme="dark"] .hero-subtitle-wrapper,
+        [data-theme="dark"] .subtitle-text-content {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .hero h1 span {
+            color: var(--primary) !important;
+        }
+
+        /* Sections with Background Overlays */
+        [data-theme="dark"] .revolutionary,
+        [data-theme="dark"] .service-overview,
+        [data-theme="dark"] .credit-system,
+        [data-theme="dark"] .pricing,
+        [data-theme="dark"] .demo,
+        [data-theme="dark"] .faq,
+        [data-theme="dark"] .news-section,
+        [data-theme="dark"] .contact {
+            background: #1e1e1e !important;
+        }
+
+        /* Button Text Always White */
+        [data-theme="dark"] button,
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn-primary,
+        [data-theme="dark"] .btn-secondary,
+        [data-theme="dark"] .cta-button,
+        [data-theme="dark"] .hero-imsms-button,
+        [data-theme="dark"] .nav-cta {
+            color: #ffffff !important;
+        }
+
+        /* All Links White */
+        [data-theme="dark"] a,
+        [data-theme="dark"] .nav-links a,
+        [data-theme="dark"] footer a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] a:hover,
+        [data-theme="dark"] .nav-links a:hover,
+        [data-theme="dark"] footer a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Table Content White */
+        [data-theme="dark"] th,
+        [data-theme="dark"] td,
+        [data-theme="dark"] table *,
+        [data-theme="dark"] .pricing-table *,
+        [data-theme="dark"] .comparison-table * {
+            color: #ffffff !important;
+        }
+
+        /* FAQ Items */
+        [data-theme="dark"] .faq-item,
+        [data-theme="dark"] .faq-item *,
+        [data-theme="dark"] .faq-question,
+        [data-theme="dark"] .faq-answer {
+            color: #ffffff !important;
+        }
+
+        /* News Cards */
+        [data-theme="dark"] .news-card,
+        [data-theme="dark"] .news-card *,
+        [data-theme="dark"] .news-title,
+        [data-theme="dark"] .news-description,
+        [data-theme="dark"] .news-date {
+            color: #ffffff !important;
+        }
+
+        /* Contact Form */
+        [data-theme="dark"] .contact-form,
+        [data-theme="dark"] .contact-form *,
+        [data-theme="dark"] .form-group,
+        [data-theme="dark"] .form-group * {
+            color: #ffffff !important;
+        }
+
+        /* Special Highlights - Keep them visible */
+        [data-theme="dark"] .highlight,
+        [data-theme="dark"] .highlight-solution,
+        [data-theme="dark"] strong,
+        [data-theme="dark"] b {
+            color: #ffffff !important;
+            font-weight: bold;
+        }
+
+        /* Smooth Transitions */
+        [data-theme="dark"] * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Dark Mode Exceptions - Elements with WHITE backgrounds need BLACK text */
+
+        /* First comparison card (타사 평균) - has white background, needs BLACK text */
+        [data-theme="dark"] .comparison-card:not(.highlight),
+        [data-theme="dark"] .comparison-card:not(.highlight) *,
+        [data-theme="dark"] .comparison-card:not(.highlight) h3,
+        [data-theme="dark"] .comparison-card:not(.highlight) .price,
+        [data-theme="dark"] .comparison-card:not(.highlight) .price-label,
+        [data-theme="dark"] .comparison-card:not(.highlight) .formula-badge,
+        [data-theme="dark"] .comparison-card:not(.highlight) .message-type,
+        [data-theme="dark"] .comparison-card:not(.highlight) li {
+            color: #333333 !important;
+        }
+
+        /* QR instruction text - white background, needs BLACK text */
+        [data-theme="dark"] .qr-instruction {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .demo-qr-box {
+            background: white;
+            color: #333333;
+        }
+
+        [data-theme="dark"] .demo-qr-box * {
+            color: #333333 !important;
+        }
+
+        /* News modal content - white background, needs BLACK text */
+        [data-theme="dark"] .modal-content {
+            background: white;
+            color: #333333;
+        }
+
+        [data-theme="dark"] .modal-title {
+            color: #1a1a1a !important;
+        }
+
+        [data-theme="dark"] .modal-description {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .modal-date {
+            color: #666 !important;
+        }
+
+        [data-theme="dark"] .modal-tag {
+            background: #f0f0f0;
+            color: #666 !important;
+        }
+
+        [data-theme="dark"] .modal-body,
+        [data-theme="dark"] .modal-body * {
+            color: #333333 !important;
+        }
+
+        /* Ensure modal category badge stays styled correctly */
+        [data-theme="dark"] .modal-category {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+
+        /* Ensure modal buttons stay styled correctly */
+        [data-theme="dark"] .modal-btn-primary {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+
+        [data-theme="dark"] .modal-btn-secondary {
+            background: var(--light-gray) !important;
+            color: var(--dark) !important;
+        }
+
+        /* Credit system - has white/light background, needs BLACK text */
+        [data-theme="dark"] .credit-category,
+        [data-theme="dark"] .credit-category *,
+        [data-theme="dark"] .credit-category h3,
+        [data-theme="dark"] .credit-category .category-title,
+        [data-theme="dark"] .credit-item,
+        [data-theme="dark"] .credit-item .item-name,
+        [data-theme="dark"] .credit-item .item-credit {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .credit-category {
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        [data-theme="dark"] .credit-item {
+            background: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Hero IMSMS button - white background, needs BLACK text */
+        [data-theme="dark"] .hero-imsms-button,
+        [data-theme="dark"] .hero-imsms-button *,
+        [data-theme="dark"] .hero-imsms-button strong,
+        [data-theme="dark"] .hero-imsms-button small,
+        [data-theme="dark"] .hero-imsms-button .button-badge,
+        [data-theme="dark"] .hero-imsms-button .button-text {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .hero-imsms-button {
+            background: white !important;
+        }
+
+        /* Revolutionary section (1+1 formula) - white cards, needs BLACK text */
+        [data-theme="dark"] .formula-card,
+        [data-theme="dark"] .formula-card *,
+        [data-theme="dark"] .formula-label,
+        [data-theme="dark"] .formula-value,
+        [data-theme="dark"] .formula-cost,
+        [data-theme="dark"] .formula-main-text,
+        [data-theme="dark"] .formula-sub-text,
+        [data-theme="dark"] .formula-main-text strong {
+            color: #333333 !important;
+        }
+
+        [data-theme="dark"] .formula-card {
+            background: white !important;
         }
 
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--text-primary);
             overflow-x: hidden;
-            background: linear-gradient(135deg, #ffffff 0%, #fef5f5 50%, #fff5f5 100%);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         /* Liquid Glass Navigation */
         nav {
             position: fixed;
             width: 100%;
-            background: rgba(255, 255, 255, 0.7);
+            background: var(--nav-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
             z-index: 1000;
             padding: 0.5rem 0;
-            overflow: visible; /* 배지가 잘리지 않도록 */
+            overflow: visible;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
@@ -67,6 +569,11 @@
             height: 50px;
             width: auto;
             display: block;
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme="dark"] .logo-img {
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -81,6 +588,12 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+        }
+
+        /* Japanese language compact nav */
+        html[lang="ja"] .nav-links a {
+            font-size: 0.85rem;
+            letter-spacing: -0.02em;
         }
 
         .nav-links a::after {
@@ -135,7 +648,7 @@
 
         /* 확인 말풍선을 위한 별도 요소 */
         .nav-links a[href="what-is-imsms.html"]::after {
-            content: "확인";
+            content: attr(data-check-label);
             position: absolute;
             top: -12px;
             right: -5px;
@@ -155,7 +668,7 @@
 
         /* IMSMS란 메뉴 호버시 밑줄 안나타나게 */
         .nav-links a[href="what-is-imsms.html"]:hover::after {
-            content: "확인";
+            content: attr(data-check-label);
             width: auto;
         }
 
@@ -209,6 +722,112 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3);
             background: var(--primary-dark);
+        }
+
+        /* Language Selector & Theme Toggle */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.25rem;
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 0.25rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+            background: rgba(185, 43, 39, 0.1);
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+            background: var(--primary);
+            box-shadow: 0 2px 8px rgba(185, 43, 39, 0.3);
+        }
+
+        .theme-toggle {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Responsive Navigation Controls */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .nav-controls {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .lang-btn {
+                font-size: 1rem;
+                padding: 0.3rem 0.5rem;
+            }
         }
 
         /* Hero Section with Liquid Glass Effect */
@@ -2695,13 +3314,37 @@
         <div class="nav-container">
             <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
             <div class="nav-links">
-                <a href="what-is-imsms.html">IMSMS란</a>
-                <a href="#service">서비스</a>
-                <a href="#pricing">요금</a>
-                <a href="#demo">체험</a>
-                <a href="#news">소식</a>
-                <a href="#contact">문의</a>
-                <a href="https://console.imsms.im" class="nav-cta" target="_blank" rel="noopener noreferrer">관리자 콘솔</a>
+                <a href="what-is-imsms.html" data-i18n="nav.about" data-check-label="" data-i18n-check="hero.checkBadge"></a>
+                <a href="#service" data-i18n="nav.features"></a>
+                <a href="#pricing" data-i18n="nav.pricing"></a>
+                <a href="#demo" data-i18n="nav.demo"></a>
+                <a href="#news" data-i18n="nav.news"></a>
+                <a href="#contact" data-i18n="nav.contact"></a>
+                <a href="https://console.imsms.im" class="nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="nav.console"></a>
+            </div>
+            <div class="nav-controls">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="ko">🇰🇷</button>
+                    <button class="lang-btn" data-lang="en">🇺🇸</button>
+                    <button class="lang-btn" data-lang="ja">🇯🇵</button>
+                    <button class="lang-btn" data-lang="pt">🇵🇹</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -2709,9 +3352,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content animate-in">
-            <h1><span>SMS 1건</span> 보내면, <span>IMSMS 1건</span> 무료발송!</h1>
+            <h1 data-i18n="hero.title"><span>SMS 1건</span> 보내면, <span>IMSMS 1건</span> 무료발송!</h1>
             <div class="hero-subtitle-wrapper">
-                <p class="subtitle-text-content">
+                <p class="subtitle-text-content" data-i18n="hero.subtitle">
                     SMS 발송만으로 크레딧이 쌓이고, Apple iMessage<br>
                     프리미엄 메시징을 추가 비용 없이 발송하는 <span class="highlight-solution">메시징 솔루션</span>
                 </p>
@@ -2725,11 +3368,11 @@
                     </div>
                 </div>
                 <a href="what-is-imsms.html" class="hero-imsms-button">
-                    <span class="button-badge">확인</span>
+                    <span class="button-badge" data-i18n="hero.checkBadge">확인</span>
                     <span class="button-icon">💡</span>
                     <span class="button-text">
-                        <strong>IMSMS란 무엇인가요?</strong>
-                        <small>클릭하여 자세히 알아보기</small>
+                        <strong data-i18n="hero.whatIsImsms">IMSMS란 무엇인가요?</strong>
+                        <small data-i18n="hero.clickToLearn">클릭하여 자세히 알아보기</small>
                     </span>
                     <span class="button-arrow">→</span>
                 </a>
@@ -2740,7 +3383,7 @@
     <!-- Revolutionary Concept -->
     <section id="revolutionary" class="revolutionary">
         <div class="container">
-            <h2 class="section-title"><span>1+1</span> 메시지 혁명</h2>
+            <h2 class="section-title" data-i18n="revolutionary.title"><span>1+1</span> 메시지 혁명</h2>
             <div class="formula-display">
                 <div class="formula-flow-container">
                     <div class="formula-step">
@@ -2748,8 +3391,8 @@
                             <span class="formula-icon">📱</span>
                         </div>
                         <div class="formula-label">SMS</div>
-                        <div class="formula-value">1건</div>
-                        <div class="formula-cost">유료</div>
+                        <div class="formula-value" data-i18n="revolutionary.smsCount">1건</div>
+                        <div class="formula-cost" data-i18n="revolutionary.paid">유료</div>
                     </div>
 
                     <div class="formula-plus">
@@ -2761,8 +3404,8 @@
                             <img src="assets/images/imsms-logo.png" alt="IMSMS" class="formula-logo">
                         </div>
                         <div class="formula-label">IMSMS</div>
-                        <div class="formula-value">1건</div>
-                        <div class="formula-cost free">무료</div>
+                        <div class="formula-value" data-i18n="revolutionary.imsmsCount">1건</div>
+                        <div class="formula-cost free" data-i18n="revolutionary.free">무료</div>
                     </div>
 
                     <div class="formula-equals">
@@ -2771,16 +3414,16 @@
 
                     <div class="formula-result">
                         <div class="result-icon">✨</div>
-                        <div class="result-main">2건 발송</div>
-                        <div class="result-sub">1건 비용으로</div>
+                        <div class="result-main" data-i18n="revolutionary.result">2건 발송</div>
+                        <div class="result-sub" data-i18n="revolutionary.resultSub">1건 비용으로</div>
                     </div>
                 </div>
 
                 <div class="formula-description">
-                    <p class="formula-main-text">
+                    <p class="formula-main-text" data-i18n="revolutionary.mainText">
                         <strong>1건의 SMS 비용</strong>으로 <strong>2건의 메시지</strong>를 발송하세요
                     </p>
-                    <p class="formula-sub-text">
+                    <p class="formula-sub-text" data-i18n="revolutionary.subText">
                         ** SMS, LMS, MMS 발송 시에 IMSMS를 무료로 제공합니다
                     </p>
                 </div>
@@ -2791,52 +3434,52 @@
     <!-- Service Overview -->
     <section id="service" class="service-overview">
         <div class="container">
-            <h2 class="section-title">아이폰 전용 <span>프리미엄 메시징 서비스 IMSMS</span></h2>
+            <h2 class="section-title" data-i18n="service.title">아이폰 전용 <span>프리미엄 메시징 서비스 IMSMS</span></h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💎</div>
-                    <h3 class="feature-title">아이폰에 문자메시지 전송</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card1.title">아이폰에 문자메시지 전송</h3>
+                    <p class="feature-description" data-i18n="service.card1.description">
                         iPhone, iPad, Mac, Apple Watch 모든 기기에서 iMessage로 전송.
                         이용자의 전화번호로 Apple 기기를 사용하든 메시지가 즉시 전달됩니다.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3 class="feature-title">End-to-End 암호화</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card2.title">End-to-End 암호화</h3>
+                    <p class="feature-description" data-i18n="service.card2.description">
                         Apple의 최고 수준 보안 기술로 모든 메시지를 완벽하게 보호.
                         민감한 기업 정보도 안심하고 전송할 수 있습니다.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">실시간 전송 상태</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card3.title">실시간 전송 상태</h3>
+                    <p class="feature-description" data-i18n="service.card3.description">
                         읽음 확인, 입력 중 표시 등 iMessage만의 프리미엄 기능.
                         고객과의 실시간 소통이 가능합니다.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">고급 분석 대시보드</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card4.title">고급 분석 대시보드</h3>
+                    <p class="feature-description" data-i18n="service.card4.description">
                         발송률, 읽음률, 클릭률을 실시간으로 모니터링.
                         AI 기반 인사이트로 캠페인 효과를 극대화하세요.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">타겟 마케팅</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card5.title">타겟 마케팅</h3>
+                    <p class="feature-description" data-i18n="service.card5.description">
                         Apple 사용자 대상 프리미엄 마케팅 전략 실행.
                         구매력 높은 고객층에게 효과적으로 도달합니다.
                     </p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3 class="feature-title">다양한 상호작용 메시징</h3>
-                    <p class="feature-description">
+                    <h3 class="feature-title" data-i18n="service.card6.title">다양한 상호작용 메시징</h3>
+                    <p class="feature-description" data-i18n="service.card6.description">
                         양방향 메시징을 기반으로 대화형 서비스를 제공하여
                         이용자들에게 직접적인 정보 제공을 지원합니다.
                     </p>
@@ -2848,23 +3491,23 @@
     <!-- Credit System -->
     <section class="credit-system">
         <div class="container">
-            <h2 class="section-title">적립된 크레딧을 통해 <span>IMSMS의 다양한 기능과 서비스를 이용</span></h2>
+            <h2 class="section-title" data-i18n="credit.title">적립된 크레딧을 통해 <span>IMSMS의 다양한 기능과 서비스를 이용</span></h2>
 
             <div class="credit-usage-grid">
                 <!-- IMSMS 발송 -->
                 <div class="credit-category">
                     <h3 class="category-title">
                         <span class="category-icon">📱</span>
-                        IMSMS 발송
+                        <span data-i18n="credit.category1.title">IMSMS 발송</span>
                     </h3>
                     <div class="credit-items">
                         <div class="credit-item">
-                            <span class="item-name">SMS/LMS 발송</span>
-                            <span class="item-credit">1크레딧</span>
+                            <span class="item-name" data-i18n="credit.category1.item1">SMS/LMS 발송</span>
+                            <span class="item-credit" data-i18n="credit.category1.credit1">1크레딧</span>
                         </div>
                         <div class="credit-item">
-                            <span class="item-name">MMS 발송</span>
-                            <span class="item-credit">2크레딧</span>
+                            <span class="item-name" data-i18n="credit.category1.item2">MMS 발송</span>
+                            <span class="item-credit" data-i18n="credit.category1.credit2">2크레딧</span>
                         </div>
                     </div>
                 </div>
@@ -2873,16 +3516,16 @@
                 <div class="credit-category">
                     <h3 class="category-title">
                         <span class="category-icon">⚙️</span>
-                        IMSMS 계정 설정
+                        <span data-i18n="credit.category2.title">IMSMS 계정 설정</span>
                     </h3>
                     <div class="credit-items">
                         <div class="credit-item">
-                            <span class="item-name">발송계정 신규 설정</span>
-                            <span class="item-credit">100,000 크레딧</span>
+                            <span class="item-name" data-i18n="credit.category2.item1">발송계정 신규 설정</span>
+                            <span class="item-credit" data-i18n="credit.category2.credit1">100,000 크레딧</span>
                         </div>
                         <div class="credit-item">
-                            <span class="item-name">발송계정 추가/재설정</span>
-                            <span class="item-credit">80,000 크레딧</span>
+                            <span class="item-name" data-i18n="credit.category2.item2">발송계정 추가/재설정</span>
+                            <span class="item-credit" data-i18n="credit.category2.credit2">80,000 크레딧</span>
                         </div>
                     </div>
                 </div>
@@ -2891,22 +3534,22 @@
                 <div class="credit-category">
                     <h3 class="category-title">
                         <span class="category-icon">✨</span>
-                        IMSMS 부가기능
+                        <span data-i18n="credit.category3.title">IMSMS 부가기능</span>
                     </h3>
                     <div class="credit-items">
                         <div class="credit-item">
-                            <span class="item-name">수신동의 기능</span>
-                            <span class="item-credit free">무료</span>
+                            <span class="item-name" data-i18n="credit.category3.item1">수신동의 기능</span>
+                            <span class="item-credit free" data-i18n="credit.category3.credit1">무료</span>
                         </div>
                         <div class="credit-item">
-                            <span class="item-name">HLR LOOKUP</span>
-                            <span class="item-credit">100/1크레딧</span>
+                            <span class="item-name" data-i18n="credit.category3.item2">HLR LOOKUP</span>
+                            <span class="item-credit" data-i18n="credit.category3.credit2">100/1크레딧</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <p style="text-align: center; margin-top: 3rem; color: var(--gray); font-size: 1.1rem;">
+            <p style="text-align: center; margin-top: 3rem; color: var(--gray); font-size: 1.1rem;" data-i18n="credit.note">
                 * 크레딧은 영구 사용 가능하며, 유효기간이 없습니다
             </p>
         </div>
@@ -2915,53 +3558,53 @@
     <!-- Pricing Table -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">시장 최저가 <span>요금제</span></h2>
+            <h2 class="section-title" data-i18n="pricing.sectionTitle">시장 최저가 <span>요금제</span></h2>
 
             <div class="competitive-pricing-intro">
-                <p class="pricing-subtitle">📱 SMS, LMS, MMS, 카카오 알림톡, IMSMS</p>
-                <p class="pricing-challenge">🤔 정말 최저가일까요? 직접 비교해보세요!</p>
+                <p class="pricing-subtitle" data-i18n="pricing.subtitle">📱 SMS, LMS, MMS, 카카오 알림톡, IMSMS</p>
+                <p class="pricing-challenge" data-i18n="pricing.challenge">🤔 정말 최저가일까요? 직접 비교해보세요!</p>
 
                 <div class="comparison-cards">
                     <div class="comparison-card">
-                        <h3>타사 평균</h3>
+                        <h3 data-i18n="pricing.othersTitle">타사 평균</h3>
                         <div class="price-container">
                             <div class="price">
                                 <span>9</span>
-                                <span class="won">원</span>
+                                <span class="won" data-i18n="pricing.currency">원</span>
                             </div>
                             <div class="formula-badge">1+0</div>
-                            <div class="price-label">1건 발송</div>
-                            <div class="message-type">SMS만</div>
+                            <div class="price-label" data-i18n="pricing.oneMessage">1건 발송</div>
+                            <div class="message-type" data-i18n="pricing.smsOnly">SMS만</div>
                         </div>
                         <ul>
-                            <li>SMS만 발송</li>
-                            <li>자동전환 없음</li>
-                            <li>비용 최적화 기능 없음</li>
+                            <li data-i18n="pricing.others.feature1">SMS만 발송</li>
+                            <li data-i18n="pricing.others.feature2">자동전환 없음</li>
+                            <li data-i18n="pricing.others.feature3">비용 최적화 기능 없음</li>
                         </ul>
                     </div>
 
                     <div class="comparison-card highlight">
-                        <div class="badge">같은 가격에 2배!</div>
+                        <div class="badge" data-i18n="pricing.doubleBadge">같은 가격에 2배!</div>
                         <h3>IMSMS</h3>
                         <div class="price-container">
                             <div class="price">
                                 <span>9</span>
-                                <span class="won">원</span>
+                                <span class="won" data-i18n="pricing.currency">원</span>
                             </div>
                             <div class="formula-badge">1+1</div>
-                            <div class="price-label">2건 발송</div>
-                            <div class="message-type">SMS + IMSMS</div>
+                            <div class="price-label" data-i18n="pricing.twoMessages">2건 발송</div>
+                            <div class="message-type" data-i18n="pricing.smsPlusImsms">SMS + IMSMS</div>
                         </div>
                         <ul>
-                            <li>SMS 1건 + IMSMS 1건</li>
-                            <li>IMSMS 실패시 SMS 자동 발송</li>
-                            <li>메시지 내용에 맞춘 비용절감</li>
+                            <li data-i18n="pricing.imsms.feature1">SMS 1건 + IMSMS 1건</li>
+                            <li data-i18n="pricing.imsms.feature2">IMSMS 실패시 SMS 자동 발송</li>
+                            <li data-i18n="pricing.imsms.feature3">메시지 내용에 맞춘 비용절감</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="pricing-bottom-cta">
-                    <p><strong>같은 가격, 2배의 메시지 발송</strong><br>
+                    <p data-i18n="pricing.ctaMain"><strong>같은 가격, 2배의 메시지 발송</strong><br>
                     <span style="color: var(--gray); font-size: 0.95rem;">고객사의 발송량과 용도에 맞는 최적의 요금제를 제안해드립니다</span></p>
                 </div>
             </div>
@@ -2971,40 +3614,40 @@
                 <form id="quoteForm" class="quote-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="companyName">고객사명 *</label>
-                            <input type="text" id="companyName" name="companyName" required placeholder="회사명을 입력하세요">
+                            <label for="companyName" data-i18n="form.companyName">고객사명 *</label>
+                            <input type="text" id="companyName" name="companyName" required data-i18n-placeholder="form.companyNamePlaceholder" placeholder="회사명을 입력하세요">
                         </div>
                         <div class="form-group">
-                            <label for="contactName">담당자명 *</label>
-                            <input type="text" id="contactName" name="contactName" required placeholder="이름을 입력하세요">
+                            <label for="contactName" data-i18n="form.contactName">담당자명 *</label>
+                            <input type="text" id="contactName" name="contactName" required data-i18n-placeholder="form.contactNamePlaceholder" placeholder="이름을 입력하세요">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">이메일 *</label>
-                            <input type="email" id="email" name="email" required placeholder="example@company.com">
+                            <label for="email" data-i18n="form.email">이메일 *</label>
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="form.emailPlaceholder" placeholder="example@company.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">연락처 *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                            <label for="phone" data-i18n="form.phone">연락처 *</label>
+                            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="form.phonePlaceholder" placeholder="010-0000-0000">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="monthlyVolume">예상 월 발송량</label>
-                        <select id="monthlyVolume" name="monthlyVolume">
-                            <option value="">선택하세요</option>
-                            <option value="1만건 미만">1만건 미만</option>
-                            <option value="1만~10만건">1만~10만건</option>
-                            <option value="10만~50만건">10만~50만건</option>
-                            <option value="50만~100만건">50만~100만건</option>
-                            <option value="100만건 이상">100만건 이상</option>
+                        <label for="monthlyVolume" data-i18n="form.monthlyVolume">예상 월 발송량</label>
+                        <select id="monthlyVolume" name="monthlyVolume" data-i18n-options="form.volumeOptions">
+                            <option value="" data-i18n="form.selectOption">선택하세요</option>
+                            <option value="under10k" data-i18n="form.volume1">1만건 미만</option>
+                            <option value="10k-100k" data-i18n="form.volume2">1만~10만건</option>
+                            <option value="100k-500k" data-i18n="form.volume3">10만~50만건</option>
+                            <option value="500k-1m" data-i18n="form.volume4">50만~100만건</option>
+                            <option value="over1m" data-i18n="form.volume5">100만건 이상</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">문의 내용</label>
-                        <textarea id="message" name="message" rows="4" placeholder="자세한 문의 내용을 입력해주세요"></textarea>
+                        <label for="message" data-i18n="form.message">문의 내용</label>
+                        <textarea id="message" name="message" rows="4" data-i18n-placeholder="form.messagePlaceholder" placeholder="자세한 문의 내용을 입력해주세요"></textarea>
                     </div>
-                    <button type="submit" class="quote-submit-btn">견적 문의하기</button>
+                    <button type="submit" class="quote-submit-btn" data-i18n="form.submit">견적 문의하기</button>
                 </form>
             </div>
         </div>
@@ -3013,14 +3656,14 @@
     <!-- Demo Section -->
     <section id="demo" class="demo">
         <div class="demo-container">
-            <h2 class="section-title">당신의 iPhone에서 <span>직접 체험해보세요</span></h2>
+            <h2 class="section-title" data-i18n="demo.title">당신의 iPhone에서 <span>직접 체험해보세요</span></h2>
 
             <div class="demo-experience-wrapper">
                 <!-- QR Code Section (Desktop) -->
                 <div class="demo-qr-section" id="qrSection">
                     <div class="demo-qr-box">
                         <div id="qrcode" class="qr-code"></div>
-                        <p class="qr-instruction">📱 QR 스캔 시 메시지앱이 열립니다.<br>'IMSMS 데모 수신동의' 메시지를 그대로 전송하세요.<br>데모 메시지를 즉시 보내드립니다.</p>
+                        <p class="qr-instruction" data-i18n="demo.qrInstruction">📱 QR 스캔 시 메시지앱이 열립니다.<br>'IMSMS 데모 수신동의' 메시지를 그대로 전송하세요.<br>데모 메시지를 즉시 보내드립니다.</p>
                     </div>
                 </div>
 
@@ -3029,15 +3672,15 @@
                     <div class="demo-info-box">
                         <div class="demo-step">
                             <span class="step-number">1</span>
-                            <p class="step-text">아래 버튼을 눌러 iMessage를 열어주세요</p>
+                            <p class="step-text" data-i18n="demo.step1">아래 버튼을 눌러 iMessage를 열어주세요</p>
                         </div>
                         <div class="demo-step">
                             <span class="step-number">2</span>
-                            <p class="step-text">"IMSMS 데모 신청" 메시지를 전송하세요</p>
+                            <p class="step-text" data-i18n="demo.step2">"IMSMS 데모 신청" 메시지를 전송하세요</p>
                         </div>
                         <div class="demo-step">
                             <span class="step-number">3</span>
-                            <p class="step-text">자동으로 IMSMS 데모 메시지를 받아보세요</p>
+                            <p class="step-text" data-i18n="demo.step3">자동으로 IMSMS 데모 메시지를 받아보세요</p>
                         </div>
                     </div>
 
@@ -3045,19 +3688,19 @@
                         <label class="consent-checkbox">
                             <input type="checkbox" id="demoConsent">
                             <span class="checkmark"></span>
-                            <span class="consent-text">메시지 수신을 동의합니다</span>
+                            <span class="consent-text" data-i18n="demo.consentText">메시지 수신을 동의합니다</span>
                         </label>
-                        <p class="consent-notice">* 데모 메시지 1회 발송 후 자동으로 삭제됩니다</p>
+                        <p class="consent-notice" data-i18n="demo.consentNotice">* 데모 메시지 1회 발송 후 자동으로 삭제됩니다</p>
                     </div>
 
                     <button class="demo-send-button" id="demoSendBtn" disabled>
                         <span class="button-icon">💬</span>
-                        <span class="button-text">iMessage로 데모 신청하기</span>
+                        <span class="button-text" data-i18n="demo.sendButton">iMessage로 데모 신청하기</span>
                     </button>
                 </div>
             </div>
 
-            <p style="margin-top: 2rem; color: var(--dark); opacity: 0.9; text-align: center;">
+            <p style="margin-top: 2rem; color: var(--dark); opacity: 0.9; text-align: center;" data-i18n="demo.note">
                 * iPhone 사용자만 체험 가능하며, 수신동의 메시지 발송 시에 별도의 비용이 발생하지 않습니다.
             </p>
         </div>
@@ -3066,14 +3709,14 @@
     <!-- FAQ Section -->
     <section class="faq">
         <div class="faq-container">
-            <h2 class="section-title">자주 묻는 <span>질문</span></h2>
+            <h2 class="section-title" data-i18n="faq.title">자주 묻는 <span>질문</span></h2>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    IMSMS란 무엇인가요?
+                    <span data-i18n="faq.q1">IMSMS란 무엇인가요?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" data-i18n="faq.a1">
                     IMSMS는 Apple의 iMessage 인프라를 활용한 기업용 메시징 서비스입니다.
                     일반 SMS/LMS와 달리 무료로 발송 가능하며, 읽음 확인, 타이핑 표시 등
                     프리미엄 기능을 제공합니다.
@@ -3082,10 +3725,10 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    어떤 기업에 적합한가요?
+                    <span data-i18n="faq.q2">어떤 기업에 적합한가요?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" data-i18n="faq.a2">
                     월 25만원 이상 문자 발송 비용을 지출하는 모든 기업에 적합합니다.
                     특히 프리미엄 브랜드, 금융, 헬스케어, 이커머스 등
                     고객 경험을 중시하는 기업에 최적화되어 있습니다.
@@ -3094,10 +3737,10 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    기존 시스템과 연동이 가능한가요?
+                    <span data-i18n="faq.q3">기존 시스템과 연동이 가능한가요?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" data-i18n="faq.a3">
                     네, 가능합니다. REST API와 각종 SDK를 제공하여
                     기존 CRM, ERP, 마케팅 자동화 툴과 쉽게 연동할 수 있습니다.
                     전담 엔지니어가 연동을 지원해드립니다.
@@ -3106,10 +3749,10 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    보안은 안전한가요?
+                    <span data-i18n="faq.q4">보안은 안전한가요?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" data-i18n="faq.a4">
                     Apple의 End-to-End 암호화 기술로 모든 메시지가 보호됩니다.
                     ISO 27001 인증을 보유하고 있으며,
                     금융권 수준의 보안 체계를 갖추고 있습니다.
@@ -3118,10 +3761,10 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    발송 실패 시 어떻게 되나요?
+                    <span data-i18n="faq.q5">발송 실패 시 어떻게 되나요?</span>
                     <span class="faq-arrow">▼</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" data-i18n="faq.a5">
                     iMessage 발송 실패 시 자동으로 일반 SMS로 대체 발송됩니다.
                     이 경우 별도 요금이 부과되지만,
                     메시지는 100% 전달됩니다.
@@ -3134,14 +3777,14 @@
     <section id="news" class="news-section">
         <div class="news-container">
             <div class="news-header">
-                <h2>IMSMS 소식</h2>
-                <p>최신 뉴스와 업데이트를 확인하세요</p>
+                <h2 data-i18n="news.title"></h2>
+                <p data-i18n="news.subtitle"></p>
             </div>
             <div class="news-grid" id="newsGrid">
                 <!-- 뉴스 카드들이 JavaScript로 동적으로 삽입됩니다 -->
             </div>
             <div class="news-more">
-                <button class="btn-more-news" onclick="loadMoreNews()">더 많은 소식 보기</button>
+                <button class="btn-more-news" onclick="loadMoreNews()" data-i18n="news.loadMore">더 많은 소식 보기</button>
             </div>
         </div>
     </section>
@@ -3149,17 +3792,17 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-content">
-            <h2>지금 시작하세요</h2>
-            <p>메시지 발송 비용을 절반으로 줄이고, 고객 경험은 두 배로 높이세요</p>
-            <a href="https://console.imsms.im" class="btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3rem; background: white; color: var(--primary);">
+            <h2 data-i18n="contact.title">지금 시작하세요</h2>
+            <p data-i18n="contact.subtitle">메시지 발송 비용을 절반으로 줄이고, 고객 경험은 두 배로 높이세요</p>
+            <a href="https://console.imsms.im" class="btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3rem; background: white; color: var(--primary);" data-i18n="contact.signupButton">
                 무료 가입하기
             </a>
             <div class="contact-info">
                 <div class="contact-item">
-                    <strong>이메일</strong> teamplayer@teamplayer.co.kr
+                    <strong data-i18n="contact.emailLabel">이메일</strong> teamplayer@teamplayer.co.kr
                 </div>
                 <div class="contact-item">
-                    <strong>대표번호</strong> +82 1522-8061
+                    <strong data-i18n="contact.phoneLabel">대표번호</strong> +82 1522-8061
                 </div>
             </div>
         </div>
@@ -3182,8 +3825,8 @@
                 <div id="modalAdditionalImages" class="modal-additional-images"></div>
                 <div id="modalTags" class="modal-tags"></div>
                 <div class="modal-actions">
-                    <button class="modal-btn modal-btn-secondary" onclick="closeNewsModal()">닫기</button>
-                    <button class="modal-btn modal-btn-primary" onclick="shareNews()">공유하기</button>
+                    <button class="modal-btn modal-btn-secondary" onclick="closeNewsModal()" data-i18n="news.modal.close">닫기</button>
+                    <button class="modal-btn modal-btn-primary" onclick="shareNews()" data-i18n="news.modal.share">공유하기</button>
                 </div>
             </div>
         </div>
@@ -3194,38 +3837,38 @@
         <div class="footer-content">
             <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="footer-logo" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
             <div class="footer-links">
-                <a href="#">서비스 약관</a>
-                <a href="#">개인정보처리방침</a>
-                <a href="#">API 문서</a>
-                <a href="#">파트너 프로그램</a>
-                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer">관리자 콘솔</a>
+                <a href="terms.html" data-i18n="footer.terms">서비스 약관</a>
+                <a href="#" data-i18n="footer.privacy">개인정보처리방침</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" data-i18n="footer.api">API 문서</a>
+                <a href="#" data-i18n="footer.partner">파트너 프로그램</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" data-i18n="footer.console">관리자 콘솔</a>
             </div>
             <div class="company-info" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
                 <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: center;">
                     <div style="min-width: 300px;">
-                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLAYER (팀플레이어)</h4>
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-i18n="footer.company1">TEAMPLAYER (팀플레이어)</h4>
                         <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
-                            사업자등록번호: 593-77-00117<br>
-                            대표이사: 김은경<br>
-                            설립: 2016년 11월 1일<br>
-                            경기도 용인시 기흥구 동백로 22
+                            <span data-i18n="footer.businessNumber">사업자등록번호</span>: 593-77-00117<br>
+                            <span data-i18n="footer.ceo">대표이사</span>: 김은경<br>
+                            <span data-i18n="footer.established">설립</span>: 2016년 11월 1일<br>
+                            <span data-i18n="footer.address1">경기도 용인시 기흥구 동백로 22</span>
                         </p>
                     </div>
                     <div style="min-width: 300px;">
-                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLEAN co.,LTD (주식회사 팀플리언)</h4>
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-i18n="footer.company2">TEAMPLEAN co.,LTD (주식회사 팀플리언)</h4>
                         <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
-                            사업자등록번호: 746-86-03029<br>
-                            대표이사: 김원철<br>
-                            설립: 2024년 4월 1일<br>
-                            서울 마포구 매봉산로 18 마포비즈플라자 602호
+                            <span data-i18n="footer.businessNumber">사업자등록번호</span>: 746-86-03029<br>
+                            <span data-i18n="footer.ceo">대표이사</span>: 김원철<br>
+                            <span data-i18n="footer.established">설립</span>: 2024년 4월 1일<br>
+                            <span data-i18n="footer.address2">서울 마포구 매봉산로 18 마포비즈플라자 602호</span>
                         </p>
                     </div>
                 </div>
-                <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem;" data-i18n="footer.serviceNote">
                     IMSMS는 TEAMPLAYER와 TEAMPLEAN이 공동 운영하는 서비스입니다.
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright" data-i18n="footer.copyright">
                 © 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다.
             </div>
         </div>
@@ -3289,27 +3932,40 @@
             newsToShow.forEach((item, index) => {
                 const newsCard = document.createElement('div');
                 newsCard.className = 'news-card';
-                newsCard.setAttribute('data-category', item.category);
+
+                // Get localized category for data-category attribute
+                const categoryText = typeof item.category === 'object' ? item.category[currentLang] : item.category;
+                newsCard.setAttribute('data-category', categoryText);
                 newsCard.onclick = () => openNewsModal(item);
                 newsCard.style.cursor = 'pointer';
 
-                const formattedDate = new Date(item.date).toLocaleDateString('ko-KR', {
+                // Determine locale for date formatting
+                const localeMap = { ko: 'ko-KR', en: 'en-US', ja: 'ja-JP', pt: 'pt-PT' };
+                const locale = localeMap[currentLang] || 'ko-KR';
+
+                const formattedDate = new Date(item.date).toLocaleDateString(locale, {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 });
 
+                // Get localized content
+                const title = typeof item.title === 'object' ? item.title[currentLang] : item.title;
+                const description = typeof item.description === 'object' ? item.description[currentLang] : item.description;
+                const category = typeof item.category === 'object' ? item.category[currentLang] : item.category;
+                const tags = Array.isArray(item.tags) ? item.tags : (item.tags[currentLang] || []);
+
                 newsCard.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="news-image">
+                    <img src="${item.image}" alt="${title}" class="news-image">
                     <div class="news-content">
                         <div class="news-meta">
-                            <span class="news-category">${item.category}</span>
+                            <span class="news-category">${category}</span>
                             <span class="news-date">${formattedDate}</span>
                         </div>
-                        <h3 class="news-title">${item.title}</h3>
-                        <p class="news-description">${item.description}</p>
+                        <h3 class="news-title">${title}</h3>
+                        <p class="news-description">${description}</p>
                         <div class="news-tags">
-                            ${item.tags.map(tag => `<span class="news-tag">#${tag}</span>`).join('')}
+                            ${tags.map(tag => `<span class="news-tag">#${tag}</span>`).join('')}
                         </div>
                     </div>
                 `;
@@ -3343,9 +3999,20 @@
         // Open news modal
         function openNewsModal(newsItem) {
             const modal = document.getElementById('newsModal');
-            modal.setAttribute('data-category', newsItem.category);
 
-            const formattedDate = new Date(newsItem.date).toLocaleDateString('ko-KR', {
+            // Get localized content
+            const title = typeof newsItem.title === 'object' ? newsItem.title[currentLang] : newsItem.title;
+            const description = typeof newsItem.description === 'object' ? newsItem.description[currentLang] : newsItem.description;
+            const category = typeof newsItem.category === 'object' ? newsItem.category[currentLang] : newsItem.category;
+            const tags = Array.isArray(newsItem.tags) ? newsItem.tags : (newsItem.tags[currentLang] || []);
+
+            modal.setAttribute('data-category', category);
+
+            // Determine locale for date formatting
+            const localeMap = { ko: 'ko-KR', en: 'en-US', ja: 'ja-JP', pt: 'pt-PT' };
+            const locale = localeMap[currentLang] || 'ko-KR';
+
+            const formattedDate = new Date(newsItem.date).toLocaleDateString(locale, {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -3353,17 +4020,17 @@
 
             // Set modal content
             document.getElementById('modalImage').src = newsItem.image;
-            document.getElementById('modalImage').alt = newsItem.title;
-            document.getElementById('modalCategory').textContent = newsItem.category;
+            document.getElementById('modalImage').alt = title;
+            document.getElementById('modalCategory').textContent = category;
             document.getElementById('modalDate').textContent = formattedDate;
-            document.getElementById('modalTitle').textContent = newsItem.title;
-            document.getElementById('modalDescription').textContent = newsItem.description;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
 
             // Set additional images if available
             const additionalImagesContainer = document.getElementById('modalAdditionalImages');
             if (newsItem.additionalImages && newsItem.additionalImages.length > 0) {
                 additionalImagesContainer.innerHTML = newsItem.additionalImages.map(imgSrc =>
-                    `<img src="${imgSrc}" alt="${newsItem.title}" class="modal-additional-image" style="width: 100%; max-width: 600px; margin: 1rem auto; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">`
+                    `<img src="${imgSrc}" alt="${title}" class="modal-additional-image" style="width: 100%; max-width: 600px; margin: 1rem auto; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">`
                 ).join('');
                 additionalImagesContainer.style.display = 'block';
             } else {
@@ -3373,7 +4040,7 @@
 
             // Set tags
             const tagsContainer = document.getElementById('modalTags');
-            tagsContainer.innerHTML = newsItem.tags.map(tag =>
+            tagsContainer.innerHTML = tags.map(tag =>
                 `<span class="modal-tag">#${tag}</span>`
             ).join('');
 
@@ -3394,20 +4061,36 @@
 
         // Share news
         function shareNews() {
-            if (window.currentNewsItem && navigator.share) {
-                navigator.share({
-                    title: window.currentNewsItem.title,
-                    text: window.currentNewsItem.description,
-                    url: window.location.href
-                }).catch(err => console.log('Share failed:', err));
-            } else {
-                // Fallback: Copy to clipboard
-                const text = `${window.currentNewsItem.title}\n${window.currentNewsItem.description}\n${window.location.href}`;
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('링크가 클립보드에 복사되었습니다!');
-                }).catch(err => {
-                    console.error('Copy failed:', err);
-                });
+            if (window.currentNewsItem) {
+                // Get localized content
+                const title = typeof window.currentNewsItem.title === 'object'
+                    ? window.currentNewsItem.title[currentLang]
+                    : window.currentNewsItem.title;
+                const description = typeof window.currentNewsItem.description === 'object'
+                    ? window.currentNewsItem.description[currentLang]
+                    : window.currentNewsItem.description;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: description,
+                        url: window.location.href
+                    }).catch(err => console.log('Share failed:', err));
+                } else {
+                    // Fallback: Copy to clipboard
+                    const text = `${title}\n${description}\n${window.location.href}`;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const alertMessages = {
+                            ko: '링크가 클립보드에 복사되었습니다!',
+                            en: 'Link copied to clipboard!',
+                            ja: 'リンクがクリップボードにコピーされました！',
+                            pt: 'Link copiado para a área de transferência!'
+                        };
+                        alert(alertMessages[currentLang] || alertMessages.ko);
+                    }).catch(err => {
+                        console.error('Copy failed:', err);
+                    });
+                }
             }
         }
 
@@ -3609,6 +4292,261 @@
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+    <!-- Multi-language and Dark Mode Support -->
+    <script>
+        // Global translations object
+        let translations = {};
+        let currentLang = 'ko';
+
+        // Load translations
+        async function loadTranslations() {
+            try {
+                const response = await fetch('lang/translations.json');
+                translations = await response.json();
+                console.log('Translations loaded:', translations);
+            } catch (error) {
+                console.error('Failed to load translations:', error);
+            }
+        }
+
+        // Switch language
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    // Special handling for elements with HTML content
+                    if (key === 'hero.title') {
+                        if (lang === 'ko') {
+                            element.innerHTML = '<span>SMS 1건</span> 보내면, <span>IMSMS 1건</span> 무료발송!';
+                        } else if (lang === 'en') {
+                            element.innerHTML = 'Send <span>1 SMS</span>, Get <span>1 IMSMS Free!</span>';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '<span>SMS 1件</span>送信で<span>IMSMS 1件無料！</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = 'Envie <span>1 SMS</span>, Ganhe <span>1 IMSMS Grátis!</span>';
+                        }
+                    } else if (key === 'hero.subtitle') {
+                        // Hero subtitle with HTML
+                        if (lang === 'ko') {
+                            element.innerHTML = 'SMS 발송만으로 크레딧이 쌓이고, Apple iMessage<br>프리미엄 메시징을 추가 비용 없이 발송하는 <span class="highlight-solution">메시징 솔루션</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = 'Earn credits just by sending SMS, and send premium Apple iMessage<br>messaging at no additional cost';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = 'SMS送信だけでクレジットが貯まり、Apple iMessage<br>プレミアムメッセージングを追加費用なしで送信';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = 'Acumule créditos apenas enviando SMS e envie mensagens<br>premium Apple iMessage sem custo adicional';
+                        }
+                    } else if (key === 'revolutionary.title') {
+                        // Revolutionary title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '<span>1+1</span> 메시지 혁명';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>1+1</span> Message Revolution';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '<span>1+1</span>メッセージ革命';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = 'Revolução <span>1+1</span> Mensagens';
+                        }
+                    } else if (key === 'revolutionary.mainText') {
+                        // Revolutionary mainText with strong tags
+                        if (lang === 'ko') {
+                            element.innerHTML = '<strong>1건의 SMS 비용</strong>으로 <strong>2건의 메시지</strong>를 발송하세요';
+                        } else if (lang === 'en') {
+                            element.innerHTML = 'Send <strong>2 messages</strong> at the cost of <strong>1 SMS</strong>';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '<strong>1件のSMSコスト</strong>で<strong>2件のメッセージ</strong>を送信';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = 'Envie <strong>2 mensagens</strong> ao custo de <strong>1 SMS</strong>';
+                        }
+                    } else if (key === 'service.title') {
+                        // Service title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '아이폰 전용 <span>프리미엄 메시징 서비스 IMSMS</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>iPhone Exclusive Premium Messaging Service</span> IMSMS';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = 'iPhone専用 <span>プレミアムメッセージングサービス IMSMS</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<span>Serviço Premium de Mensagens Exclusivo para iPhone</span> IMSMS';
+                        }
+                    } else if (key === 'credit.title') {
+                        // Credit title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '적립된 크레딧을 통해 <span>IMSMS의 다양한 기능과 서비스를 이용</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>Use Various IMSMS Features and Services</span> with Accumulated Credits';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '蓄積されたクレジットで <span>IMSMSの多様な機能とサービスを利用</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<span>Use Vários Recursos e Serviços IMSMS</span> com Créditos Acumulados';
+                        }
+                    } else if (key === 'pricing.sectionTitle') {
+                        // Pricing section title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '시장 최저가 <span>요금제</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>Lowest Market</span> Pricing';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '市場最安値 <span>料金プラン</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<span>Menor Preço</span> do Mercado';
+                        }
+                    } else if (key === 'pricing.ctaMain') {
+                        // Pricing CTA with HTML
+                        if (lang === 'ko') {
+                            element.innerHTML = '<strong>같은 가격, 2배의 메시지 발송</strong><br><span style="color: var(--gray); font-size: 0.95rem;">고객사의 발송량과 용도에 맞는 최적의 요금제를 제안해드립니다</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<strong>Same price, double the messages</strong><br><span style="color: var(--gray); font-size: 0.95rem;">We\'ll propose the optimal pricing plan for your sending volume and purpose</span>';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '<strong>同じ価格、2倍のメッセージ送信</strong><br><span style="color: var(--gray); font-size: 0.95rem;">お客様の送信量と用途に合わせた最適な料金プランをご提案します</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<strong>Mesmo preço, dobro de mensagens</strong><br><span style="color: var(--gray); font-size: 0.95rem;">Proporemos o plano de preços ideal para seu volume e finalidade de envio</span>';
+                        }
+                    } else if (key === 'demo.title') {
+                        // Demo title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '당신의 iPhone에서 <span>직접 체험해보세요</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>Experience it Directly</span> on Your iPhone';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = 'あなたのiPhoneで<span>直接体験してください</span>';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<span>Experimente Diretamente</span> no Seu iPhone';
+                        }
+                    } else if (key === 'faq.title') {
+                        // FAQ title with span
+                        if (lang === 'ko') {
+                            element.innerHTML = '자주 묻는 <span>질문</span>';
+                        } else if (lang === 'en') {
+                            element.innerHTML = '<span>Frequently Asked</span> Questions';
+                        } else if (lang === 'ja') {
+                            element.innerHTML = '<span>よくある</span>質問';
+                        } else if (lang === 'pt') {
+                            element.innerHTML = '<span>Perguntas</span> Frequentes';
+                        }
+                    } else if (key === 'demo.qrInstruction' || key === 'demo.note') {
+                        // Replace \n with <br> for multiline text
+                        element.innerHTML = translation.replace(/\n/g, '<br>');
+                    } else {
+                        // Default: set text content
+                        element.textContent = translation;
+                    }
+                }
+            });
+
+            // Update data-check-label for the "확인" badge
+            document.querySelectorAll('[data-i18n-check]').forEach(element => {
+                const key = element.getAttribute('data-i18n-check');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    element.setAttribute('data-check-label', translation);
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    element.placeholder = translation;
+                }
+            });
+
+            // Update option elements
+            document.querySelectorAll('option[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Refresh news display with current language
+            if (typeof displayNews === 'function' && typeof currentNewsCount !== 'undefined') {
+                displayNews(currentNewsCount);
+            }
+        }
+
+        // Get translation by key
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let value = translations[lang];
+
+            for (const k of keys) {
+                if (value && value[k]) {
+                    value = value[k];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Load translations
+            await loadTranslations();
+
+            // Restore saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
+            switchLanguage(savedLang);
+
+            // Restore saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                // Check system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            }
+
+            // Add language selector event listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+
+            // Listen for system theme changes
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                    }
+                });
             }
         });
     </script>

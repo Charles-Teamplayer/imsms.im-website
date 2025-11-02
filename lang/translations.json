@@ -1,0 +1,1582 @@
+{
+  "ko": {
+    "nav": {
+      "about": "IMSMS란",
+      "checkLabel": "확인",
+      "features": "서비스",
+      "pricing": "요금",
+      "demo": "데모",
+      "news": "소식",
+      "contact": "문의",
+      "console": "관리자 콘솔",
+      "home": "홈"
+    },
+    "hero": {
+      "title": "SMS 1건 보내면, IMSMS 1건 무료발송!",
+      "subtitle": "SMS 발송만으로 크레딧이 쌓이고, Apple iMessage 프리미엄 메시징을 추가 비용 없이 발송하는 메시징 솔루션",
+      "description": "월 25만원 이상 SMS 사용하는 기업을 위한 Apple iMessage 기반 프리미엄 메시징 솔루션",
+      "cta": "무료 상담 신청",
+      "demo": "데모 보기",
+      "checkBadge": "확인",
+      "whatIsImsms": "IMSMS란 무엇인가요?",
+      "clickToLearn": "클릭하여 자세히 알아보기"
+    },
+    "revolutionary": {
+      "title": "1+1 메시지 혁명",
+      "smsCount": "1건",
+      "paid": "유료",
+      "imsmsCount": "1건",
+      "free": "무료",
+      "result": "2건 발송",
+      "resultSub": "1건 비용으로",
+      "mainText": "1건의 SMS 비용으로 2건의 메시지를 발송하세요",
+      "subText": "** SMS, LMS, MMS 발송 시에 IMSMS를 무료로 제공합니다"
+    },
+    "service": {
+      "title": "아이폰 전용 프리미엄 메시징 서비스 IMSMS",
+      "card1": {
+        "title": "아이폰에 문자메시지 전송",
+        "description": "iPhone, iPad, Mac, Apple Watch 모든 기기에서 iMessage로 전송. 이용자의 전화번호로 Apple 기기를 사용하든 메시지가 즉시 전달됩니다."
+      },
+      "card2": {
+        "title": "End-to-End 암호화",
+        "description": "Apple의 최고 수준 보안 기술로 모든 메시지를 완벽하게 보호. 민감한 기업 정보도 안심하고 전송할 수 있습니다."
+      },
+      "card3": {
+        "title": "실시간 전송 상태",
+        "description": "읽음 확인, 입력 중 표시 등 iMessage만의 프리미엄 기능. 고객과의 실시간 소통이 가능합니다."
+      },
+      "card4": {
+        "title": "고급 분석 대시보드",
+        "description": "발송률, 읽음률, 클릭률을 실시간으로 모니터링. AI 기반 인사이트로 캠페인 효과를 극대화하세요."
+      },
+      "card5": {
+        "title": "타겟 마케팅",
+        "description": "Apple 사용자 대상 프리미엄 마케팅 전략 실행. 구매력 높은 고객층에게 효과적으로 도달합니다."
+      },
+      "card6": {
+        "title": "다양한 상호작용 메시징",
+        "description": "양방향 메시징을 기반으로 대화형 서비스를 제공하여 이용자들에게 직접적인 정보 제공을 지원합니다."
+      }
+    },
+    "credit": {
+      "title": "적립된 크레딧을 통해 IMSMS의 다양한 기능과 서비스를 이용",
+      "category1": {
+        "title": "IMSMS 발송",
+        "item1": "SMS/LMS 발송",
+        "credit1": "1크레딧",
+        "item2": "MMS 발송",
+        "credit2": "2크레딧"
+      },
+      "category2": {
+        "title": "IMSMS 계정 설정",
+        "item1": "발송계정 신규 설정",
+        "credit1": "100,000 크레딧",
+        "item2": "발송계정 추가/재설정",
+        "credit2": "80,000 크레딧"
+      },
+      "category3": {
+        "title": "IMSMS 부가기능",
+        "item1": "수신동의 기능",
+        "credit1": "무료",
+        "item2": "HLR LOOKUP",
+        "credit2": "100/1크레딧"
+      },
+      "note": "* 크레딧은 영구 사용 가능하며, 유효기간이 없습니다"
+    },
+    "pricing": {
+      "title": "합리적인 가격",
+      "subtitle": "📱 SMS, LMS, MMS, 카카오 알림톡, IMSMS",
+      "sectionTitle": "시장 최저가 요금제",
+      "challenge": "🤔 정말 최저가일까요? 직접 비교해보세요!",
+      "othersTitle": "타사 평균",
+      "currency": "원",
+      "oneMessage": "1건 발송",
+      "twoMessages": "2건 발송",
+      "smsOnly": "SMS만",
+      "smsPlusImsms": "SMS + IMSMS",
+      "doubleBadge": "같은 가격에 2배!",
+      "others": {
+        "feature1": "SMS만 발송",
+        "feature2": "자동전환 없음",
+        "feature3": "비용 최적화 기능 없음"
+      },
+      "imsms": {
+        "title": "IMSMS",
+        "price": "무료",
+        "unit": "SMS와 함께"
+      },
+      "ctaMain": "같은 가격, 2배의 메시지 발송\n고객사의 발송량과 용도에 맞는 최적의 요금제를 제안해드립니다",
+      "comparison": {
+        "title": "IMSMS vs 타사 평균",
+        "others": "타사 평균",
+        "imsms": "IMSMS",
+        "othersFormula": "SMS만 발송",
+        "imsmsFormula": "SMS + IMSMS 동시 발송",
+        "message": "같은 가격에 2배 발송!"
+      },
+      "sms": {
+        "title": "SMS",
+        "price": "12원",
+        "unit": "/건"
+      },
+      "lms": {
+        "title": "LMS",
+        "price": "35원",
+        "unit": "/건"
+      },
+      "mms": {
+        "title": "MMS",
+        "price": "120원",
+        "unit": "/건"
+      }
+    },
+    "form": {
+      "companyName": "고객사명 *",
+      "companyNamePlaceholder": "회사명을 입력하세요",
+      "contactName": "담당자명 *",
+      "contactNamePlaceholder": "이름을 입력하세요",
+      "email": "이메일 *",
+      "emailPlaceholder": "example@company.com",
+      "phone": "연락처 *",
+      "phonePlaceholder": "010-0000-0000",
+      "monthlyVolume": "예상 월 발송량",
+      "selectOption": "선택하세요",
+      "volume1": "1만건 미만",
+      "volume2": "1만~10만건",
+      "volume3": "10만~50만건",
+      "volume4": "50만~100만건",
+      "volume5": "100만건 이상",
+      "message": "문의 내용",
+      "messagePlaceholder": "자세한 문의 내용을 입력해주세요",
+      "submit": "견적 문의하기"
+    },
+    "demo": {
+      "title": "당신의 iPhone에서 직접 체험해보세요",
+      "qrInstruction": "📱 QR 스캔 시 메시지앱이 열립니다.\n'IMSMS 데모 수신동의' 메시지를 그대로 전송하세요.\n데모 메시지를 즉시 보내드립니다.",
+      "step1": "아래 버튼을 눌러 iMessage를 열어주세요",
+      "step2": "\"IMSMS 데모 신청\" 메시지를 전송하세요",
+      "step3": "자동으로 IMSMS 데모 메시지를 받아보세요",
+      "consentText": "메시지 수신을 동의합니다",
+      "consentNotice": "* 데모 메시지 1회 발송 후 자동으로 삭제됩니다",
+      "sendButton": "iMessage로 데모 신청하기",
+      "note": "* iPhone 사용자만 체험 가능하며, 수신동의 메시지 발송 시에 별도의 비용이 발생하지 않습니다."
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "q1": "IMSMS란 무엇인가요?",
+      "a1": "IMSMS는 Apple의 iMessage 인프라를 활용한 기업용 메시징 서비스입니다. 일반 SMS/LMS와 달리 무료로 발송 가능하며, 읽음 확인, 타이핑 표시 등 프리미엄 기능을 제공합니다.",
+      "q2": "어떤 기업에 적합한가요?",
+      "a2": "월 25만원 이상 문자 발송 비용을 지출하는 모든 기업에 적합합니다. 특히 프리미엄 브랜드, 금융, 헬스케어, 이커머스 등 고객 경험을 중시하는 기업에 최적화되어 있습니다.",
+      "q3": "기존 시스템과 연동이 가능한가요?",
+      "a3": "네, 가능합니다. REST API와 각종 SDK를 제공하여 기존 CRM, ERP, 마케팅 자동화 툴과 쉽게 연동할 수 있습니다. 전담 엔지니어가 연동을 지원해드립니다.",
+      "q4": "보안은 안전한가요?",
+      "a4": "Apple의 End-to-End 암호화 기술로 모든 메시지가 보호됩니다. ISO 27001 인증을 보유하고 있으며, 금융권 수준의 보안 체계를 갖추고 있습니다.",
+      "q5": "발송 실패 시 어떻게 되나요?",
+      "a5": "iMessage 발송 실패 시 자동으로 일반 SMS로 대체 발송됩니다. 이 경우 별도 요금이 부과되지만, 메시지는 100% 전달됩니다."
+    },
+    "news": {
+      "title": "IMSMS 소식",
+      "subtitle": "최신 뉴스와 업데이트를 확인하세요",
+      "loadMore": "더 많은 소식 보기",
+      "categories": {
+        "all": "전체",
+        "award": "수상",
+        "patent": "특허",
+        "expo": "엑스포",
+        "partnership": "파트너십",
+        "update": "제품업데이트"
+      },
+      "modal": {
+        "close": "닫기",
+        "share": "공유하기"
+      }
+    },
+    "contact": {
+      "title": "지금 시작하세요",
+      "subtitle": "메시지 발송 비용을 절반으로 줄이고, 고객 경험은 두 배로 높이세요",
+      "signupButton": "무료 가입하기",
+      "emailLabel": "이메일",
+      "phoneLabel": "대표번호",
+      "form": {
+        "name": "회사명",
+        "email": "이메일",
+        "phone": "전화번호",
+        "message": "문의 내용",
+        "submit": "상담 신청하기"
+      }
+    },
+    "footer": {
+      "terms": "서비스 약관",
+      "privacy": "개인정보처리방침",
+      "api": "API 문서",
+      "partner": "파트너 프로그램",
+      "console": "관리자 콘솔",
+      "company1": "TEAMPLAYER (팀플레이어)",
+      "company2": "TEAMPLEAN co.,LTD (주식회사 팀플리언)",
+      "businessNumber": "사업자등록번호",
+      "ceo": "대표이사",
+      "established": "설립",
+      "address": "주소",
+      "address1": "경기도 용인시 기흥구 동백로 22",
+      "address2": "서울 마포구 매봉산로 18 마포비즈플라자 602호",
+      "serviceNote": "IMSMS는 TEAMPLAYER와 TEAMPLEAN이 공동 운영하는 서비스입니다.",
+      "copyright": "© 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다."
+    },
+    "terms": {
+      "pageTitle": "서비스 이용약관 | IMSMS - TEAMPLAYER",
+      "title": "IMSMS 서비스 이용약관",
+      "subtitle": "TEAMPLAYER 기업 메시징 중계 서비스 이용약관 | 시행일: 2024년 11월 1일",
+      "toc": {
+        "title": "목차",
+        "chapter1": "제1장 총칙",
+        "chapter2": "제2장 서비스 이용계약",
+        "chapter3": "제3장 서비스 이용",
+        "chapter4": "제4장 요금 및 결제",
+        "chapter5": "제5장 계약 해지 및 환불",
+        "chapter6": "제6장 손해배상 및 면책",
+        "chapter7": "제7장 개인정보 보호",
+        "chapter8": "제8장 기타"
+      },
+      "chapter1": {
+        "title": "제1장 총칙",
+        "article1": {
+          "title": "제1조 (목적)",
+          "content": "이 약관은 주식회사 팀플레이어(이하 \"회사\"라 합니다)가 제공하는 TEAMPLAYER 기업 메시징 중계 서비스(이하 \"서비스\"라 합니다)의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다."
+        },
+        "article2": {
+          "title": "제2조 (용어의 정의)",
+          "intro": "이 약관에서 사용하는 용어의 정의는 다음과 같습니다.",
+          "item1": "\"서비스\"라 함은 회사가 제공하는 IMSMS(iMessage SMS) 기업 메시징 중계 서비스를 의미합니다.",
+          "item2": "\"이용자\"라 함은 회사와 서비스 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 법인 또는 개인사업자를 의미합니다.",
+          "item3": "\"계정(ID)\"이라 함은 이용자의 식별과 서비스 이용을 위하여 이용자가 설정하고 회사가 승인하는 문자와 숫자의 조합을 의미합니다.",
+          "item4": "\"비밀번호\"라 함은 이용자가 부여받은 계정과 일치되는 이용자임을 확인하고 비밀보호를 위해 이용자 자신이 정한 문자 또는 숫자의 조합을 의미합니다.",
+          "item5": "\"메시지\"라 함은 서비스를 통해 발송되는 문자, 이미지, 영상 등의 콘텐츠를 의미합니다.",
+          "item6": "\"IMSMS\"라 함은 Apple의 iMessage 프로토콜을 활용한 메시징 서비스를 의미합니다.",
+          "item7": "\"선불제\"라 함은 이용자가 서비스 이용 전에 미리 이용 요금을 납부하는 방식을 의미합니다.",
+          "item8": "\"후불제\"라 함은 이용자가 서비스를 이용한 후 익월에 이용 요금을 납부하는 방식을 의미합니다.",
+          "item9": "\"관리자 콘솔\"이라 함은 이용자가 서비스를 이용하고 관리하기 위한 웹 기반 관리 시스템을 의미합니다."
+        },
+        "article3": {
+          "title": "제3조 (약관의 명시와 개정)"
+        },
+        "article4": {
+          "title": "제4조 (약관의 해석)"
+        }
+      },
+      "chapter2": {
+        "title": "제2장 서비스 이용계약",
+        "article5": {
+          "title": "제5조 (이용계약의 성립)"
+        },
+        "article6": {
+          "title": "제6조 (이용신청의 승낙)"
+        },
+        "article7": {
+          "title": "제7조 (이용자 정보의 변경)"
+        },
+        "article8": {
+          "title": "제8조 (계정 및 비밀번호 관리)"
+        }
+      },
+      "chapter3": {
+        "title": "제3장 서비스 이용",
+        "article9": {
+          "title": "제9조 (서비스의 내용)"
+        },
+        "article10": {
+          "title": "제10조 (서비스의 제공 및 중단)"
+        },
+        "article11": {
+          "title": "제11조 (서비스 이용의 제한 및 중지)"
+        },
+        "article12": {
+          "title": "제12조 (이용자의 의무)"
+        },
+        "article13": {
+          "title": "제13조 (회사의 의무)"
+        }
+      },
+      "chapter4": {
+        "title": "제4장 요금 및 결제",
+        "article14": {
+          "title": "제14조 (서비스 이용요금)"
+        },
+        "article15": {
+          "title": "제15조 (요금의 납부)"
+        },
+        "article16": {
+          "title": "제16조 (요금의 과오납)"
+        },
+        "article17": {
+          "title": "제17조 (미납요금의 처리)"
+        }
+      },
+      "chapter5": {
+        "title": "제5장 계약 해지 및 환불",
+        "article18": {
+          "title": "제18조 (이용계약의 해지)"
+        },
+        "article19": {
+          "title": "제19조 (환불)"
+        },
+        "article20": {
+          "title": "제20조 (청약철회 등)"
+        }
+      },
+      "chapter6": {
+        "title": "제6장 손해배상 및 면책",
+        "article21": {
+          "title": "제21조 (손해배상)"
+        },
+        "article22": {
+          "title": "제22조 (회사의 면책)"
+        },
+        "article23": {
+          "title": "제23조 (책임의 제한)"
+        }
+      },
+      "chapter7": {
+        "title": "제7장 개인정보 보호",
+        "article24": {
+          "title": "제24조 (개인정보의 보호)"
+        },
+        "article25": {
+          "title": "제25조 (개인정보의 보유 및 이용기간)"
+        }
+      },
+      "chapter8": {
+        "title": "제8장 기타",
+        "article26": {
+          "title": "제26조 (지식재산권)"
+        },
+        "article27": {
+          "title": "제27조 (분쟁의 해결)"
+        },
+        "article28": {
+          "title": "제28조 (재판권 및 준거법)"
+        },
+        "article29": {
+          "title": "제29조 (통지)"
+        }
+      },
+      "contact": {
+        "title": "문의처",
+        "company": "회사명:",
+        "address": "주소:",
+        "phone": "대표전화:",
+        "email": "이메일:",
+        "businessNumber": "사업자등록번호:",
+        "ceo": "대표이사:"
+      }
+    },
+    "whatIsImsms": {
+      "hero": {
+        "title": "IMSMS란 무엇인가요?",
+        "subtitle": "Apple iMessage를 통해\niPhone 사용자에게 전송되는\n프리미엄 비즈니스 메시징 서비스입니다"
+      },
+      "messages": {
+        "welcome": "안녕하세요! IMSMS 프리미엄 메시지입니다 ✨",
+        "response": "와! 정말 다양한 기능이 있나요?",
+        "photo": "고화질 사진을 바로 전송할 수 있어요 📸",
+        "video": "동영상은 대화창에서 바로 재생됩니다 🎬",
+        "secret": "비밀 메시지도 보낼 수 있어요 🤫",
+        "secretContent": "이건 비밀입니다! 터치해보세요",
+        "tapToView": "탭하여 보기",
+        "digitalTouch": "Digital Touch로 하트를 그려봤어요",
+        "screenEffect": "화면 효과와 함께 축하해요! 🎉",
+        "richContent": "앱과 연동된 리치 콘텐츠도 가능해요",
+        "applePayAmount": "50,000원 송금",
+        "memoji": "Memoji 스티커로 감정 표현!",
+        "linkPreview": "링크는 자동으로 미리보기가 생성돼요",
+        "linkDescription": "프리미엄 비즈니스 메시징",
+        "final": "정말 놀라워요! 모든 기능이 완벽하네요 💙"
+      }
+    }
+  },
+  "en": {
+    "nav": {
+      "about": "About IMSMS",
+      "checkLabel": "Check",
+      "features": "Service",
+      "pricing": "Pricing",
+      "demo": "Demo",
+      "news": "News",
+      "contact": "Contact",
+      "console": "Admin Console",
+      "home": "Home"
+    },
+    "hero": {
+      "title": "Send 1 SMS, Get 1 IMSMS Free!",
+      "subtitle": "Earn credits just by sending SMS, and send premium Apple iMessage messaging at no additional cost",
+      "description": "Premium Apple iMessage-based messaging solution for enterprises spending over $200/month on SMS",
+      "cta": "Free Consultation",
+      "demo": "View Demo",
+      "checkBadge": "Check",
+      "whatIsImsms": "What is IMSMS?",
+      "clickToLearn": "Click to learn more"
+    },
+    "revolutionary": {
+      "title": "1+1 Message Revolution",
+      "smsCount": "1 msg",
+      "paid": "Paid",
+      "imsmsCount": "1 msg",
+      "free": "FREE",
+      "result": "2 messages sent",
+      "resultSub": "at 1 message cost",
+      "mainText": "Send 2 messages at the cost of 1 SMS",
+      "subText": "** IMSMS provided free when sending SMS, LMS, MMS"
+    },
+    "service": {
+      "title": "iPhone Exclusive Premium Messaging Service IMSMS",
+      "card1": {
+        "title": "Send to iPhone Devices",
+        "description": "Delivered via iMessage on all devices: iPhone, iPad, Mac, Apple Watch. Messages reach instantly regardless of which Apple device the user has."
+      },
+      "card2": {
+        "title": "End-to-End Encryption",
+        "description": "All messages perfectly protected with Apple's highest-level security technology. Send sensitive corporate information with confidence."
+      },
+      "card3": {
+        "title": "Real-time Delivery Status",
+        "description": "Premium iMessage features like read receipts and typing indicators. Enable real-time communication with customers."
+      },
+      "card4": {
+        "title": "Advanced Analytics Dashboard",
+        "description": "Monitor delivery rates, read rates, and click rates in real-time. Maximize campaign effectiveness with AI-powered insights."
+      },
+      "card5": {
+        "title": "Targeted Marketing",
+        "description": "Execute premium marketing strategies for Apple users. Effectively reach high-value customer segments."
+      },
+      "card6": {
+        "title": "Interactive Messaging",
+        "description": "Provide conversational services based on two-way messaging, supporting direct information delivery to users."
+      }
+    },
+    "credit": {
+      "title": "Use Various IMSMS Features and Services with Accumulated Credits",
+      "category1": {
+        "title": "IMSMS Sending",
+        "item1": "SMS/LMS Sending",
+        "credit1": "1 credit",
+        "item2": "MMS Sending",
+        "credit2": "2 credits"
+      },
+      "category2": {
+        "title": "IMSMS Account Setup",
+        "item1": "New Sending Account Setup",
+        "credit1": "100,000 credits",
+        "item2": "Additional/Reset Sending Account",
+        "credit2": "80,000 credits"
+      },
+      "category3": {
+        "title": "IMSMS Additional Features",
+        "item1": "Opt-in Feature",
+        "credit1": "FREE",
+        "item2": "HLR LOOKUP",
+        "credit2": "100/1 credit"
+      },
+      "note": "* Credits are permanently available with no expiration date"
+    },
+    "pricing": {
+      "title": "Fair Pricing",
+      "subtitle": "📱 SMS, LMS, MMS, KakaoTalk, IMSMS",
+      "sectionTitle": "Lowest Market Pricing",
+      "challenge": "🤔 Really the lowest price? Compare for yourself!",
+      "othersTitle": "Others Average",
+      "currency": "KRW",
+      "oneMessage": "1 message sent",
+      "twoMessages": "2 messages sent",
+      "smsOnly": "SMS only",
+      "smsPlusImsms": "SMS + IMSMS",
+      "doubleBadge": "Double messages at same price!",
+      "others": {
+        "feature1": "SMS only",
+        "feature2": "No auto-switching",
+        "feature3": "No cost optimization"
+      },
+      "imsms": {
+        "title": "IMSMS",
+        "price": "FREE",
+        "unit": "with SMS"
+      },
+      "ctaMain": "Same price, double the messages\nWe'll propose the optimal pricing plan for your sending volume and purpose",
+      "comparison": {
+        "title": "IMSMS vs Others",
+        "others": "Others Average",
+        "imsms": "IMSMS",
+        "othersFormula": "SMS only",
+        "imsmsFormula": "SMS + IMSMS together",
+        "message": "Double messages at same price!"
+      },
+      "sms": {
+        "title": "SMS",
+        "price": "$0.01",
+        "unit": "/msg"
+      },
+      "lms": {
+        "title": "LMS",
+        "price": "$0.03",
+        "unit": "/msg"
+      },
+      "mms": {
+        "title": "MMS",
+        "price": "$0.10",
+        "unit": "/msg"
+      }
+    },
+    "form": {
+      "companyName": "Company Name *",
+      "companyNamePlaceholder": "Enter company name",
+      "contactName": "Contact Person *",
+      "contactNamePlaceholder": "Enter name",
+      "email": "Email *",
+      "emailPlaceholder": "example@company.com",
+      "phone": "Phone *",
+      "phonePlaceholder": "+82-10-0000-0000",
+      "monthlyVolume": "Estimated Monthly Volume",
+      "selectOption": "Please select",
+      "volume1": "Under 10K",
+      "volume2": "10K~100K",
+      "volume3": "100K~500K",
+      "volume4": "500K~1M",
+      "volume5": "Over 1M",
+      "message": "Message",
+      "messagePlaceholder": "Please enter detailed inquiry",
+      "submit": "Request Quote"
+    },
+    "demo": {
+      "title": "Experience it Directly on Your iPhone",
+      "qrInstruction": "📱 Scan QR to open Messages app.\nSend 'IMSMS demo opt-in' message as is.\nReceive demo message instantly.",
+      "step1": "Press the button below to open iMessage",
+      "step2": "Send \"IMSMS demo request\" message",
+      "step3": "Automatically receive IMSMS demo message",
+      "consentText": "I agree to receive messages",
+      "consentNotice": "* Automatically deleted after sending demo message once",
+      "sendButton": "Request Demo via iMessage",
+      "note": "* Available for iPhone users only. No charge for opt-in message sending."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "What is IMSMS?",
+      "a1": "IMSMS is an enterprise messaging service utilizing Apple's iMessage infrastructure. Unlike regular SMS/LMS, it can be sent for free and provides premium features like read receipts and typing indicators.",
+      "q2": "Which companies is it suitable for?",
+      "a2": "It's suitable for all companies spending over $200/month on SMS. Especially optimized for companies that value customer experience, such as premium brands, finance, healthcare, and e-commerce.",
+      "q3": "Can it integrate with existing systems?",
+      "a3": "Yes, it can. We provide REST API and various SDKs for easy integration with existing CRM, ERP, and marketing automation tools. Dedicated engineers support integration.",
+      "q4": "Is it secure?",
+      "a4": "All messages are protected with Apple's End-to-End encryption technology. We hold ISO 27001 certification and have financial-grade security infrastructure.",
+      "q5": "What happens if sending fails?",
+      "a5": "If iMessage sending fails, it automatically falls back to regular SMS. While separate charges apply in this case, message delivery is 100% guaranteed."
+    },
+    "news": {
+      "title": "Company News",
+      "subtitle": "Stay updated with IMSMS latest news",
+      "loadMore": "Load More News",
+      "categories": {
+        "all": "All",
+        "award": "Awards",
+        "patent": "Patents",
+        "expo": "Expo",
+        "partnership": "Partnership",
+        "update": "Product Update"
+      },
+      "modal": {
+        "close": "Close",
+        "share": "Share"
+      }
+    },
+    "contact": {
+      "title": "Start Now",
+      "subtitle": "Cut messaging costs in half and double customer experience",
+      "signupButton": "Sign Up Free",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "form": {
+        "name": "Company Name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message",
+        "submit": "Request Consultation"
+      }
+    },
+    "footer": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "api": "API Documentation",
+      "partner": "Partner Program",
+      "console": "Admin Console",
+      "company1": "TEAMPLAYER",
+      "company2": "TEAMPLEAN co.,LTD",
+      "businessNumber": "Business Number",
+      "ceo": "CEO",
+      "established": "Est.",
+      "address": "Address",
+      "address1": "22 Dongbaek-ro, Giheung-gu, Yongin-si, Gyeonggi-do",
+      "address2": "602, Mapo Biz Plaza, 18 Maebongsan-ro, Mapo-gu, Seoul",
+      "serviceNote": "IMSMS is a service jointly operated by TEAMPLAYER and TEAMPLEAN.",
+      "copyright": "© 2024 IMSMS. All rights reserved. | Apple, iMessage are registered trademarks of Apple Inc."
+    },
+    "terms": {
+      "pageTitle": "Terms of Service | IMSMS - TEAMPLAYER",
+      "title": "IMSMS Terms of Service",
+      "subtitle": "TEAMPLAYER Enterprise Messaging Service Terms of Service | Effective Date: November 1, 2024",
+      "toc": {
+        "title": "Table of Contents",
+        "chapter1": "Chapter 1 General Provisions",
+        "chapter2": "Chapter 2 Service Agreement",
+        "chapter3": "Chapter 3 Service Usage",
+        "chapter4": "Chapter 4 Fees and Payment",
+        "chapter5": "Chapter 5 Termination and Refund",
+        "chapter6": "Chapter 7 Personal Information Protection",
+        "chapter7": "Chapter 7 Personal Information Protection",
+        "chapter8": "Chapter 8 Miscellaneous"
+      },
+      "chapter1": {
+        "title": "Chapter 1 General Provisions",
+        "article1": {
+          "title": "Article 1 (Purpose)",
+          "content": "These Terms and Conditions set forth the rights, obligations, and responsibilities between the Company and Users, and other necessary matters regarding the use of the TEAMPLAYER enterprise messaging relay service (hereinafter referred to as the \"Service\") provided by TEAMPLAYER Inc. (hereinafter referred to as the \"Company\")."
+        },
+        "article2": {
+          "title": "Article 2 (Definition of Terms)",
+          "intro": "The definitions of terms used in these Terms and Conditions are as follows:",
+          "item1": "\"Service\" means the IMSMS (iMessage SMS) enterprise messaging relay service provided by the Company.",
+          "item2": "\"User\" means a corporation or individual business operator who has entered into a service agreement with the Company and uses the Service.",
+          "item3": "\"Account (ID)\" means a combination of letters and numbers set by the User and approved by the Company for User identification and service use.",
+          "item4": "\"Password\" means a combination of letters or numbers determined by the User to verify that they are the legitimate holder of the account and to protect confidentiality.",
+          "item5": "\"Message\" means content such as text, images, and videos sent through the Service.",
+          "item6": "\"IMSMS\" means a messaging service utilizing Apple's iMessage protocol.",
+          "item7": "\"Prepaid\" means a method in which the User pays the usage fee in advance before using the Service.",
+          "item8": "\"Postpaid\" means a method in which the User pays the usage fee in the following month after using the Service.",
+          "item9": "\"Admin Console\" means a web-based management system for Users to use and manage the Service."
+        },
+        "article3": {
+          "title": "Article 3 (Posting and Amendment of Terms)"
+        },
+        "article4": {
+          "title": "Article 4 (Interpretation of Terms)"
+        }
+      },
+      "chapter2": {
+        "title": "Chapter 2 Service Agreement",
+        "article5": {
+          "title": "Article 5 (Formation of Service Agreement)"
+        },
+        "article6": {
+          "title": "Article 6 (Approval of Service Application)"
+        },
+        "article7": {
+          "title": "Article 7 (Change of User Information)"
+        },
+        "article8": {
+          "title": "Article 8 (Account and Password Management)"
+        }
+      },
+      "chapter3": {
+        "title": "Chapter 3 Service Usage",
+        "article9": {
+          "title": "Article 9 (Service Contents)"
+        },
+        "article10": {
+          "title": "Article 10 (Service Provision and Suspension)"
+        },
+        "article11": {
+          "title": "Article 11 (Restriction and Suspension of Service Use)"
+        },
+        "article12": {
+          "title": "Article 12 (User Obligations)"
+        },
+        "article13": {
+          "title": "Article 13 (Company Obligations)"
+        }
+      },
+      "chapter4": {
+        "title": "Chapter 4 Fees and Payment",
+        "article14": {
+          "title": "Article 14 (Service Fees)"
+        },
+        "article15": {
+          "title": "Article 15 (Payment of Fees)"
+        },
+        "article16": {
+          "title": "Article 16 (Overpayment and Underpayment)"
+        },
+        "article17": {
+          "title": "Article 17 (Handling of Unpaid Fees)"
+        }
+      },
+      "chapter5": {
+        "title": "Chapter 5 Termination and Refund",
+        "article18": {
+          "title": "Article 18 (Termination of Service Agreement)"
+        },
+        "article19": {
+          "title": "Article 19 (Refund)"
+        },
+        "article20": {
+          "title": "Article 20 (Withdrawal of Subscription)"
+        }
+      },
+      "chapter6": {
+        "title": "Chapter 6 Indemnification and Exemption",
+        "article21": {
+          "title": "Article 21 (Indemnification)"
+        },
+        "article22": {
+          "title": "Article 22 (Company Exemption)"
+        },
+        "article23": {
+          "title": "Article 23 (Limitation of Liability)"
+        }
+      },
+      "chapter7": {
+        "title": "Chapter 7 Personal Information Protection",
+        "article24": {
+          "title": "Article 24 (Protection of Personal Information)"
+        },
+        "article25": {
+          "title": "Article 25 (Retention and Use Period of Personal Information)"
+        }
+      },
+      "chapter8": {
+        "title": "Chapter 8 Miscellaneous",
+        "article26": {
+          "title": "Article 26 (Intellectual Property Rights)"
+        },
+        "article27": {
+          "title": "Article 27 (Dispute Resolution)"
+        },
+        "article28": {
+          "title": "Article 28 (Jurisdiction and Governing Law)"
+        },
+        "article29": {
+          "title": "Article 29 (Notice)"
+        }
+      },
+      "contact": {
+        "title": "Contact Information",
+        "company": "Company:",
+        "address": "Address:",
+        "phone": "Phone:",
+        "email": "Email:",
+        "businessNumber": "Business Number:",
+        "ceo": "CEO:"
+      }
+    },
+    "whatIsImsms": {
+      "hero": {
+        "title": "What is IMSMS?",
+        "subtitle": "A premium business messaging service\ndelivered to iPhone users\nthrough Apple iMessage"
+      },
+      "messages": {
+        "welcome": "Hello! This is an IMSMS premium message ✨",
+        "response": "Wow! Are there really various features?",
+        "photo": "You can send high-quality photos instantly 📸",
+        "video": "Videos play directly in the chat 🎬",
+        "secret": "You can also send secret messages 🤫",
+        "secretContent": "This is a secret! Touch to reveal",
+        "tapToView": "Tap to view",
+        "digitalTouch": "I drew a heart with Digital Touch",
+        "screenEffect": "Celebrate with screen effects! 🎉",
+        "richContent": "Rich content integrated with apps is possible too",
+        "applePayAmount": "Send ₩50,000",
+        "memoji": "Express emotions with Memoji stickers!",
+        "linkPreview": "Links automatically generate previews",
+        "linkDescription": "Premium Business Messaging",
+        "final": "Amazing! Every feature is perfect 💙"
+      }
+    }
+  },
+  "ja": {
+    "nav": {
+      "about": "概要",
+      "checkLabel": "確認",
+      "features": "機能",
+      "pricing": "料金",
+      "demo": "デモ",
+      "news": "NEWS",
+      "contact": "問合せ",
+      "console": "コンソール",
+      "home": "HOME"
+    },
+    "hero": {
+      "title": "SMS 1件でIMSMS 1件無料!",
+      "subtitle": "SMS送信でクレジット獲得、Apple iMessageを追加費用なしで送信",
+      "description": "月25万円以上SMS利用企業向けApple iMessage基盤ソリューション",
+      "cta": "無料相談",
+      "demo": "デモ",
+      "checkBadge": "確認",
+      "whatIsImsms": "IMSMSとは？",
+      "clickToLearn": "詳細はこちら"
+    },
+    "revolutionary": {
+      "title": "1+1革命",
+      "smsCount": "1件",
+      "paid": "有料",
+      "imsmsCount": "1件",
+      "free": "無料",
+      "result": "2件送信",
+      "resultSub": "1件分で",
+      "mainText": "SMS 1件で2件のメッセージ送信",
+      "subText": "** SMS/LMS/MMS送信時IMSMS無料"
+    },
+    "service": {
+      "title": "iPhone専用メッセージング IMSMS",
+      "card1": {
+        "title": "iPhoneへ送信",
+        "description": "iPhone、iPad、Mac、Apple Watch全デバイスで配信。Appleデバイス使用者へ即座に送信。"
+      },
+      "card2": {
+        "title": "E2E暗号化",
+        "description": "Apple最高水準セキュリティで全メッセージ保護。機密情報も安心送信。"
+      },
+      "card3": {
+        "title": "送信状態確認",
+        "description": "既読確認、入力中表示などiMessage独自機能。リアルタイム対話可能。"
+      },
+      "card4": {
+        "title": "分析ダッシュボード",
+        "description": "送信率、既読率、クリック率をモニタリング。AI基盤インサイトで効果最大化。"
+      },
+      "card5": {
+        "title": "ターゲティング",
+        "description": "Appleユーザー向けマーケティング。購買力の高い顧客層へリーチ。"
+      },
+      "card6": {
+        "title": "双方向メッセージング",
+        "description": "対話型サービス提供。利用者へ直接情報提供をサポート。"
+      }
+    },
+    "credit": {
+      "title": "クレジットでIMSMS機能利用",
+      "category1": {
+        "title": "IMSMS送信",
+        "item1": "SMS/LMS",
+        "credit1": "1CR",
+        "item2": "MMS",
+        "credit2": "2CR"
+      },
+      "category2": {
+        "title": "アカウント設定",
+        "item1": "新規設定",
+        "credit1": "100,000CR",
+        "item2": "追加/再設定",
+        "credit2": "80,000CR"
+      },
+      "category3": {
+        "title": "付加機能",
+        "item1": "受信同意",
+        "credit1": "無料",
+        "item2": "HLR",
+        "credit2": "100/1CR"
+      },
+      "note": "* クレジット永久有効"
+    },
+    "pricing": {
+      "title": "料金",
+      "subtitle": "📱 SMS/LMS/MMS/カカオ/IMSMS",
+      "sectionTitle": "最安値プラン",
+      "challenge": "🤔 本当？比較してください！",
+      "othersTitle": "他社",
+      "currency": "円",
+      "oneMessage": "1件",
+      "twoMessages": "2件",
+      "smsOnly": "SMS",
+      "smsPlusImsms": "SMS+IMSMS",
+      "doubleBadge": "同価格2倍！",
+      "others": {
+        "feature1": "SMS単独",
+        "feature2": "自動切替無",
+        "feature3": "最適化無"
+      },
+      "imsms": {
+        "title": "IMSMS",
+        "price": "無料",
+        "unit": "SMSと"
+      },
+      "ctaMain": "同価格2倍送信\n最適プラン提案",
+      "comparison": {
+        "title": "IMSMS vs 他社",
+        "others": "他社",
+        "imsms": "IMSMS",
+        "othersFormula": "SMS単独",
+        "imsmsFormula": "SMS+IMSMS",
+        "message": "同価格2倍！"
+      },
+      "sms": {
+        "title": "SMS",
+        "price": "12円",
+        "unit": "/件"
+      },
+      "lms": {
+        "title": "LMS",
+        "price": "35円",
+        "unit": "/件"
+      },
+      "mms": {
+        "title": "MMS",
+        "price": "120円",
+        "unit": "/件"
+      }
+    },
+    "form": {
+      "companyName": "会社名 *",
+      "companyNamePlaceholder": "会社名を入力してください",
+      "contactName": "担当者名 *",
+      "contactNamePlaceholder": "名前を入力してください",
+      "email": "メール *",
+      "emailPlaceholder": "example@company.com",
+      "phone": "電話番号 *",
+      "phonePlaceholder": "010-0000-0000",
+      "monthlyVolume": "予想月間送信量",
+      "selectOption": "選択してください",
+      "volume1": "1万件未満",
+      "volume2": "1万~10万件",
+      "volume3": "10万~50万件",
+      "volume4": "50万~100万件",
+      "volume5": "100万件以上",
+      "message": "お問い合わせ内容",
+      "messagePlaceholder": "詳細なお問い合わせ内容を入力してください",
+      "submit": "見積もり依頼"
+    },
+    "demo": {
+      "title": "あなたのiPhoneで直接体験してください",
+      "qrInstruction": "📱 QRスキャンするとメッセージアプリが開きます。\n'IMSMSデモ受信同意'メッセージをそのまま送信してください。\nデモメッセージを即座に送信します。",
+      "step1": "下のボタンを押してiMessageを開いてください",
+      "step2": "「IMSMSデモ申請」メッセージを送信してください",
+      "step3": "自動的にIMSMSデモメッセージを受け取ります",
+      "consentText": "メッセージ受信に同意します",
+      "consentNotice": "* デモメッセージ1回送信後、自動的に削除されます",
+      "sendButton": "iMessageでデモ申請",
+      "note": "* iPhoneユーザーのみ体験可能で、受信同意メッセージ送信時に別途費用は発生しません。"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "q1": "IMSMSとは何ですか？",
+      "a1": "IMSMSはAppleのiMessageインフラを活用した企業向けメッセージングサービスです。一般的なSMS/LMSとは異なり無料で送信可能で、既読確認、タイピング表示などプレミアム機能を提供します。",
+      "q2": "どんな企業に適していますか？",
+      "a2": "月25万ウォン以上のメッセージ送信費用を使用するすべての企業に適しています。特にプレミアムブランド、金融、ヘルスケア、Eコマースなど顧客体験を重視する企業に最適化されています。",
+      "q3": "既存システムとの連携は可能ですか？",
+      "a3": "はい、可能です。REST APIと各種SDKを提供し、既存のCRM、ERP、マーケティング自動化ツールと簡単に連携できます。専任エンジニアが連携をサポートします。",
+      "q4": "セキュリティは安全ですか？",
+      "a4": "AppleのEnd-to-End暗号化技術で全メッセージが保護されます。ISO 27001認証を保有しており、金融レベルのセキュリティ体制を備えています。",
+      "q5": "送信失敗時はどうなりますか？",
+      "a5": "iMessage送信失敗時、自動的に一般SMSで代替送信されます。この場合別途料金が発生しますが、メッセージは100%配信されます。"
+    },
+    "news": {
+      "title": "ニュース",
+      "subtitle": "IMSMSの最新情報をご確認ください",
+      "loadMore": "もっと見る",
+      "categories": {
+        "all": "全て",
+        "award": "受賞",
+        "patent": "特許",
+        "expo": "展示会",
+        "partnership": "パートナーシップ",
+        "update": "製品アップデート"
+      },
+      "modal": {
+        "close": "閉じる",
+        "share": "共有"
+      }
+    },
+    "contact": {
+      "title": "今すぐ始めましょう",
+      "subtitle": "メッセージ送信コストを半分に削減し、顧客体験を2倍に向上",
+      "signupButton": "無料登録",
+      "emailLabel": "メール",
+      "phoneLabel": "代表番号",
+      "form": {
+        "name": "会社名",
+        "email": "メール",
+        "phone": "電話番号",
+        "message": "お問い合わせ内容",
+        "submit": "相談を申し込む"
+      }
+    },
+    "footer": {
+      "terms": "サービス規約",
+      "privacy": "個人情報保護方針",
+      "api": "APIドキュメント",
+      "partner": "パートナープログラム",
+      "console": "管理コンソール",
+      "company1": "TEAMPLAYER（チームプレイヤー）",
+      "company2": "TEAMPLEAN co.,LTD（株式会社チームプリアン）",
+      "businessNumber": "事業者登録番号",
+      "ceo": "代表取締役",
+      "established": "設立",
+      "address": "住所",
+      "address1": "京畿道龍仁市器興区東白路22",
+      "address2": "ソウル麻浦区梅峰山路18麻浦ビズプラザ602号",
+      "serviceNote": "IMSMSはTEAMPLAYERとTEAMPLEANが共同運営するサービスです。",
+      "copyright": "© 2024 IMSMS. All rights reserved. | Apple、iMessageはApple Inc.の登録商標です。"
+    },
+    "terms": {
+      "pageTitle": "サービス利用規約 | IMSMS - TEAMPLAYER",
+      "title": "IMSMSサービス利用規約",
+      "subtitle": "TEAMPLAYER企業メッセージング中継サービス利用規約 | 施行日：2024年11月1日",
+      "toc": {
+        "title": "目次",
+        "chapter1": "第1章 総則",
+        "chapter2": "第2章 サービス利用契約",
+        "chapter3": "第3章 サービス利用",
+        "chapter4": "第4章 料金および決済",
+        "chapter5": "第5章 契約解除および返金",
+        "chapter6": "第6章 損害賠償および免責",
+        "chapter7": "第7章 個人情報保護",
+        "chapter8": "第8章 その他"
+      },
+      "chapter1": {
+        "title": "第1章 総則",
+        "article1": {
+          "title": "第1条（目的）",
+          "content": "本規約は、株式会社チームプレイヤー（以下「会社」といいます）が提供するTEAMPLAYER企業メッセージング中継サービス（以下「サービス」といいます）の利用に関して、会社と利用者間の権利、義務および責任事項、その他必要な事項を規定することを目的とします。"
+        },
+        "article2": {
+          "title": "第2条（用語の定義）",
+          "intro": "本規約で使用する用語の定義は以下の通りです。",
+          "item1": "「サービス」とは、会社が提供するIMSMS（iMessage SMS）企業メッセージング中継サービスを意味します。",
+          "item2": "「利用者」とは、会社とサービス利用契約を締結し、会社が提供するサービスを利用する法人または個人事業者を意味します。",
+          "item3": "「アカウント（ID）」とは、利用者の識別とサービス利用のために利用者が設定し、会社が承認する文字と数字の組み合わせを意味します。",
+          "item4": "「パスワード」とは、利用者に付与されたアカウントと一致する利用者であることを確認し、機密保護のために利用者自身が定めた文字または数字の組み合わせを意味します。",
+          "item5": "「メッセージ」とは、サービスを通じて送信されるテキスト、画像、映像などのコンテンツを意味します。",
+          "item6": "「IMSMS」とは、AppleのiMessageプロトコルを活用したメッセージングサービスを意味します。",
+          "item7": "「前払い」とは、利用者がサービス利用前にあらかじめ利用料金を納付する方式を意味します。",
+          "item8": "「後払い」とは、利用者がサービスを利用した後、翌月に利用料金を納付する方式を意味します。",
+          "item9": "「管理コンソール」とは、利用者がサービスを利用し管理するためのウェブベースの管理システムを意味します。"
+        },
+        "article3": {
+          "title": "第3条（規約の明示と改定）"
+        },
+        "article4": {
+          "title": "第4条（規約の解釈）"
+        }
+      },
+      "chapter2": {
+        "title": "第2章 サービス利用契約",
+        "article5": {
+          "title": "第5条（利用契約の成立）"
+        },
+        "article6": {
+          "title": "第6条（利用申請の承諾）"
+        },
+        "article7": {
+          "title": "第7条（利用者情報の変更）"
+        },
+        "article8": {
+          "title": "第8条（アカウントおよびパスワード管理）"
+        }
+      },
+      "chapter3": {
+        "title": "第3章 サービス利用",
+        "article9": {
+          "title": "第9条（サービスの内容）"
+        },
+        "article10": {
+          "title": "第10条（サービスの提供および中断）"
+        },
+        "article11": {
+          "title": "第11条（サービス利用の制限および中止）"
+        },
+        "article12": {
+          "title": "第12条（利用者の義務）"
+        },
+        "article13": {
+          "title": "第13条（会社の義務）"
+        }
+      },
+      "chapter4": {
+        "title": "第4章 料金および決済",
+        "article14": {
+          "title": "第14条（サービス利用料金）"
+        },
+        "article15": {
+          "title": "第15条（料金の納付）"
+        },
+        "article16": {
+          "title": "第16条（料金の過誤納）"
+        },
+        "article17": {
+          "title": "第17条（未納料金の処理）"
+        }
+      },
+      "chapter5": {
+        "title": "第5章 契約解除および返金",
+        "article18": {
+          "title": "第18条（利用契約の解除）"
+        },
+        "article19": {
+          "title": "第19条（返金）"
+        },
+        "article20": {
+          "title": "第20条（申込撤回等）"
+        }
+      },
+      "chapter6": {
+        "title": "第6章 損害賠償および免責",
+        "article21": {
+          "title": "第21条（損害賠償）"
+        },
+        "article22": {
+          "title": "第22条（会社の免責）"
+        },
+        "article23": {
+          "title": "第23条（責任の制限）"
+        }
+      },
+      "chapter7": {
+        "title": "第7章 個人情報保護",
+        "article24": {
+          "title": "第24条（個人情報の保護）"
+        },
+        "article25": {
+          "title": "第25条（個人情報の保有および利用期間）"
+        }
+      },
+      "chapter8": {
+        "title": "第8章 その他",
+        "article26": {
+          "title": "第26条（知的財産権）"
+        },
+        "article27": {
+          "title": "第27条（紛争の解決）"
+        },
+        "article28": {
+          "title": "第28条（裁判管轄および準拠法）"
+        },
+        "article29": {
+          "title": "第29条（通知）"
+        }
+      },
+      "contact": {
+        "title": "お問い合わせ先",
+        "company": "会社名：",
+        "address": "住所：",
+        "phone": "代表電話：",
+        "email": "メール：",
+        "businessNumber": "事業者登録番号：",
+        "ceo": "代表取締役："
+      }
+    },
+    "whatIsImsms": {
+      "hero": {
+        "title": "IMSMSとは何ですか？",
+        "subtitle": "Apple iMessageを通じて\niPhoneユーザーに送信される\nプレミアムビジネスメッセージングサービスです"
+      },
+      "messages": {
+        "welcome": "こんにちは！IMSMSプレミアムメッセージです ✨",
+        "response": "わぁ！本当に様々な機能があるんですか？",
+        "photo": "高画質の写真をすぐに送信できます 📸",
+        "video": "動画はチャットで直接再生されます 🎬",
+        "secret": "秘密メッセージも送れます 🤫",
+        "secretContent": "これは秘密です！タッチして見てください",
+        "tapToView": "タップして表示",
+        "digitalTouch": "Digital Touchでハートを描きました",
+        "screenEffect": "画面エフェクトでお祝いしましょう！🎉",
+        "richContent": "アプリと連動したリッチコンテンツも可能です",
+        "applePayAmount": "50,000ウォン送金",
+        "memoji": "Memojiステッカーで感情表現！",
+        "linkPreview": "リンクは自動的にプレビューが生成されます",
+        "linkDescription": "プレミアムビジネスメッセージング",
+        "final": "本当に素晴らしい！全ての機能が完璧ですね 💙"
+      }
+    }
+  },
+  "pt": {
+    "nav": {
+      "about": "Sobre IMSMS",
+      "checkLabel": "Verificar",
+      "features": "Serviço",
+      "pricing": "Preços",
+      "demo": "Demo",
+      "news": "Notícias",
+      "contact": "Contato",
+      "console": "Console Admin",
+      "home": "Início"
+    },
+    "hero": {
+      "title": "Envie 1 SMS, Ganhe 1 IMSMS Grátis!",
+      "subtitle": "Acumule créditos apenas enviando SMS e envie mensagens premium Apple iMessage sem custo adicional",
+      "description": "Solução premium de mensagens baseada em Apple iMessage para empresas que gastam mais de €200/mês em SMS",
+      "cta": "Consulta Gratuita",
+      "demo": "Ver Demo",
+      "checkBadge": "Verificar",
+      "whatIsImsms": "O que é IMSMS?",
+      "clickToLearn": "Clique para saber mais"
+    },
+    "revolutionary": {
+      "title": "Revolução 1+1 Mensagens",
+      "smsCount": "1 msg",
+      "paid": "Pago",
+      "imsmsCount": "1 msg",
+      "free": "GRÁTIS",
+      "result": "2 mensagens enviadas",
+      "resultSub": "ao custo de 1",
+      "mainText": "Envie 2 mensagens ao custo de 1 SMS",
+      "subText": "** IMSMS fornecido gratuitamente ao enviar SMS, LMS, MMS"
+    },
+    "service": {
+      "title": "Serviço Premium de Mensagens Exclusivo para iPhone IMSMS",
+      "card1": {
+        "title": "Enviar para Dispositivos iPhone",
+        "description": "Entregue via iMessage em todos os dispositivos: iPhone, iPad, Mac, Apple Watch. As mensagens chegam instantaneamente, independentemente de qual dispositivo Apple o usuário possui."
+      },
+      "card2": {
+        "title": "Criptografia End-to-End",
+        "description": "Todas as mensagens perfeitamente protegidas com a tecnologia de segurança de mais alto nível da Apple. Envie informações corporativas confidenciais com confiança."
+      },
+      "card3": {
+        "title": "Status de Entrega em Tempo Real",
+        "description": "Recursos premium do iMessage como confirmações de leitura e indicadores de digitação. Permita comunicação em tempo real com clientes."
+      },
+      "card4": {
+        "title": "Painel de Análise Avançado",
+        "description": "Monitore taxas de entrega, leitura e cliques em tempo real. Maximize a eficácia da campanha com insights baseados em IA."
+      },
+      "card5": {
+        "title": "Marketing Direcionado",
+        "description": "Execute estratégias de marketing premium para usuários Apple. Alcance efetivamente segmentos de clientes de alto valor."
+      },
+      "card6": {
+        "title": "Mensagens Interativas",
+        "description": "Forneça serviços conversacionais baseados em mensagens bidirecionais, apoiando a entrega direta de informações aos usuários."
+      }
+    },
+    "credit": {
+      "title": "Use Vários Recursos e Serviços IMSMS com Créditos Acumulados",
+      "category1": {
+        "title": "Envio IMSMS",
+        "item1": "Envio SMS/LMS",
+        "credit1": "1 crédito",
+        "item2": "Envio MMS",
+        "credit2": "2 créditos"
+      },
+      "category2": {
+        "title": "Configuração de Conta IMSMS",
+        "item1": "Nova Configuração de Conta de Envio",
+        "credit1": "100.000 créditos",
+        "item2": "Adicionar/Redefinir Conta de Envio",
+        "credit2": "80.000 créditos"
+      },
+      "category3": {
+        "title": "Recursos Adicionais IMSMS",
+        "item1": "Recurso de Opt-in",
+        "credit1": "GRÁTIS",
+        "item2": "HLR LOOKUP",
+        "credit2": "100/1 crédito"
+      },
+      "note": "* Os créditos estão disponíveis permanentemente sem data de expiração"
+    },
+    "pricing": {
+      "title": "Preços Justos",
+      "subtitle": "📱 SMS, LMS, MMS, KakaoTalk, IMSMS",
+      "sectionTitle": "Menor Preço do Mercado",
+      "challenge": "🤔 Realmente o menor preço? Compare você mesmo!",
+      "othersTitle": "Média dos Outros",
+      "currency": "€",
+      "oneMessage": "1 mensagem enviada",
+      "twoMessages": "2 mensagens enviadas",
+      "smsOnly": "Apenas SMS",
+      "smsPlusImsms": "SMS + IMSMS",
+      "doubleBadge": "Dobro de mensagens pelo mesmo preço!",
+      "others": {
+        "feature1": "Apenas SMS",
+        "feature2": "Sem troca automática",
+        "feature3": "Sem otimização de custos"
+      },
+      "imsms": {
+        "title": "IMSMS",
+        "price": "GRÁTIS",
+        "unit": "com SMS"
+      },
+      "ctaMain": "Mesmo preço, dobro de mensagens\nProporemos o plano de preços ideal para seu volume e finalidade de envio",
+      "comparison": {
+        "title": "IMSMS vs Outros",
+        "others": "Média dos Outros",
+        "imsms": "IMSMS",
+        "othersFormula": "Apenas SMS",
+        "imsmsFormula": "SMS + IMSMS juntos",
+        "message": "Dobro de mensagens pelo mesmo preço!"
+      },
+      "sms": {
+        "title": "SMS",
+        "price": "€0.01",
+        "unit": "/msg"
+      },
+      "lms": {
+        "title": "LMS",
+        "price": "€0.03",
+        "unit": "/msg"
+      },
+      "mms": {
+        "title": "MMS",
+        "price": "€0.10",
+        "unit": "/msg"
+      }
+    },
+    "form": {
+      "companyName": "Nome da Empresa *",
+      "companyNamePlaceholder": "Digite o nome da empresa",
+      "contactName": "Pessoa de Contato *",
+      "contactNamePlaceholder": "Digite o nome",
+      "email": "Email *",
+      "emailPlaceholder": "example@company.com",
+      "phone": "Telefone *",
+      "phonePlaceholder": "+351-00-000-0000",
+      "monthlyVolume": "Volume Mensal Estimado",
+      "selectOption": "Por favor selecione",
+      "volume1": "Menos de 10mil",
+      "volume2": "10mil~100mil",
+      "volume3": "100mil~500mil",
+      "volume4": "500mil~1M",
+      "volume5": "Mais de 1M",
+      "message": "Mensagem",
+      "messagePlaceholder": "Por favor, insira consulta detalhada",
+      "submit": "Solicitar Orçamento"
+    },
+    "demo": {
+      "title": "Experimente Diretamente no Seu iPhone",
+      "qrInstruction": "📱 Escaneie o QR para abrir o app Mensagens.\nEnvie a mensagem 'Aceitar demo IMSMS' como está.\nReceba mensagem demo instantaneamente.",
+      "step1": "Pressione o botão abaixo para abrir iMessage",
+      "step2": "Envie mensagem \"Solicitar demo IMSMS\"",
+      "step3": "Receba automaticamente mensagem demo IMSMS",
+      "consentText": "Concordo em receber mensagens",
+      "consentNotice": "* Automaticamente excluído após enviar mensagem demo uma vez",
+      "sendButton": "Solicitar Demo via iMessage",
+      "note": "* Disponível apenas para usuários iPhone. Sem cobrança pelo envio de mensagem de opt-in."
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "q1": "O que é IMSMS?",
+      "a1": "IMSMS é um serviço de mensagens empresariais que utiliza a infraestrutura iMessage da Apple. Ao contrário de SMS/LMS regular, pode ser enviado gratuitamente e fornece recursos premium como confirmações de leitura e indicadores de digitação.",
+      "q2": "Para quais empresas é adequado?",
+      "a2": "É adequado para todas as empresas que gastam mais de €200/mês em SMS. Especialmente otimizado para empresas que valorizam a experiência do cliente, como marcas premium, finanças, saúde e comércio eletrônico.",
+      "q3": "Pode integrar com sistemas existentes?",
+      "a3": "Sim, pode. Fornecemos REST API e vários SDKs para fácil integração com CRM, ERP e ferramentas de automação de marketing existentes. Engenheiros dedicados apoiam a integração.",
+      "q4": "É seguro?",
+      "a4": "Todas as mensagens são protegidas com a tecnologia de criptografia End-to-End da Apple. Possuímos certificação ISO 27001 e infraestrutura de segurança de nível financeiro.",
+      "q5": "O que acontece se o envio falhar?",
+      "a5": "Se o envio de iMessage falhar, automaticamente volta para SMS regular. Embora cobranças separadas se apliquem neste caso, a entrega de mensagem é garantida em 100%."
+    },
+    "news": {
+      "title": "Notícias da Empresa",
+      "subtitle": "Mantenha-se atualizado com as últimas notícias do IMSMS",
+      "loadMore": "Carregar Mais Notícias",
+      "categories": {
+        "all": "Todos",
+        "award": "Prêmios",
+        "patent": "Patentes",
+        "expo": "Exposições",
+        "partnership": "Parcerias",
+        "update": "Atualização de Produto"
+      },
+      "modal": {
+        "close": "Fechar",
+        "share": "Compartilhar"
+      }
+    },
+    "contact": {
+      "title": "Comece Agora",
+      "subtitle": "Reduza os custos de mensagens pela metade e dobre a experiência do cliente",
+      "signupButton": "Cadastrar Grátis",
+      "emailLabel": "Email",
+      "phoneLabel": "Telefone",
+      "form": {
+        "name": "Nome da Empresa",
+        "email": "Email",
+        "phone": "Telefone",
+        "message": "Mensagem",
+        "submit": "Solicitar Consulta"
+      }
+    },
+    "footer": {
+      "terms": "Termos de Serviço",
+      "privacy": "Política de Privacidade",
+      "api": "Documentação API",
+      "partner": "Programa de Parceiros",
+      "console": "Console Admin",
+      "company1": "TEAMPLAYER",
+      "company2": "TEAMPLEAN co.,LTD",
+      "businessNumber": "Número de Registro",
+      "ceo": "CEO",
+      "established": "Fundado",
+      "address": "Endereço",
+      "address1": "22 Dongbaek-ro, Giheung-gu, Yongin-si, Gyeonggi-do",
+      "address2": "602, Mapo Biz Plaza, 18 Maebongsan-ro, Mapo-gu, Seul",
+      "serviceNote": "IMSMS é um serviço operado conjuntamente pela TEAMPLAYER e TEAMPLEAN.",
+      "copyright": "© 2024 IMSMS. Todos os direitos reservados. | Apple, iMessage são marcas registradas da Apple Inc."
+    },
+    "terms": {
+      "pageTitle": "Termos de Serviço | IMSMS - TEAMPLAYER",
+      "title": "Termos de Serviço IMSMS",
+      "subtitle": "Termos de Serviço de Mensagens Empresariais TEAMPLAYER | Data de Vigência: 1º de Novembro de 2024",
+      "toc": {
+        "title": "Índice",
+        "chapter1": "Capítulo 1 Disposições Gerais",
+        "chapter2": "Capítulo 2 Contrato de Serviço",
+        "chapter3": "Capítulo 3 Uso do Serviço",
+        "chapter4": "Capítulo 4 Taxas e Pagamento",
+        "chapter5": "Capítulo 5 Rescisão e Reembolso",
+        "chapter6": "Capítulo 6 Indenização e Isenção",
+        "chapter7": "Capítulo 7 Proteção de Informações Pessoais",
+        "chapter8": "Capítulo 8 Diversos"
+      },
+      "chapter1": {
+        "title": "Capítulo 1 Disposições Gerais",
+        "article1": {
+          "title": "Artigo 1 (Propósito)",
+          "content": "Estes Termos e Condições estabelecem os direitos, obrigações e responsabilidades entre a Empresa e os Usuários, e outros assuntos necessários relacionados ao uso do serviço de retransmissão de mensagens empresariais TEAMPLAYER (doravante denominado \"Serviço\") fornecido pela TEAMPLAYER Inc. (doravante denominada \"Empresa\")."
+        },
+        "article2": {
+          "title": "Artigo 2 (Definição de Termos)",
+          "intro": "As definições dos termos utilizados nestes Termos e Condições são as seguintes:",
+          "item1": "\"Serviço\" significa o serviço de retransmissão de mensagens empresariais IMSMS (iMessage SMS) fornecido pela Empresa.",
+          "item2": "\"Usuário\" significa uma empresa ou empresário individual que tenha celebrado um contrato de serviço com a Empresa e utilize o Serviço.",
+          "item3": "\"Conta (ID)\" significa uma combinação de letras e números definida pelo Usuário e aprovada pela Empresa para identificação do Usuário e uso do serviço.",
+          "item4": "\"Senha\" significa uma combinação de letras ou números determinada pelo Usuário para verificar se são o titular legítimo da conta e proteger a confidencialidade.",
+          "item5": "\"Mensagem\" significa conteúdo como texto, imagens e vídeos enviados através do Serviço.",
+          "item6": "\"IMSMS\" significa um serviço de mensagens que utiliza o protocolo iMessage da Apple.",
+          "item7": "\"Pré-pago\" significa um método pelo qual o Usuário paga a taxa de uso antecipadamente antes de usar o Serviço.",
+          "item8": "\"Pós-pago\" significa um método pelo qual o Usuário paga a taxa de uso no mês seguinte após usar o Serviço.",
+          "item9": "\"Console Admin\" significa um sistema de gerenciamento baseado na web para os Usuários usarem e gerenciarem o Serviço."
+        },
+        "article3": {
+          "title": "Artigo 3 (Publicação e Alteração dos Termos)"
+        },
+        "article4": {
+          "title": "Artigo 4 (Interpretação dos Termos)"
+        }
+      },
+      "chapter2": {
+        "title": "Capítulo 2 Contrato de Serviço",
+        "article5": {
+          "title": "Artigo 5 (Formação do Contrato de Serviço)"
+        },
+        "article6": {
+          "title": "Artigo 6 (Aprovação da Aplicação de Serviço)"
+        },
+        "article7": {
+          "title": "Artigo 7 (Alteração de Informações do Usuário)"
+        },
+        "article8": {
+          "title": "Artigo 8 (Gerenciamento de Conta e Senha)"
+        }
+      },
+      "chapter3": {
+        "title": "Capítulo 3 Uso do Serviço",
+        "article9": {
+          "title": "Artigo 9 (Conteúdo do Serviço)"
+        },
+        "article10": {
+          "title": "Artigo 10 (Fornecimento e Suspensão do Serviço)"
+        },
+        "article11": {
+          "title": "Artigo 11 (Restrição e Suspensão do Uso do Serviço)"
+        },
+        "article12": {
+          "title": "Artigo 12 (Obrigações do Usuário)"
+        },
+        "article13": {
+          "title": "Artigo 13 (Obrigações da Empresa)"
+        }
+      },
+      "chapter4": {
+        "title": "Capítulo 4 Taxas e Pagamento",
+        "article14": {
+          "title": "Artigo 14 (Taxas de Serviço)"
+        },
+        "article15": {
+          "title": "Artigo 15 (Pagamento de Taxas)"
+        },
+        "article16": {
+          "title": "Artigo 16 (Pagamento Excessivo e Insuficiente)"
+        },
+        "article17": {
+          "title": "Artigo 17 (Tratamento de Taxas Não Pagas)"
+        }
+      },
+      "chapter5": {
+        "title": "Capítulo 5 Rescisão e Reembolso",
+        "article18": {
+          "title": "Artigo 18 (Rescisão do Contrato de Serviço)"
+        },
+        "article19": {
+          "title": "Artigo 19 (Reembolso)"
+        },
+        "article20": {
+          "title": "Artigo 20 (Cancelamento de Assinatura)"
+        }
+      },
+      "chapter6": {
+        "title": "Capítulo 6 Indenização e Isenção",
+        "article21": {
+          "title": "Artigo 21 (Indenização)"
+        },
+        "article22": {
+          "title": "Artigo 22 (Isenção da Empresa)"
+        },
+        "article23": {
+          "title": "Artigo 23 (Limitação de Responsabilidade)"
+        }
+      },
+      "chapter7": {
+        "title": "Capítulo 7 Proteção de Informações Pessoais",
+        "article24": {
+          "title": "Artigo 24 (Proteção de Informações Pessoais)"
+        },
+        "article25": {
+          "title": "Artigo 25 (Período de Retenção e Uso de Informações Pessoais)"
+        }
+      },
+      "chapter8": {
+        "title": "Capítulo 8 Diversos",
+        "article26": {
+          "title": "Artigo 26 (Direitos de Propriedade Intelectual)"
+        },
+        "article27": {
+          "title": "Artigo 27 (Resolução de Disputas)"
+        },
+        "article28": {
+          "title": "Artigo 28 (Jurisdição e Lei Aplicável)"
+        },
+        "article29": {
+          "title": "Artigo 29 (Notificação)"
+        }
+      },
+      "contact": {
+        "title": "Informações de Contato",
+        "company": "Empresa:",
+        "address": "Endereço:",
+        "phone": "Telefone:",
+        "email": "Email:",
+        "businessNumber": "Número de Registro:",
+        "ceo": "CEO:"
+      }
+    },
+    "whatIsImsms": {
+      "hero": {
+        "title": "O que é IMSMS?",
+        "subtitle": "Um serviço premium de mensagens empresariais\nentregue aos usuários de iPhone\natravés do Apple iMessage"
+      },
+      "messages": {
+        "welcome": "Olá! Esta é uma mensagem premium IMSMS ✨",
+        "response": "Uau! Existem realmente vários recursos?",
+        "photo": "Você pode enviar fotos de alta qualidade instantaneamente 📸",
+        "video": "Vídeos são reproduzidos diretamente no chat 🎬",
+        "secret": "Você também pode enviar mensagens secretas 🤫",
+        "secretContent": "Isso é um segredo! Toque para revelar",
+        "tapToView": "Toque para visualizar",
+        "digitalTouch": "Desenhei um coração com Digital Touch",
+        "screenEffect": "Comemore com efeitos de tela! 🎉",
+        "richContent": "Conteúdo rico integrado com aplicativos também é possível",
+        "applePayAmount": "Enviar ₩50.000",
+        "memoji": "Expresse emoções com adesivos Memoji!",
+        "linkPreview": "Links geram visualizações automaticamente",
+        "linkDescription": "Mensagens Empresariais Premium",
+        "final": "Incrível! Cada recurso é perfeito 💙"
+      }
+    }
+  }
+}

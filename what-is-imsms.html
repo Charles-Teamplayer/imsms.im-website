@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSMS란? - iPhone 프리미엄 메시징</title>
+    <meta name="description" content="IMSMS는 Apple iMessage를 통해 iPhone 사용자에게 전송되는 프리미엄 비즈니스 메시징 서비스입니다.">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #B92B27;
+            --primary-dark: #8B1A1A;
+            --primary-light: rgba(185, 43, 39, 0.1);
+            --primary-glass: rgba(185, 43, 39, 0.05);
+            --accent-pink: rgba(255, 192, 203, 0.3);
+            --glass-white: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --secondary: #000000;
+            --success: #34c759;
+            --warning: #ff9500;
+            --dark: #1c1c1e;
+            --gray: #8e8e93;
+            --light-gray: #f2f2f7;
+            --bg-primary: #ffffff;
+            --bg-secondary: #fef5f5;
+            --bg-tertiary: #fff5f5;
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --nav-bg: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(255, 255, 255, 0.3);
+            --shadow-color: rgba(31, 38, 135, 0.07);
+        }
+
+        /* ============================================
+           SIMPLIFIED DARK MODE - BASIC & READABLE
+           ============================================ */
+
+        [data-theme="dark"] {
+            --bg-primary: #1e1e1e;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #ffffff;
+            --primary: #ff3b30;
+            --primary-dark: #cc2e24;
+        }
+
+        /* GLOBAL WHITE TEXT RULE - TOP PRIORITY */
+        [data-theme="dark"],
+        [data-theme="dark"] body,
+        [data-theme="dark"] * {
+            color: #ffffff !important;
+        }
+
+        /* Basic Dark Background */
+        [data-theme="dark"] body {
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        [data-theme="dark"] nav {
+            background: rgba(30, 30, 30, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .nav-links a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .nav-links a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Logo */
+        [data-theme="dark"] .logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        [data-theme="dark"] .footer-logo {
+            filter: brightness(0) invert(1);
+        }
+
+        /* All Headings - WHITE */
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] h4,
+        [data-theme="dark"] h5,
+        [data-theme="dark"] h6 {
+            color: #ffffff !important;
+        }
+
+        /* All Paragraphs and Text - WHITE */
+        [data-theme="dark"] p,
+        [data-theme="dark"] span,
+        [data-theme="dark"] div,
+        [data-theme="dark"] li {
+            color: #ffffff !important;
+        }
+
+        /* Links */
+        [data-theme="dark"] a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Cards - Dark Background with White Text */
+        [data-theme="dark"] .card,
+        [data-theme="dark"] .definition-section,
+        [data-theme="dark"] .imessage-card,
+        [data-theme="dark"] .feature-item,
+        [data-theme="dark"] .dashboard-mockup,
+        [data-theme="dark"] .spec-item {
+            background: #2d2d2d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Card Hover */
+        [data-theme="dark"] .card:hover,
+        [data-theme="dark"] .imessage-card:hover,
+        [data-theme="dark"] .feature-item:hover {
+            background: #3a3a3a;
+            border-color: #ff3b30;
+        }
+
+        /* Buttons */
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn-home,
+        [data-theme="dark"] .service-cta-button,
+        [data-theme="dark"] .nav-cta {
+            background: #ff3b30;
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .btn:hover,
+        [data-theme="dark"] .btn-home:hover,
+        [data-theme="dark"] .service-cta-button:hover,
+        [data-theme="dark"] .nav-cta:hover {
+            background: #cc2e24;
+        }
+
+        /* Forms */
+        [data-theme="dark"] input,
+        [data-theme="dark"] textarea,
+        [data-theme="dark"] select {
+            background: #2d2d2d;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] input::placeholder,
+        [data-theme="dark"] textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-theme="dark"] input:focus,
+        [data-theme="dark"] textarea:focus,
+        [data-theme="dark"] select:focus {
+            border-color: #ff3b30;
+            background: #3a3a3a;
+        }
+
+        [data-theme="dark"] label {
+            color: #ffffff !important;
+        }
+
+        /* Footer */
+        [data-theme="dark"] footer {
+            background: #2d2d2d;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] footer p,
+        [data-theme="dark"] footer h4,
+        [data-theme="dark"] footer a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] footer a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Theme Toggle */
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ff3b30;
+        }
+
+        /* Language Selector */
+        [data-theme="dark"] .language-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .lang-btn {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .lang-btn.active {
+            background: #ff3b30;
+            color: #ffffff;
+        }
+
+        /* Service CTA Section */
+        [data-theme="dark"] .service-cta-section {
+            background: #2d2d2d;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Workflow Section - Override Inline Styles */
+        [data-theme="dark"] .workflow-section div[style*="background"] {
+            background: #2d2d2d !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Override ANY inline color styles */
+        [data-theme="dark"] [style*="color"] {
+            color: #ffffff !important;
+        }
+
+        /* Buttons Keep White Text */
+        [data-theme="dark"] button,
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn-home,
+        [data-theme="dark"] .service-cta-button {
+            color: #ffffff !important;
+        }
+
+        /* Links Keep White Text */
+        [data-theme="dark"] a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] a:hover {
+            color: #ff3b30 !important;
+        }
+
+        /* Table Headers and Cells */
+        [data-theme="dark"] th,
+        [data-theme="dark"] td,
+        [data-theme="dark"] table * {
+            color: #ffffff !important;
+        }
+
+        /* Service CTA Section Text */
+        [data-theme="dark"] .service-cta-section,
+        [data-theme="dark"] .service-cta-section *,
+        [data-theme="dark"] .service-cta-content,
+        [data-theme="dark"] .service-cta-content * {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .service-cta-section {
+            background: #2d2d2d !important;
+        }
+
+        /* Ensure all content text is bright white */
+        [data-theme="dark"] .content,
+        [data-theme="dark"] .description,
+        [data-theme="dark"] .text-content,
+        [data-theme="dark"] article,
+        [data-theme="dark"] section p,
+        [data-theme="dark"] .page-subtitle,
+        [data-theme="dark"] .definition-text,
+        [data-theme="dark"] .imessage-desc,
+        [data-theme="dark"] .feature-description,
+        [data-theme="dark"] .formula-description,
+        [data-theme="dark"] .app-content {
+            color: #ffffff !important;
+        }
+
+        /* Smooth Transitions */
+        [data-theme="dark"] * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            color: var(--text-primary);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation - matching main site exactly */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            overflow: visible;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+
+        [data-theme="dark"] .logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        [data-theme="dark"] .footer-logo {
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 현재 페이지 표시 - 기본 링크용 */
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active:not([href="what-is-imsms.html"])::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        /* IMSMS란 메뉴 강조 스타일 - 현재 페이지 */
+        .nav-links a.active[href="what-is-imsms.html"] {
+            position: relative;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.5rem 1rem 0.5rem 0.8rem;
+            padding-bottom: calc(0.5rem - 2px);
+            margin: 0 0.5rem;
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.1) 0%, rgba(255, 192, 203, 0.15) 100%);
+            border-radius: 25px;
+            border-bottom: 2px solid var(--primary);
+            animation: pulseGlow 2s ease-in-out infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a.active[href="what-is-imsms.html"]::before {
+            content: "🔥";
+            font-size: 16px;
+            animation: fireShake 1s ease-in-out infinite;
+        }
+
+        /* 확인 말풍선 */
+        .nav-links a.active[href="what-is-imsms.html"]::after {
+            content: "확인";
+            position: absolute;
+            top: -12px;
+            right: -5px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px 15px 15px 3px;
+            font-size: 10px;
+            font-weight: 600;
+            animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 3px 10px rgba(185, 43, 39, 0.3);
+            height: auto;
+            width: auto;
+            bottom: auto;
+            left: auto;
+        }
+
+        /* 호버시에도 확인 배지 유지 */
+        .nav-links a.active[href="what-is-imsms.html"]:hover::after {
+            content: "확인";
+            width: auto;
+        }
+
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(185, 43, 39, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(185, 43, 39, 0.5);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-3px);
+            }
+        }
+
+        @keyframes fireShake {
+            0%, 100% {
+                transform: rotate(-5deg) scale(1);
+            }
+            25% {
+                transform: rotate(5deg) scale(1.1);
+            }
+            50% {
+                transform: rotate(-3deg) scale(1.05);
+            }
+            75% {
+                transform: rotate(3deg) scale(1.1);
+            }
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.2);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3);
+            background: var(--primary-dark);
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.25rem;
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 0.25rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+            background: rgba(185, 43, 39, 0.1);
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+            background: var(--primary);
+            box-shadow: 0 2px 8px rgba(185, 43, 39, 0.3);
+        }
+
+        .theme-toggle {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Responsive Navigation Controls */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .nav-controls {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .lang-btn {
+                font-size: 1rem;
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: transparent;
+            padding: 120px 20px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* iPhone 17 Pro Max Style Mockup */
+        .iphone-mockup {
+            position: relative;
+            width: 430px;
+            height: 932px;
+            margin: 0 auto;
+            transform: scale(0.85);
+        }
+
+        .iphone-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c2c2e 0%, #1c1c1e 100%);
+            border-radius: 55px;
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.4),
+                0 50px 80px rgba(0,0,0,0.2);
+            padding: 12px;
+        }
+
+        /* Dynamic Island */
+        .dynamic-island {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 126px;
+            height: 37px;
+            background: #000;
+            border-radius: 24px;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .iphone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 45px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 59px;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 40px 8px;
+            z-index: 5;
+        }
+
+        .status-time {
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .status-icons {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .signal-icon, .wifi-icon, .battery-icon {
+            display: inline-block;
+        }
+
+        /* iMessage Header */
+        .imessage-header {
+            position: absolute;
+            top: 59px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #f8f8f8;
+            border-bottom: 1px solid #e5e5ea;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 4;
+            justify-content: center;
+            position: relative;
+        }
+
+        .back-arrow {
+            color: #007AFF;
+            font-size: 24px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .contact-info {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 4px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .contact-status {
+            font-size: 13px;
+            color: #8e8e93;
+        }
+
+        .message-container {
+            padding: 170px 20px 100px;
+            height: 100%;
+            overflow: hidden;
+            background: #ffffff;
+            position: relative;
+        }
+
+        /* Input Bar */
+        .input-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 85px;
+            background: #f8f8f8;
+            border-top: 1px solid #e5e5ea;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field {
+            flex: 1;
+            background: white;
+            border: 1px solid #e5e5ea;
+            border-radius: 20px;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-text {
+            flex: 1;
+            font-size: 16px;
+            color: #8e8e93;
+        }
+
+        .send-button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #007AFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            opacity: 0;
+            position: absolute;
+            width: calc(100% - 40px);
+            transition: all 0.5s ease;
+        }
+
+        .message.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+        }
+
+        .message.received {
+            text-align: left;
+        }
+
+        .message.sent {
+            text-align: right;
+        }
+
+        .message-bubble {
+            display: inline-block;
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .received .message-bubble {
+            background: #e5e5ea;
+            color: #000;
+            border-bottom-left-radius: 4px;
+        }
+
+        .sent .message-bubble {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-effects {
+            display: inline-block;
+            padding: 4px 8px;
+            background: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* Media Messages */
+        .message-image {
+            width: 200px;
+            height: 150px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-top: 5px;
+        }
+
+        .message-video {
+            width: 200px;
+            height: 150px;
+            border-radius: 16px;
+            background: #000;
+            position: relative;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Invisible Ink Effect */
+        .invisible-ink {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .ink-content {
+            filter: blur(8px);
+            transition: filter 0.5s ease;
+        }
+
+        .invisible-ink:hover .ink-content {
+            filter: blur(0);
+        }
+
+        .ink-hint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: #8e8e93;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .invisible-ink:hover .ink-hint {
+            opacity: 0;
+        }
+
+        /* Reactions */
+        .message-reactions {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        .reaction {
+            background: rgba(0, 122, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+
+        /* Digital Touch */
+        .digital-touch {
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 16px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* App Integration */
+        .app-message {
+            background: #f0f0f0;
+            border-radius: 16px;
+            padding: 12px;
+            margin-top: 5px;
+            width: 200px;
+        }
+
+        .app-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .app-content {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Animation for sequential display */
+        @keyframes fadeInMessage {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Definition Section */
+        .definition-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin: 0 auto 60px;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .definition-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .definition-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .definition-text {
+            font-size: 20px;
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .definition-highlight {
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(185, 43, 39, 0.1);
+            padding: 2px 10px;
+            border-radius: 6px;
+        }
+
+        /* Workflow Section */
+        .workflow-section {
+            background: transparent;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, var(--primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* iMessage Features */
+        .imessage-features {
+            background: transparent;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .imessage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .imessage-card {
+            background: linear-gradient(135deg, #ffffff, #f8f8f8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .imessage-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .imessage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(185, 43, 39, 0.15);
+            border-color: var(--primary);
+        }
+
+        .imessage-card:hover::before {
+            opacity: 1;
+        }
+
+        .imessage-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .imessage-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .imessage-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-item:hover {
+            background: #fff;
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(185, 43, 39, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Back to Home Button - removed as footer is enough */
+
+        .btn-home {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-home:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(185, 43, 39, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 48px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .iphone-mockup {
+                width: 300px;
+                height: 600px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
+            </a>
+            <div class="nav-links">
+                <a href="what-is-imsms.html" class="active" data-i18n="nav.about"></a>
+                <a href="index.html#service" data-i18n="nav.features"></a>
+                <a href="index.html#pricing" data-i18n="nav.pricing"></a>
+                <a href="index.html#demo" data-i18n="nav.demo"></a>
+                <a href="index.html#news" data-i18n="nav.news"></a>
+                <a href="index.html#contact" data-i18n="nav.contact"></a>
+                <a href="https://console.imsms.im" class="nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="nav.console"></a>
+            </div>
+            <div class="nav-controls">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="ko">🇰🇷</button>
+                    <button class="lang-btn" data-lang="en">🇺🇸</button>
+                    <button class="lang-btn" data-lang="ja">🇯🇵</button>
+                    <button class="lang-btn" data-lang="pt">🇵🇹</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="page-header">
+            <h1 class="page-title" data-i18n="whatIsImsms.hero.title">IMSMS란 무엇인가요?</h1>
+            <p class="page-subtitle" style="line-height: 1.8;" data-i18n="whatIsImsms.hero.subtitle">
+                Apple iMessage를 통해<br>
+                iPhone 사용자에게 전송되는<br>
+                프리미엄 비즈니스 메시징 서비스입니다
+            </p>
+        </div>
+
+        <div class="iphone-showcase" style="margin: 0 0 20px 0; display: flex; justify-content: center; align-items: center;">
+        <div class="iphone-mockup">
+            <div class="iphone-frame">
+                <div class="dynamic-island"></div>
+                <div class="iphone-screen">
+                    <!-- Status Bar -->
+                    <div class="status-bar">
+                        <div class="status-time">9:41</div>
+                        <div class="status-icons">
+                            <span class="signal-icon">📶</span>
+                            <span class="wifi-icon">📶</span>
+                            <span class="battery-icon">🔋</span>
+                        </div>
+                    </div>
+
+                    <!-- iMessage Header -->
+                    <div class="imessage-header">
+                        <span class="back-arrow">‹</span>
+                        <div class="contact-info">
+                            <div class="contact-avatar">IM</div>
+                            <div class="contact-name">IMSMS</div>
+                            <div class="contact-status">iMessage</div>
+                        </div>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="message-container" id="messageContainer">
+                        <!-- Welcome Message -->
+                        <div class="message received" style="animation-delay: 0.2s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.welcome">
+                                안녕하세요! IMSMS 프리미엄 메시지입니다 ✨
+                            </div>
+                        </div>
+
+                        <!-- Text Response -->
+                        <div class="message sent" style="animation-delay: 0.5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.response">
+                                와! 정말 다양한 기능이 있나요?
+                            </div>
+                        </div>
+
+                        <!-- High Quality Photo -->
+                        <div class="message received" style="animation-delay: 1s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.photo">
+                                고화질 사진을 바로 전송할 수 있어요 📸
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop"
+                                 class="message-image" alt="고화질 이미지">
+                            <div class="message-reactions">
+                                <span class="reaction">❤️</span>
+                                <span class="reaction">👍</span>
+                            </div>
+                        </div>
+
+                        <!-- Video Message -->
+                        <div class="message received" style="animation-delay: 1.5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.video">
+                                동영상은 대화창에서 바로 재생됩니다 🎬
+                            </div>
+                            <div class="message-video">
+                                <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=400&h=300&fit=crop"
+                                     class="video-thumbnail" alt="비디오 썸네일">
+                                <div class="play-button">▶</div>
+                            </div>
+                        </div>
+
+                        <!-- Invisible Ink -->
+                        <div class="message received" style="animation-delay: 2s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.secret">
+                                비밀 메시지도 보낼 수 있어요 🤫
+                            </div>
+                            <div class="message-bubble invisible-ink">
+                                <span class="ink-content" data-i18n="whatIsImsms.messages.secretContent">이건 비밀입니다! 터치해보세요</span>
+                                <span class="ink-hint" data-i18n="whatIsImsms.messages.tapToView">탭하여 보기</span>
+                            </div>
+                        </div>
+
+                        <!-- Digital Touch -->
+                        <div class="message received" style="animation-delay: 2.5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.digitalTouch">
+                                Digital Touch로 하트를 그려봤어요
+                            </div>
+                            <div class="digital-touch">
+                                💗 Digital Touch
+                            </div>
+                        </div>
+
+                        <!-- Screen Effects -->
+                        <div class="message received" style="animation-delay: 3s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.screenEffect">
+                                화면 효과와 함께 축하해요! 🎉
+                            </div>
+                            <span class="message-effects">🎊 Confetti effect</span>
+                        </div>
+
+                        <!-- App Integration -->
+                        <div class="message received" style="animation-delay: 3.5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.richContent">
+                                앱과 연동된 리치 콘텐츠도 가능해요
+                            </div>
+                            <div class="app-message">
+                                <div class="app-icon">₩</div>
+                                <div class="app-content">
+                                    <strong>Apple Pay</strong><br>
+                                    <span data-i18n="whatIsImsms.messages.applePayAmount">50,000원 송금</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Memoji Sticker -->
+                        <div class="message received" style="animation-delay: 4s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.memoji">
+                                Memoji 스티커로 감정 표현!
+                            </div>
+                            <div style="font-size: 60px; margin: 10px 0;">🦄</div>
+                        </div>
+
+                        <!-- Link Preview -->
+                        <div class="message received" style="animation-delay: 4.5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.linkPreview">
+                                링크는 자동으로 미리보기가 생성돼요
+                            </div>
+                            <div class="app-message">
+                                <img src="https://via.placeholder.com/200x100/007AFF/ffffff?text=IMSMS"
+                                     style="width: 100%; border-radius: 8px; margin-bottom: 8px;">
+                                <div class="app-content">
+                                    <strong>imsms.im</strong><br>
+                                    <span data-i18n="whatIsImsms.messages.linkDescription">프리미엄 비즈니스 메시징</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Final Message -->
+                        <div class="message sent" style="animation-delay: 5s;">
+                            <div class="message-bubble" data-i18n="whatIsImsms.messages.final">
+                                정말 놀라워요! 모든 기능이 완벽하네요 💙
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Bar -->
+                    <div class="input-bar">
+                        <div class="input-field">
+                            <span style="color: #007AFF; font-size: 24px;">+</span>
+                            <span class="input-text">iMessage</span>
+                            <span style="color: #8e8e93; font-size: 20px;">😊</span>
+                        </div>
+                        <div class="send-button">↑</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+    <!-- Workflow Section -->
+    <div class="workflow-section">
+        <h2 class="section-title">작동 원리</h2>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
+
+                <!-- 기업 -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 120px; height: 120px; margin: 0 auto 20px; background: white; border: 4px solid #B92B27; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 60px; box-shadow: 0 10px 30px rgba(185, 43, 39, 0.25), 0 0 0 8px rgba(185, 43, 39, 0.1);">
+                        🏢
+                    </div>
+                    <h3 style="color: #333; font-size: 22px; margin-bottom: 10px;">기업/브랜드</h3>
+                    <p style="color: #666; font-size: 14px;">마케팅 메시지<br>프로모션 발송 요청</p>
+                </div>
+
+                <!-- Arrow 1 -->
+                <div style="color: var(--primary); font-size: 40px; animation: pulse 2s infinite;">→</div>
+
+                <!-- IMSMS Platform -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 120px; height: 120px; margin: 0 auto 20px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 30px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(185, 43, 39, 0.3);">
+                        <span style="color: white; font-size: 18px; font-weight: bold;">IMSMS<br>Platform</span>
+                    </div>
+                    <h3 style="color: #333; font-size: 22px; margin-bottom: 10px;">IMSMS 플랫폼</h3>
+                    <p style="color: #666; font-size: 14px;">수신동의 확인<br>메시지 최적화 및 전송</p>
+                </div>
+
+                <!-- Arrow 2 -->
+                <div style="color: var(--primary); font-size: 40px; animation: pulse 2s infinite;">→</div>
+
+                <!-- iPhone Users -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 120px; height: 120px; margin: 0 auto 20px; background: linear-gradient(135deg, #1c1c1e, #3a3a3c); border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 60px; box-shadow: 0 10px 30px rgba(28, 28, 30, 0.4);">
+                        📱
+                    </div>
+                    <h3 style="color: #333; font-size: 22px; margin-bottom: 10px;">iPhone 사용자</h3>
+                    <p style="color: #666; font-size: 14px;">iMessage로<br>프리미엄 메시지 수신</p>
+                </div>
+            </div>
+
+            <!-- Process Steps -->
+            <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <div style="background: #ffffff; border-radius: 20px; padding: 30px; border-left: 4px solid var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <span style="background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">1</span>
+                        <h4 style="color: #333; font-size: 18px; margin: 0;">메시지 발송 요청</h4>
+                    </div>
+                    <p style="color: #666; font-size: 14px; line-height: 1.6;">기업이 타겟 고객에게 보낼 마케팅 메시지, 프로모션, 알림 등을 IMSMS 플랫폼에 요청</p>
+                </div>
+
+                <div style="background: #ffffff; border-radius: 20px; padding: 30px; border: 3px solid #B92B27; box-shadow: 0 8px 20px rgba(185,43,39,0.2), 0 0 0 6px rgba(185, 43, 39, 0.08);">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <span style="background: white; color: #B92B27; border: 3px solid #B92B27; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; box-shadow: 0 2px 8px rgba(185,43,39,0.2);">2</span>
+                        <h4 style="color: #333; font-size: 18px; margin: 0;">수신동의 확인</h4>
+                    </div>
+                    <p style="color: #666; font-size: 14px; line-height: 1.6;">IMSMS 플랫폼이 수신자의 사전 동의 여부를 확인하고 iPhone 사용자 검증</p>
+                </div>
+
+                <div style="background: #ffffff; border-radius: 20px; padding: 30px; border-left: 4px solid #1c1c1e; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <span style="background: #1c1c1e; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px;">3</span>
+                        <h4 style="color: #333; font-size: 18px; margin: 0;">iMessage 전송</h4>
+                    </div>
+                    <p style="color: #666; font-size: 14px; line-height: 1.6;">Apple iMessage 네트워크를 통해 풍부한 미디어와 인터랙션이 가능한 프리미엄 메시지 전달</p>
+                </div>
+            </div>
+
+            <!-- Key Points -->
+            <div style="margin-top: 60px; background: rgba(185, 43, 39, 0.05); border-radius: 20px; padding: 30px; border: 1px solid rgba(185, 43, 39, 0.2);">
+                <h3 style="color: var(--primary); margin-bottom: 20px; text-align: center;">💡 핵심 포인트</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                    <div>
+                        <span style="font-size: 24px;">✅</span>
+                        <p style="color: #333; font-size: 14px; margin-top: 10px;">수신동의 된<br>사용자에게만 발송</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 24px;">🍎</span>
+                        <p style="color: #333; font-size: 14px; margin-top: 10px;">Apple 공식<br>iMessage 활용</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 24px;">💎</span>
+                        <p style="color: #333; font-size: 14px; margin-top: 10px;">일반 SMS보다<br>풍부한 표현력</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 24px;">📊</span>
+                        <p style="color: #333; font-size: 14px; margin-top: 10px;">실시간 전달 및<br>읽음 확인 가능</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iMessage Features -->
+    <div class="imessage-features">
+        <h2 class="section-title">iMessage만의 특별한 기능</h2>
+        <div class="imessage-grid">
+            <div class="imessage-card">
+                <div class="imessage-icon">💬</div>
+                <div class="imessage-name">타이핑 인디케이터</div>
+                <div class="imessage-desc">상대방이 메시지를 입력 중임을 실시간으로 표시</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">✅</div>
+                <div class="imessage-name">읽음 확인</div>
+                <div class="imessage-desc">메시지 전달 및 읽음 상태를 실시간으로 확인</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">🎆</div>
+                <div class="imessage-name">메시지 효과</div>
+                <div class="imessage-desc">풍선, 콘페티, 레이저 등 다양한 화면 효과</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">🎬</div>
+                <div class="imessage-name">인라인 미디어</div>
+                <div class="imessage-desc">동영상과 GIF가 대화창에서 바로 재생</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">🔗</div>
+                <div class="imessage-name">링크 프리뷰</div>
+                <div class="imessage-desc">URL 공유 시 자동으로 미리보기 생성</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">📍</div>
+                <div class="imessage-name">위치 공유</div>
+                <div class="imessage-desc">실시간 위치 및 지도 정보 전송</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">💳</div>
+                <div class="imessage-name">Apple Pay</div>
+                <div class="imessage-desc">메시지에서 바로 결제 가능</div>
+            </div>
+            <div class="imessage-card">
+                <div class="imessage-icon">🎮</div>
+                <div class="imessage-name">앱 통합</div>
+                <div class="imessage-desc">iMessage 앱으로 더 풍부한 경험</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span class="feature-icon">🎯</span>
+            <h3 class="feature-title">타겟팅된 도달</h3>
+            <p class="feature-description">
+                전 세계 15억 명 이상의 iPhone 사용자에게 직접 도달.
+                프리미엄 고객층에게 최적화된 메시징
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <span class="feature-icon">💎</span>
+            <h3 class="feature-title">프리미엄 경험</h3>
+            <p class="feature-description">
+                일반 SMS와는 차원이 다른 리치 미디어 경험.
+                브랜드 이미지를 높이는 고품질 메시징
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <span class="feature-icon">🔐</span>
+            <h3 class="feature-title">종단간 암호화</h3>
+            <p class="feature-description">
+                Apple의 최고 수준 보안 기술로 보호되는 메시지.
+                기업과 고객 간의 신뢰할 수 있는 소통
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <h3 class="feature-title">즉시 전달</h3>
+            <p class="feature-description">
+                Wi-Fi나 데이터를 통한 즉각적인 메시지 전송.
+                지연 없는 실시간 커뮤니케이션
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <span class="feature-icon">📊</span>
+            <h3 class="feature-title">높은 참여율</h3>
+            <p class="feature-description">
+                일반 SMS 대비 3배 높은 오픈율.
+                프리미엄 사용자의 적극적인 반응
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <span class="feature-icon">🌍</span>
+            <h3 class="feature-title">글로벌 스탠다드</h3>
+            <p class="feature-description">
+                국가 간 경계 없는 메시징.
+                로밍 요금 걱정 없는 국제 메시지
+            </p>
+        </div>
+    </div>
+
+    <!-- 서비스 안내 CTA 섹션 -->
+    <section class="service-cta-section">
+        <div class="container">
+            <div class="service-cta-content">
+                <h2>IMSMS 서비스를 시작할 준비가 되셨나요?</h2>
+                <p>다양한 요금제와 강력한 기능들을 확인해보세요</p>
+                <a href="index.html#revolutionary" class="service-cta-button">
+                    <span class="cta-icon">🚀</span>
+                    <span class="cta-text">서비스 자세히 알아보기</span>
+                    <span class="cta-arrow">→</span>
+                </a>
+                <div class="cta-features">
+                    <div class="cta-feature">✓ 월 25만원 이상 사용 기업 최적</div>
+                    <div class="cta-feature">✓ 1+1 메시지 혜택</div>
+                    <div class="cta-feature">✓ 실시간 분석 대시보드</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 4rem 2rem 2rem; color: white;">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="footer-logo" style="height: 50px; margin-bottom: 2rem;" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
+            <div class="footer-links" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="terms.html" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;">서비스 약관</a>
+                <a href="#" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;">개인정보처리방침</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;">API 문서</a>
+                <a href="#" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;">파트너 프로그램</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s;">관리자 콘솔</a>
+            </div>
+            <div class="company-info" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: center;">
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLAYER (팀플레이어)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 593-77-00117<br>
+                            대표이사: 김은경<br>
+                            설립: 2016년 11월 1일<br>
+                            경기도 용인시 기흥구 동백로 22
+                        </p>
+                    </div>
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">TEAMPLEAN co.,LTD (주식회사 팀플리언)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 746-86-03029<br>
+                            대표이사: 김원철<br>
+                            설립: 2024년 4월 1일<br>
+                            서울 마포구 매봉산로 18 마포비즈플라자 602호
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                    IMSMS는 TEAMPLAYER와 TEAMPLEAN이 공동 운영하는 서비스입니다.
+                </div>
+            </div>
+            <div class="copyright" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                © 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Looping message carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageContainer = document.getElementById('messageContainer');
+            const messages = messageContainer.querySelectorAll('.message');
+            let currentIndex = 0;
+            const maxVisibleMessages = 3; // Number of messages visible at once
+            let activeMessages = [];
+
+            // Hide all messages initially
+            messages.forEach(msg => {
+                msg.classList.remove('active');
+                msg.style.display = 'none';
+            });
+
+            function showNextMessage() {
+                // Hide old messages that are out of view
+                if (activeMessages.length >= maxVisibleMessages) {
+                    const oldMessage = activeMessages.shift();
+                    oldMessage.style.animation = 'slideOut 0.5s ease forwards';
+                    setTimeout(() => {
+                        oldMessage.classList.remove('active');
+                        oldMessage.style.display = 'none';
+                    }, 500);
+                }
+
+                // Show next message
+                const currentMessage = messages[currentIndex];
+                currentMessage.style.display = 'block';
+                setTimeout(() => {
+                    currentMessage.classList.add('active');
+                    currentMessage.style.animation = 'slideIn 0.5s ease forwards';
+                }, 50);
+
+                activeMessages.push(currentMessage);
+
+                // Update index for next iteration
+                currentIndex = (currentIndex + 1) % messages.length;
+
+                // If we've completed a cycle, add a pause
+                if (currentIndex === 0) {
+                    setTimeout(() => {
+                        // Clear all messages before restarting
+                        activeMessages.forEach(msg => {
+                            msg.style.animation = 'slideOut 0.5s ease forwards';
+                            setTimeout(() => {
+                                msg.classList.remove('active');
+                                msg.style.display = 'none';
+                            }, 500);
+                        });
+                        activeMessages = [];
+
+                        // Restart after clearing
+                        setTimeout(showNextMessage, 1000);
+                    }, 2000);
+                } else {
+                    // Continue showing next message
+                    setTimeout(showNextMessage, 1200);
+                }
+            }
+
+            // Start the carousel
+            setTimeout(showNextMessage, 500);
+
+            // Handle invisible ink interaction
+            const inkMessages = document.querySelectorAll('.invisible-ink');
+            inkMessages.forEach(ink => {
+                ink.addEventListener('mouseenter', function() {
+                    this.querySelector('.ink-content').style.filter = 'blur(0)';
+                    this.querySelector('.ink-hint').style.opacity = '0';
+                });
+                ink.addEventListener('mouseleave', function() {
+                    this.querySelector('.ink-content').style.filter = 'blur(8px)';
+                    this.querySelector('.ink-hint').style.opacity = '1';
+                });
+            });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-item, .imessage-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <script>
+        // Language and theme management
+        let translations = {};
+        let currentLang = 'ko';
+
+        // Load translations
+        async function loadTranslations() {
+            try {
+                const response = await fetch('lang/translations.json');
+                translations = await response.json();
+                console.log('Translations loaded:', translations);
+            } catch (error) {
+                console.error('Failed to load translations:', error);
+            }
+        }
+
+        // Switch language
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    // For subtitle, replace \n with <br>
+                    if (key.includes('subtitle') && translation.includes('\n')) {
+                        element.innerHTML = translation.replace(/\n/g, '<br>');
+                    } else {
+                        element.textContent = translation;
+                    }
+                }
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Update page language attribute
+            document.documentElement.setAttribute('lang', lang);
+        }
+
+        // Get translation by key
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let value = translations[lang];
+
+            for (const k of keys) {
+                if (value && value[k]) {
+                    value = value[k];
+                } else {
+                    return null;
+                }
+            }
+
+            return value;
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Load translations
+            await loadTranslations();
+
+            // Restore saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
+            switchLanguage(savedLang);
+
+            // Restore saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                // Check system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            }
+
+            // Add language selector event listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .service-cta-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff5f5 100%);
+            border-top: 1px solid rgba(185, 43, 39, 0.1);
+            margin-top: 3rem;
+        }
+
+        .service-cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .service-cta-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-cta-content p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(185, 43, 39, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .service-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(185, 43, 39, 0.4);
+        }
+
+        .cta-icon {
+            font-size: 1.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+        }
+
+        .cta-arrow {
+            font-size: 1.3rem;
+            animation: slideRight 1s ease-in-out infinite;
+        }
+
+        @keyframes slideRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .service-cta-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

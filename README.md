@@ -21,18 +21,23 @@ Apple iMessage 기반 프리미엄 기업 메시징 솔루션을 소개합니다
 ## 📁 프로젝트 구조
 ```
 imsms.im-website/
-├── index.html           # 메인 페이지
-├── news-data.json      # 회사소식 데이터
+├── index.html              # 메인 페이지 (다국어, 다크모드 지원)
+├── what-is-imsms.html     # IMSMS 소개 페이지
+├── terms.html             # 서비스 이용약관
+├── news-data.json         # 회사소식 데이터 (다국어)
+├── lang/
+│   └── translations.json  # 번역 데이터 (한/영/일/포)
 ├── assets/
-│   ├── images/         # 이미지 파일
+│   ├── images/            # 이미지 파일
 │   │   ├── imsms-logo.png
 │   │   ├── imsms-logo-header.png
-│   │   └── imsms-logo-original.png
-│   ├── css/            # 스타일시트
-│   └── js/             # JavaScript 파일
-├── docs/               # 문서
-├── .gitignore          # Git 설정
-└── README.md          # 프로젝트 문서
+│   │   ├── Commendation_1.jpg  # 서울중소벤처기업청장상
+│   │   └── Commendation_2.jpg
+│   ├── css/               # 스타일시트
+│   └── js/                # JavaScript 파일
+├── docs/                  # 문서
+├── .gitignore            # Git 설정
+└── README.md             # 프로젝트 문서
 ```
 
 ## 🛠 기술 스택
@@ -73,6 +78,36 @@ aws cloudfront create-invalidation \
 ```
 
 ## 📝 업데이트 이력
+
+### 2025-11-01 v1.4.0 (Stable)
+- 🌍 **다국어 지원 구현**
+  - 한국어, 영어, 일본어, 포르투갈어 4개 국어 지원
+  - JSON 기반 번역 시스템 (1,580+ 라인)
+  - 언어별 자동 저장 (localStorage)
+  - 일본어 UI 최적화 (폰트 85%, 자간 조정)
+- 🌙 **다크모드 기능 추가**
+  - CSS 변수 기반 테마 시스템
+  - 전역 색상 반전 및 예외 처리
+  - 로고 자동 색상 반전
+  - 테마 설정 자동 저장
+- 📄 **서비스 약관 페이지 추가**
+  - terms.html (1,059 라인)
+  - LG U+ 기반 전문 약관
+  - TEAMPLAYER 브랜딩
+  - 4개 언어 완전 번역
+- 📱 **IMSMS 소개 페이지 추가**
+  - what-is-imsms.html (1,700+ 라인)
+  - iPhone 목업 시연
+  - 인터랙티브 메시지 애니메이션
+  - iMessage 기능 시연
+- 🏆 **서울중소벤처기업청장상 수상**
+  - 수상 뉴스 추가 (2025-10-23)
+  - 상장 이미지 2종 추가
+  - 뉴스 모달 추가 이미지 지원
+- 🔧 **기술 개선**
+  - 뉴스 데이터 다국어 구조로 변경
+  - 번역 자동 적용 시스템
+  - 반응형 네비게이션 최적화
 
 ### 2025-10-12 v1.3.0
 - 💰 **가격 섹션 비교 카드 디자인 추가**

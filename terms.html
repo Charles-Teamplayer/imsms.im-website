@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="terms.pageTitle">서비스 이용약관 | IMSMS - TEAMPLAYER</title>
+    <meta name="description" content="IMSMS 기업 메시징 서비스 이용약관">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #B92B27;
+            --primary-dark: #8B1A1A;
+            --primary-light: rgba(185, 43, 39, 0.1);
+            --secondary: #000000;
+            --dark: #1c1c1e;
+            --gray: #8e8e93;
+            --light-gray: #f2f2f7;
+
+            /* Light mode (default) */
+            --bg-primary: #ffffff;
+            --bg-secondary: #fef5f5;
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --nav-bg: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-primary: #1e1e1e;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #ffffff;
+            --primary: #ff3b30;
+            --primary-dark: #cc2e24;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"],
+        [data-theme="dark"] body,
+        [data-theme="dark"] * {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] body {
+            background: #1e1e1e;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(30, 30, 30, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        [data-theme="dark"] .terms-container,
+        [data-theme="dark"] .toc {
+            background: #2d2d2d;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .toc a {
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .toc a:hover {
+            color: #ff3b30 !important;
+        }
+
+        [data-theme="dark"] footer {
+            background: #1e1e1e;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(185, 43, 39, 0.2);
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(185, 43, 39, 0.3);
+            background: var(--primary-dark);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.25rem;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 0.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+            background: rgba(185, 43, 39, 0.1);
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+            background: var(--primary);
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(185, 43, 39, 0.2);
+            transform: rotate(180deg);
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Terms Content */
+        .terms-hero {
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.1) 0%, rgba(255, 192, 203, 0.2) 100%);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .terms-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .terms-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .terms-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        .toc {
+            position: sticky;
+            top: 100px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .toc h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            padding-left: 0.5rem;
+        }
+
+        .terms-container {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .terms-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .terms-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .terms-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+        }
+
+        .terms-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .terms-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .terms-section ul, .terms-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .article {
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .clause {
+            margin-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .sub-clause {
+            margin-left: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .important-note {
+            background: rgba(185, 43, 39, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .important-note strong {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 2rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .company-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-info h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .terms-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .terms-hero h1 {
+                font-size: 2rem;
+            }
+
+            .terms-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-controls {
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="logo-img" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 2rem; font-weight: 900; color: #B92B27;\'>IMSMS</div>');">
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav.home">홈</a>
+                <a href="what-is-imsms.html" data-i18n="nav.about">IMSMS란</a>
+                <a href="index.html#service" data-i18n="nav.features">서비스</a>
+                <a href="index.html#pricing" data-i18n="nav.pricing">요금</a>
+                <a href="https://console.imsms.im" class="nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="nav.console">관리자 콘솔</a>
+            </div>
+            <div class="nav-controls">
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="ko">🇰🇷</button>
+                    <button class="lang-btn" data-lang="en">🇺🇸</button>
+                    <button class="lang-btn" data-lang="ja">🇯🇵</button>
+                    <button class="lang-btn" data-lang="pt">🇵🇹</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <h1 data-i18n="terms.title">IMSMS 서비스 이용약관</h1>
+        <p data-i18n="terms.subtitle">TEAMPLAYER 기업 메시징 중계 서비스 이용약관 | 시행일: 2024년 11월 1일</p>
+    </section>
+
+    <!-- Terms Content -->
+    <div class="terms-wrapper">
+        <!-- Table of Contents -->
+        <aside class="toc">
+            <h3 data-i18n="terms.toc.title">목차</h3>
+            <ul>
+                <li><a href="#section1" data-i18n="terms.toc.chapter1">제1장 총칙</a></li>
+                <li><a href="#section2" data-i18n="terms.toc.chapter2">제2장 서비스 이용계약</a></li>
+                <li><a href="#section3" data-i18n="terms.toc.chapter3">제3장 서비스 이용</a></li>
+                <li><a href="#section4" data-i18n="terms.toc.chapter4">제4장 요금 및 결제</a></li>
+                <li><a href="#section5" data-i18n="terms.toc.chapter5">제5장 계약 해지 및 환불</a></li>
+                <li><a href="#section6" data-i18n="terms.toc.chapter6">제6장 손해배상 및 면책</a></li>
+                <li><a href="#section7" data-i18n="terms.toc.chapter7">제7장 개인정보 보호</a></li>
+                <li><a href="#section8" data-i18n="terms.toc.chapter8">제8장 기타</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Terms Content -->
+        <div class="terms-container">
+            <!-- 제1장: 총칙 -->
+            <section class="terms-section" id="section1">
+                <h2 data-i18n="terms.chapter1.title">제1장 총칙</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter1.article1.title">제1조 (목적)</h4>
+                    <p data-i18n="terms.chapter1.article1.content">이 약관은 주식회사 팀플레이어(이하 "회사"라 합니다)가 제공하는 TEAMPLAYER 기업 메시징 중계 서비스(이하 "서비스"라 합니다)의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter1.article2.title">제2조 (용어의 정의)</h4>
+                    <p data-i18n="terms.chapter1.article2.intro">이 약관에서 사용하는 용어의 정의는 다음과 같습니다.</p>
+                    <ol>
+                        <li data-i18n="terms.chapter1.article2.item1">"서비스"라 함은 회사가 제공하는 IMSMS(iMessage SMS) 기업 메시징 중계 서비스를 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item2">"이용자"라 함은 회사와 서비스 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 법인 또는 개인사업자를 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item3">"계정(ID)"이라 함은 이용자의 식별과 서비스 이용을 위하여 이용자가 설정하고 회사가 승인하는 문자와 숫자의 조합을 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item4">"비밀번호"라 함은 이용자가 부여받은 계정과 일치되는 이용자임을 확인하고 비밀보호를 위해 이용자 자신이 정한 문자 또는 숫자의 조합을 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item5">"메시지"라 함은 서비스를 통해 발송되는 문자, 이미지, 영상 등의 콘텐츠를 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item6">"IMSMS"라 함은 Apple의 iMessage 프로토콜을 활용한 메시징 서비스를 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item7">"선불제"라 함은 이용자가 서비스 이용 전에 미리 이용 요금을 납부하는 방식을 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item8">"후불제"라 함은 이용자가 서비스를 이용한 후 익월에 이용 요금을 납부하는 방식을 의미합니다.</li>
+                        <li data-i18n="terms.chapter1.article2.item9">"관리자 콘솔"이라 함은 이용자가 서비스를 이용하고 관리하기 위한 웹 기반 관리 시스템을 의미합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter1.article3.title">제3조 (약관의 명시와 개정)</h4>
+                    <ol>
+                        <li>회사는 이 약관의 내용을 이용자가 쉽게 알 수 있도록 서비스 초기 화면 및 홈페이지에 게시합니다.</li>
+                        <li>회사는 「전자상거래 등에서의 소비자보호에 관한 법률」, 「약관의 규제에 관한 법률」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관련 법령을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.</li>
+                        <li>회사가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 서비스 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 이용자에게 불리하게 약관내용을 변경하는 경우에는 최소한 30일 이상의 사전 유예기간을 두고 공지합니다.</li>
+                        <li>이용자는 변경된 약관에 대해 거부할 권리가 있습니다. 이용자는 변경된 약관이 공지된 후 15일 이내에 거부 의사를 표명할 수 있습니다. 이용자가 거부하는 경우 회사는 당해 이용자와의 계약을 해지할 수 있습니다. 만약 이용자가 변경된 약관이 공지된 후 15일 이내에 거부 의사를 표시하지 않는 경우에는 동의한 것으로 간주합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter1.article4.title">제4조 (약관의 해석)</h4>
+                    <ol>
+                        <li>이 약관에서 규정하지 않은 사항에 관해서는 「전기통신사업법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」, 「전자상거래 등에서의 소비자보호에 관한 법률」 등 관계법령 및 회사가 정한 서비스의 세부이용지침 등의 규정에 따릅니다.</li>
+                        <li>회사는 필요한 경우 특정 서비스에 관하여 적용될 사항(이하 "개별약관"이라 합니다)을 정하여 미리 공지할 수 있습니다. 이용자가 개별약관에 동의하고 특정 서비스를 이용하는 경우에는 개별약관이 우선적으로 적용되고, 이 약관은 보충적인 효력을 갖습니다.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제2장: 서비스 이용계약 -->
+            <section class="terms-section" id="section2">
+                <h2 data-i18n="terms.chapter2.title">제2장 서비스 이용계약</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter2.article5.title">제5조 (이용계약의 성립)</h4>
+                    <ol>
+                        <li>이용계약은 서비스를 이용하고자 하는 자(이하 "이용신청자"라 합니다)가 회사가 정한 절차에 따라 이용신청을 하고, 회사가 이를 승낙함으로써 성립됩니다.</li>
+                        <li>이용신청자는 회사가 정한 양식에 따라 다음 각 호의 사항을 기재하여 이용신청을 하여야 합니다.
+                            <div class="clause">
+                                1) 법인명 또는 상호<br>
+                                2) 사업자등록번호<br>
+                                3) 대표자 성명<br>
+                                4) 사업장 소재지<br>
+                                5) 담당자 성명, 연락처, 이메일 주소<br>
+                                6) 기타 회사가 필요하다고 인정하는 사항
+                            </div>
+                        </li>
+                        <li>이용신청자는 반드시 실명으로 이용신청을 하여야 하며, 실명이 아니거나 타인의 명의를 사용한 경우에는 이 약관에 의한 이용자로서의 권리를 주장할 수 없습니다.</li>
+                        <li>회사는 이용신청자에 대하여 전문기관을 통한 실명확인 및 본인인증을 요청할 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter2.article6.title">제6조 (이용신청의 승낙)</h4>
+                    <ol>
+                        <li>회사는 제5조에 따른 이용신청자에 대하여 원칙적으로 접수 순서에 따라 서비스 이용을 승낙합니다.</li>
+                        <li>회사는 다음 각 호에 해당하는 경우에는 이용신청에 대한 승낙을 제한하거나 보류할 수 있습니다.
+                            <div class="clause">
+                                1) 실명이 아니거나 타인의 명의를 도용한 경우<br>
+                                2) 허위의 정보를 기재하거나, 회사가 제시하는 내용을 기재하지 않은 경우<br>
+                                3) 이용신청자의 귀책사유로 이용승낙이 곤란한 경우<br>
+                                4) 관계법령에 위배되거나 사회의 안녕질서 또는 미풍양속을 저해할 목적으로 신청한 경우<br>
+                                5) 기타 회사가 정한 이용신청 요건이 미비된 경우
+                            </div>
+                        </li>
+                        <li>회사는 다음 각 호에 해당하는 경우에는 그 사유가 해소될 때까지 이용승낙을 유보할 수 있습니다.
+                            <div class="clause">
+                                1) 회사의 설비에 여유가 없는 경우<br>
+                                2) 회사의 기술상 지장이 있는 경우<br>
+                                3) 기타 회사의 귀책사유로 이용승낙이 곤란한 경우
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter2.article7.title">제7조 (이용자 정보의 변경)</h4>
+                    <ol>
+                        <li>이용자는 이용신청 시 기재한 사항이 변경되었을 경우 즉시 온라인 수정 또는 전자우편, 기타 방법으로 회사에 그 변경사항을 알려야 합니다.</li>
+                        <li>제1항의 변경사항을 회사에 알리지 않아 발생한 불이익에 대하여 회사는 책임지지 않습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter2.article8.title">제8조 (계정 및 비밀번호 관리)</h4>
+                    <ol>
+                        <li>이용자는 계정 및 비밀번호에 관하여 관리책임이 있으며, 이를 제3자가 이용하도록 하여서는 안 됩니다.</li>
+                        <li>회사는 이용자의 계정이 개인정보 유출 우려가 있거나, 반사회적 또는 미풍양속에 어긋나거나 회사 및 회사의 운영자로 오인할 우려가 있는 경우, 해당 계정의 이용을 제한할 수 있습니다.</li>
+                        <li>이용자는 계정 및 비밀번호가 도용되거나 제3자가 사용하고 있음을 인지한 경우에는 즉시 회사에 통보하고 회사의 안내에 따라야 합니다.</li>
+                        <li>제3항의 경우에 해당 이용자가 회사에 그 사실을 통지하지 않거나, 통지한 경우에도 회사의 안내에 따르지 않아 발생한 불이익에 대하여 회사는 책임지지 않습니다.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제3장: 서비스 이용 -->
+            <section class="terms-section" id="section3">
+                <h2 data-i18n="terms.chapter3.title">제3장 서비스 이용</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter3.article9.title">제9조 (서비스의 내용)</h4>
+                    <ol>
+                        <li>회사가 제공하는 서비스는 다음과 같습니다.
+                            <div class="clause">
+                                1) IMSMS (iMessage SMS) 메시징 서비스<br>
+                                2) SMS/LMS/MMS 메시징 서비스<br>
+                                3) 메시지 발송 관리 시스템<br>
+                                4) API 연동 서비스<br>
+                                5) 발송 내역 조회 및 통계 서비스<br>
+                                6) 기타 회사가 추가 개발하거나 제휴계약 등을 통해 이용자에게 제공하는 일체의 서비스
+                            </div>
+                        </li>
+                        <li>회사는 서비스의 품질 향상을 위하여 서비스의 내용을 추가 또는 변경할 수 있습니다. 서비스 내용의 추가 또는 변경이 중대한 경우 회사는 그 사실을 이용자에게 사전에 통지합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter3.article10.title">제10조 (서비스의 제공 및 중단)</h4>
+                    <ol>
+                        <li>서비스는 연중무휴 1일 24시간 제공함을 원칙으로 합니다. 다만, 회사의 업무상 또는 기술상 특별한 사유가 있는 경우 서비스의 전부 또는 일부를 일시적으로 중단할 수 있습니다.</li>
+                        <li>회사는 다음 각 호에 해당하는 경우 서비스의 전부 또는 일부를 제한하거나 중단할 수 있습니다.
+                            <div class="clause">
+                                1) 서비스용 설비의 보수, 정기점검, 교체 및 고장, 통신두절 등의 사유가 발생한 경우<br>
+                                2) 정전, 제반 설비의 장애 또는 이용량의 폭주 등으로 정상적인 서비스 이용에 지장이 있는 경우<br>
+                                3) 전시, 사변, 천재지변 또는 이에 준하는 국가비상사태 등 불가항력적 사유가 있는 경우<br>
+                                4) 전기통신사업법에 규정된 기간통신사업자가 전기통신서비스를 중지한 경우<br>
+                                5) 기타 회사가 서비스를 제공할 수 없는 사유가 발생한 경우
+                            </div>
+                        </li>
+                        <li>회사는 제2항의 사유로 서비스를 중단하는 경우 사전에 공지합니다. 다만, 회사가 통제할 수 없는 사유로 인한 서비스 중단(시스템 관리자의 고의 또는 과실이 없는 디스크 장애, 시스템 다운 등)인 경우에는 사전통지가 불가능하며 이로 인하여 이용자에게 발생한 손해에 대해서 회사는 책임을 지지 않습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter3.article11.title">제11조 (서비스 이용의 제한 및 중지)</h4>
+                    <ol>
+                        <li>회사는 이용자가 다음 각 호에 해당하는 경우 사전통지 없이 이용계약을 해지하거나 서비스 이용을 중지할 수 있습니다.
+                            <div class="clause">
+                                1) 타인의 명의를 사용하여 이용신청을 한 경우<br>
+                                2) 이용신청 시 필요사항을 허위로 기재하여 이용신청을 한 경우<br>
+                                3) 사회의 안녕질서 또는 미풍양속을 저해할 목적으로 신청한 경우<br>
+                                4) 다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등 전자거래질서를 위협하는 경우<br>
+                                5) 서비스를 이용하여 법령과 본 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우<br>
+                                6) 정보통신망 이용촉진 및 정보보호 등에 관한 법률을 위반하여 불법통신 및 해킹, 악성프로그램의 배포, 접근권한 초과행위 등을 하는 경우<br>
+                                7) 스팸메시지 또는 불법 스팸메시지를 전송하는 경우<br>
+                                8) 대량 발송자 자격인증을 받지 않고 상업적 광고 메시지를 발송하는 경우<br>
+                                9) 이용요금을 정당한 사유 없이 납부하지 않는 경우<br>
+                                10) 선불제 이용자가 선불금액을 모두 사용한 경우<br>
+                                11) 3개월 이상 서비스 이용이 없는 휴면 계정의 경우<br>
+                                12) 기타 관련법령이나 회사가 정한 이용조건을 위반한 경우
+                            </div>
+                        </li>
+                        <li>회사가 이용계약을 해지하는 경우 회사는 이용자에게 전자우편, SMS 등의 방법으로 통지합니다.</li>
+                        <li>이용자는 제1항의 귀책사유로 인하여 회사나 다른 이용자가 입은 손해를 배상할 책임이 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter3.article12.title">제12조 (이용자의 의무)</h4>
+                    <ol>
+                        <li>이용자는 다음 각 호의 행위를 하여서는 안 됩니다.
+                            <div class="clause">
+                                1) 이용신청 또는 변경 시 허위내용을 등록하는 행위<br>
+                                2) 타인의 정보를 도용하는 행위<br>
+                                3) 회사가 게시한 정보를 변경하는 행위<br>
+                                4) 회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등)를 송신 또는 게시하는 행위<br>
+                                5) 회사와 기타 제3자의 저작권 등 지적재산권을 침해하는 행위<br>
+                                6) 회사 및 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위<br>
+                                7) 외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 공개 또는 게시하는 행위<br>
+                                8) 정보통신망 이용촉진 및 정보보호 등에 관한 법률에 위반하여 스팸메시지를 전송하는 행위<br>
+                                9) 수신자의 명시적인 수신거부 의사에 반하여 광고성 정보를 전송하는 행위<br>
+                                10) 다른 이용자의 개인정보를 수집, 저장, 공개하는 행위<br>
+                                11) 서비스를 이용하여 얻은 정보를 회사의 사전 승낙 없이 복제, 유통, 조장하거나 상업적으로 이용하는 행위<br>
+                                12) 서비스를 제3자에게 임의로 임대하는 행위<br>
+                                13) 관계법령에 위배되는 행위
+                            </div>
+                        </li>
+                        <li>이용자는 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법, 전기통신사업법 등 관계법령과 이 약관의 규정, 이용안내 및 서비스와 관련하여 공지한 주의사항, 회사가 통지하는 사항을 준수하여야 하며, 기타 회사의 업무에 방해되는 행위를 하여서는 안 됩니다.</li>
+                        <li>이용자는 광고성 정보 전송 시 정보통신망 이용촉진 및 정보보호 등에 관한 법률에 따라 대량 발송자 자격인증을 완료하여야 합니다. 인증을 완료하지 않은 경우 서비스 이용이 제한될 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter3.article13.title">제13조 (회사의 의무)</h4>
+                    <ol>
+                        <li>회사는 관계법령과 이 약관이 금지하거나 미풍양속에 반하는 행위를 하지 않으며, 계속적이고 안정적으로 서비스를 제공하기 위하여 최선을 다하여 노력합니다.</li>
+                        <li>회사는 이용자가 안전하게 서비스를 이용할 수 있도록 개인정보(신용정보 포함) 보호를 위해 보안시스템을 갖추어야 하며 개인정보보호정책을 공시하고 준수합니다.</li>
+                        <li>회사는 서비스 이용과 관련하여 이용자로부터 제기된 의견이나 불만이 정당하다고 인정할 경우 이를 처리하여야 합니다. 이용자가 제기한 의견이나 불만사항에 대해서는 게시판을 활용하거나 전자우편 등을 통하여 이용자에게 처리과정 및 결과를 전달합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="important-note">
+                    <strong>중요 안내사항</strong><br>
+                    상업적 광고 메시지 발송 시 반드시 대량 발송자 자격인증을 완료하셔야 합니다. 미인증 시 서비스 이용이 제한되며, 관련 법규 위반 시 법적 책임이 발생할 수 있습니다.
+                </div>
+            </section>
+
+            <!-- 제4장: 요금 및 결제 -->
+            <section class="terms-section" id="section4">
+                <h2 data-i18n="terms.chapter4.title">제4장 요금 및 결제</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter4.article14.title">제14조 (서비스 이용요금)</h4>
+                    <ol>
+                        <li>서비스 이용요금은 회사가 별도로 정하여 공지하는 요금표에 따릅니다.</li>
+                        <li>회사는 필요한 경우 서비스 이용요금을 변경할 수 있으며, 요금 변경 시 변경사유 및 적용일자를 명시하여 적용일 30일 이전에 공지합니다.</li>
+                        <li>서비스 이용요금은 선불제 또는 후불제 방식으로 납부할 수 있으며, 이용자는 계약 시 납부 방식을 선택할 수 있습니다.</li>
+                        <li>IMSMS(iMessage SMS) 서비스는 SMS/LMS/MMS와 1:1 매칭 방식으로 제공되며, SMS/LMS/MMS 발송 시 iMessage 사용자에게는 IMSMS가 무료로 발송됩니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter4.article15.title">제15조 (요금의 납부)</h4>
+                    <ol>
+                        <li>선불제 이용자는 서비스 이용 전 회사가 정한 방법으로 이용요금을 선납하여야 합니다.</li>
+                        <li>후불제 이용자는 회사가 발행하는 세금계산서에 따라 익월 말일까지 이용요금을 납부하여야 합니다.</li>
+                        <li>이용요금의 납부방법은 다음 각 호와 같습니다.
+                            <div class="clause">
+                                1) 신용카드 결제<br>
+                                2) 계좌이체<br>
+                                3) 가상계좌 입금<br>
+                                4) 기타 회사가 정하는 방법
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter4.article16.title">제16조 (요금의 과오납)</h4>
+                    <ol>
+                        <li>회사는 이용자가 요금을 과오납한 경우 그 금액을 반환합니다. 다만, 이용자의 귀책사유로 인하여 과오납이 발생한 경우에는 회사가 과오납금을 반환하는데 소요되는 비용은 합리적인 범위 내에서 이용자가 부담합니다.</li>
+                        <li>회사의 귀책사유로 과오납이 발생한 경우 회사는 과오납된 금액 전액을 반환합니다. 다만, 이용자의 요청이 있을 경우 서비스 이용요금에서 상계처리할 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter4.article17.title">제17조 (미납요금의 처리)</h4>
+                    <ol>
+                        <li>이용자가 정당한 사유 없이 요금 납부기일까지 요금을 납부하지 않는 경우 회사는 서비스 이용을 정지할 수 있습니다.</li>
+                        <li>회사는 제1항의 규정에 의하여 이용정지를 하고자 하는 때에는 그 사유, 일시 및 기간을 정하여 이용정지 7일 전까지 이용자에게 통지합니다. 다만, 긴급하게 이용을 정지할 필요가 있다고 인정되는 경우에는 그러하지 아니합니다.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제5장: 계약 해지 및 환불 -->
+            <section class="terms-section" id="section5">
+                <h2 data-i18n="terms.chapter5.title">제5장 계약 해지 및 환불</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter5.article18.title">제18조 (이용계약의 해지)</h4>
+                    <ol>
+                        <li>이용자가 이용계약을 해지하고자 하는 경우에는 언제든지 관리자 콘솔 또는 고객센터를 통하여 이용계약 해지 신청을 할 수 있으며, 회사는 관련법 등이 정하는 바에 따라 이를 즉시 처리합니다.</li>
+                        <li>이용자가 계약을 해지할 경우, 관련법 및 개인정보보호정책에 따라 회사가 이용자 정보를 보유하는 경우를 제외하고는 해지 즉시 이용자의 모든 데이터는 소멸됩니다.</li>
+                        <li>회사는 제11조의 규정에 의하여 이용계약을 해지할 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter5.article19.title">제19조 (환불)</h4>
+                    <ol>
+                        <li>선불제 이용자가 이용계약을 해지하는 경우 회사는 잔여 선불금액에서 수수료를 공제한 후 환불합니다.</li>
+                        <li>환불 수수료는 다음과 같습니다.
+                            <div class="clause">
+                                1) 충전일로부터 30일 이내: 충전금액의 5%<br>
+                                2) 충전일로부터 30일 초과 90일 이내: 충전금액의 10%<br>
+                                3) 충전일로부터 90일 초과: 충전금액의 15%
+                            </div>
+                        </li>
+                        <li>다만, 회사의 귀책사유로 인한 계약 해지의 경우에는 환불 수수료를 부과하지 않습니다.</li>
+                        <li>환불금액은 이용자가 지정하는 계좌로 입금되며, 환불 처리는 환불 신청일로부터 영업일 기준 7일 이내에 처리됩니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter5.article20.title">제20조 (청약철회 등)</h4>
+                    <ol>
+                        <li>회사와 유료서비스 이용에 관한 계약을 체결한 이용자는 「전자상거래 등에서의 소비자보호에 관한 법률」 제13조 제2항에 따른 계약내용에 관한 서면을 받은 날(그 서면을 받은 때보다 유료서비스의 제공이 늦게 이루어진 경우에는 유료서비스의 제공이 시작된 날)부터 7일 이내에는 청약의 철회를 할 수 있습니다. 다만, 청약철회에 관하여 「전자상거래 등에서의 소비자보호에 관한 법률」에 달리 정함이 있는 경우에는 동 법 규정에 따릅니다.</li>
+                        <li>이용자는 다음 각 호에 해당하는 경우에는 회사의 의사에 반하여 제1항에 따른 청약철회 등을 할 수 없습니다.
+                            <div class="clause">
+                                1) 이용자에게 책임이 있는 사유로 재화 등이 멸실되거나 훼손된 경우<br>
+                                2) 이용자의 사용 또는 일부 소비에 의하여 재화 등의 가치가 현저히 감소한 경우<br>
+                                3) 시간의 경과에 의하여 재판매가 곤란할 정도로 재화 등의 가치가 현저히 감소한 경우<br>
+                                4) 복제가 가능한 재화 등의 포장을 훼손한 경우<br>
+                                5) 그 밖에 거래의 안전을 위하여 법령으로 정하는 경우
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제6장: 손해배상 및 면책 -->
+            <section class="terms-section" id="section6">
+                <h2 data-i18n="terms.chapter6.title">제6장 손해배상 및 면책</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter6.article21.title">제21조 (손해배상)</h4>
+                    <ol>
+                        <li>회사는 서비스 이용과 관련하여 회사의 고의 또는 과실로 인하여 이용자에게 손해가 발생한 경우 관계법령에 따라 이용자의 손해를 배상합니다.</li>
+                        <li>이용자가 본 약관의 규정을 위반함으로 인하여 회사에 손해가 발생한 경우, 이 약관을 위반한 이용자는 회사에 발생하는 모든 손해를 배상하여야 합니다.</li>
+                        <li>이용자가 서비스를 이용함에 있어 행한 불법행위나 본 약관 위반행위로 인하여 회사가 당해 이용자 이외의 제3자로부터 손해배상 청구 또는 소송을 비롯한 각종 이의제기를 받는 경우 당해 이용자는 자신의 책임과 비용으로 회사를 면책시켜야 하며, 회사가 면책되지 못한 경우 당해 이용자는 그로 인하여 회사에 발생한 모든 손해를 배상하여야 합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter6.article22.title">제22조 (회사의 면책)</h4>
+                    <ol>
+                        <li>회사는 천재지변, 전쟁, 기간통신사업자의 서비스 중지 및 기타 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.</li>
+                        <li>회사는 이용자의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않습니다.</li>
+                        <li>회사는 이용자가 서비스를 이용하여 기대하는 수익을 상실한 것에 대하여 책임을 지지 않으며, 그 밖에 서비스를 통하여 얻은 자료로 인한 손해 등에 대하여도 책임을 지지 않습니다.</li>
+                        <li>회사는 이용자가 게재한 정보, 자료, 사실의 신뢰도, 정확성 등 내용에 관하여는 책임을 지지 않습니다.</li>
+                        <li>회사는 이용자 상호간 또는 이용자와 제3자 상호간에 서비스를 매개로 발생한 분쟁에 대해서는 개입할 의무가 없으며 이로 인한 손해를 배상할 책임도 없습니다.</li>
+                        <li>회사는 무료로 제공되는 서비스 이용과 관련하여 관련법에 특별한 규정이 없는 한 책임을 지지 않습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter6.article23.title">제23조 (책임의 제한)</h4>
+                    <ol>
+                        <li>회사의 이용자에 대한 손해배상책임은 다음 각 호에 해당하는 범위로 제한됩니다.
+                            <div class="clause">
+                                1) 서비스 장애로 인한 손해배상액은 장애발생 직전 3개월간 해당 이용자의 평균 서비스 이용요금을 초과하지 않습니다.<br>
+                                2) 일시적 장애(4시간 미만)의 경우 손해배상책임을 지지 않습니다.<br>
+                                3) 회사의 고의 또는 중과실이 없는 경우 특별손해, 간접손해, 파생손해, 징벌적 손해에 대한 책임을 지지 않습니다.
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제7장: 개인정보 보호 -->
+            <section class="terms-section" id="section7">
+                <h2 data-i18n="terms.chapter7.title">제7장 개인정보 보호</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter7.article24.title">제24조 (개인정보의 보호)</h4>
+                    <ol>
+                        <li>회사는 이용자의 개인정보를 보호하기 위하여 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」, 「개인정보보호법」 등 관련 법령에서 정하는 바를 준수합니다.</li>
+                        <li>회사는 이용자의 개인정보를 수집하는 경우 반드시 이용자의 동의를 받습니다.</li>
+                        <li>회사는 이용자의 개인정보를 본인의 승낙 없이 제3자에게 제공하지 않습니다. 다만, 다음 각 호의 경우에는 예외로 합니다.
+                            <div class="clause">
+                                1) 관계법령에 의하여 수사상의 목적으로 관계기관으로부터 요구받은 경우<br>
+                                2) 통계작성, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 식별할 수 없는 형태로 제공하는 경우<br>
+                                3) 기타 관계법령에서 정한 절차에 따른 요청이 있는 경우
+                            </div>
+                        </li>
+                        <li>회사의 개인정보 보호에 관한 상세한 사항은 별도의 개인정보처리방침에 따릅니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter7.article25.title">제25조 (개인정보의 보유 및 이용기간)</h4>
+                    <ol>
+                        <li>회사는 이용자의 개인정보를 이용자가 서비스를 이용하는 기간에 한하여 보유하고 이용합니다.</li>
+                        <li>이용자가 이용계약을 해지하거나 개인정보 제공 동의를 철회한 경우 회사는 이용자의 개인정보를 지체 없이 파기합니다. 다만, 다음 각 호의 경우에는 해당 기간 동안 보관합니다.
+                            <div class="clause">
+                                1) 전자상거래 등에서의 소비자보호에 관한 법률<br>
+                                   - 계약 또는 청약철회 등에 관한 기록: 5년<br>
+                                   - 대금결제 및 재화 등의 공급에 관한 기록: 5년<br>
+                                   - 소비자의 불만 또는 분쟁처리에 관한 기록: 3년<br>
+                                2) 통신비밀보호법<br>
+                                   - 로그인 기록: 3개월
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 제8장: 기타 -->
+            <section class="terms-section" id="section8">
+                <h2 data-i18n="terms.chapter8.title">제8장 기타</h2>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter8.article26.title">제26조 (지식재산권)</h4>
+                    <ol>
+                        <li>회사가 작성한 저작물에 대한 저작권 및 기타 지식재산권은 회사에 귀속됩니다.</li>
+                        <li>이용자는 회사를 이용함으로써 얻은 정보 중 회사에 지식재산권이 귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</li>
+                        <li>회사는 약정에 따라 이용자에게 귀속된 저작권을 사용하는 경우 당해 이용자에게 통보하여야 합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter8.article27.title">제27조 (분쟁의 해결)</h4>
+                    <ol>
+                        <li>회사는 이용자로부터 제출되는 불만사항 및 의견을 우선적으로 처리합니다. 다만, 신속한 처리가 곤란한 경우에는 이용자에게 그 사유와 처리일정을 즉시 통보합니다.</li>
+                        <li>회사와 이용자 간에 발생한 분쟁은 전자거래기본법 제28조 및 동 시행령 제15조에 의하여 설치된 전자거래분쟁조정위원회의 조정에 따를 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter8.article28.title">제28조 (재판권 및 준거법)</h4>
+                    <ol>
+                        <li>회사와 이용자 간에 발생한 서비스 이용에 관한 분쟁에 대하여는 대한민국 법을 적용합니다.</li>
+                        <li>회사와 이용자 간에 발생한 분쟁에 관한 소송은 민사소송법상의 관할법원에 제기합니다.</li>
+                    </ol>
+                </div>
+
+                <div class="article">
+                    <h4 class="article-title" data-i18n="terms.chapter8.article29.title">제29조 (통지)</h4>
+                    <ol>
+                        <li>회사가 이용자에 대한 통지를 하는 경우 이용자가 지정한 전자우편주소, SMS 등으로 할 수 있습니다.</li>
+                        <li>회사는 불특정다수 이용자에 대한 통지의 경우 서비스 게시판에 게시함으로써 개별 통지에 갈음할 수 있습니다.</li>
+                    </ol>
+                </div>
+
+                <div class="important-note">
+                    <strong>부칙</strong><br>
+                    제1조 (시행일) 본 약관은 2024년 11월 1일부터 시행됩니다.<br>
+                    제2조 (경과조치) 본 약관 시행 이전에 가입한 이용자에 대하여도 본 약관을 적용합니다.
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: rgba(185, 43, 39, 0.05); border-radius: 10px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;" data-i18n="terms.contact.title">문의처</h3>
+                    <p><strong data-i18n="terms.contact.company">회사명:</strong> 주식회사 팀플레이어 (TEAMPLAYER Inc.)</p>
+                    <p><strong data-i18n="terms.contact.address">주소:</strong> 경기도 용인시 기흥구 동백로 22</p>
+                    <p><strong data-i18n="terms.contact.phone">대표전화:</strong> 1522-8061</p>
+                    <p><strong data-i18n="terms.contact.email">이메일:</strong> support@imsms.im</p>
+                    <p><strong data-i18n="terms.contact.businessNumber">사업자등록번호:</strong> 593-77-00117</p>
+                    <p><strong data-i18n="terms.contact.ceo">대표이사:</strong> 김은경</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="assets/images/imsms-logo-header.png" alt="IMSMS" class="footer-logo" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'font-size: 1.5rem; font-weight: 900; color: white;\'>IMSMS</div>');">
+            <div class="footer-links">
+                <a href="terms.html" data-i18n="footer.terms">서비스 약관</a>
+                <a href="#" data-i18n="footer.privacy">개인정보처리방침</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" data-i18n="footer.api">API 문서</a>
+                <a href="#" data-i18n="footer.partner">파트너 프로그램</a>
+                <a href="https://console.imsms.im" target="_blank" rel="noopener noreferrer" data-i18n="footer.console">관리자 콘솔</a>
+            </div>
+            <div class="company-info">
+                <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 1rem; justify-content: center;">
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-i18n="footer.company1">TEAMPLAYER (팀플레이어)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 593-77-00117<br>
+                            대표이사: 김은경<br>
+                            설립: 2016년 11월 1일<br>
+                            경기도 용인시 기흥구 동백로 22
+                        </p>
+                    </div>
+                    <div style="min-width: 300px;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;" data-i18n="footer.company2">TEAMPLEAN co.,LTD (주식회사 팀플리언)</h4>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">
+                            사업자등록번호: 746-86-03029<br>
+                            대표이사: 김원철<br>
+                            설립: 2024년 4월 1일<br>
+                            서울 마포구 매봉산로 18 마포비즈플라자 602호
+                        </p>
+                    </div>
+                </div>
+                <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                    IMSMS는 TEAMPLAYER와 TEAMPLEAN이 공동 운영하는 서비스입니다.
+                </div>
+            </div>
+            <div class="copyright">
+                © 2024 IMSMS. All rights reserved. | Apple, iMessage는 Apple Inc.의 등록 상표입니다.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        // Language Switching
+        let currentLang = localStorage.getItem('preferredLanguage') || 'ko';
+        let translations = {};
+
+        // Load translations
+        fetch('lang/translations.json')
+            .then(response => response.json())
+            .then(data => {
+                translations = data;
+                switchLanguage(currentLang);
+            });
+
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let value = translations[lang];
+            for (const k of keys) {
+                if (value && value[k]) {
+                    value = value[k];
+                } else {
+                    return null;
+                }
+            }
+            return value;
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.setAttribute('lang', lang);
+        }
+
+        // Language Selector
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
