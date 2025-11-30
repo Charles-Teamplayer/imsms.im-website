@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSMS 데모 체험 | 무료로 체험해보세요</title>
+    <meta name="description" content="iPhone으로 IMSMS 프리미엄 메시지를 무료로 체험해보세요">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary: #B92B27;
+            --primary-dark: #8B1A1A;
+            --primary-light: rgba(185, 43, 39, 0.1);
+            --success: #1c1c1e;
+            --accent-pink: rgba(255, 230, 230, 0.2);
+            --dark: #1c1c1e;
+            --gray: #8e8e93;
+            --light-gray: #f2f2f7;
+
+            /* Light mode (default) */
+            --bg-gradient-start: #ffffff;
+            --bg-gradient-mid: #fef5f5;
+            --bg-gradient-end: #fff5f5;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --border-color: #f2f2f7;
+        }
+
+        [data-theme="dark"] {
+            --bg-gradient-start: #1a1a1a;
+            --bg-gradient-mid: #2d1f1f;
+            --bg-gradient-end: #1e1414;
+            --card-bg: rgba(40, 40, 42, 0.95);
+            --text-primary: #ffffff;
+            --text-secondary: #a8a8a8;
+            --border-color: #3a3a3c;
+            --light-gray: #3a3a3c;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            padding: 40px 16px;
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 60px 32px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding: 80px 40px;
+            }
+        }
+
+        /* Floating background elements */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        body::before {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        body::after {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-pink) 0%, transparent 70%);
+            bottom: -80px;
+            left: -80px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.05); }
+            66% { transform: translate(-15px, 15px) scale(0.95); }
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        .demo-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 50px 40px;
+            box-shadow:
+                0 20px 60px rgba(31, 38, 135, 0.08),
+                0 8px 32px rgba(185, 43, 39, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        /* Language & Theme Switcher */
+        .switcher-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .lang-switcher, .theme-toggle {
+            display: flex;
+            gap: 6px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 6px;
+        }
+
+        .lang-btn, .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover, .theme-btn:hover {
+            background: rgba(185, 43, 39, 0.1);
+            color: var(--primary);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .theme-btn {
+            font-size: 18px;
+            padding: 8px 12px;
+        }
+
+        .demo-card:hover {
+            box-shadow:
+                0 30px 80px rgba(31, 38, 135, 0.12),
+                0 12px 48px rgba(185, 43, 39, 0.06);
+            transform: translateY(-2px);
+        }
+
+        /* Logo Section */
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-img {
+            max-width: 180px;
+            height: auto;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .logo h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .logo p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* iPhone Notice */
+        .iphone-notice {
+            background: linear-gradient(135deg, rgba(185, 43, 39, 0.08) 0%, rgba(185, 43, 39, 0.05) 100%);
+            border: 2px solid rgba(185, 43, 39, 0.15);
+            color: var(--primary);
+            padding: 20px 24px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .iphone-notice strong {
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20%;
+            right: 20%;
+            height: 3px;
+            background: var(--light-gray);
+            z-index: 0;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--light-gray);
+            color: var(--gray);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            position: relative;
+            margin-bottom: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step.active .step-circle {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-color: var(--primary);
+            color: white;
+            animation: pulseGlow 2s infinite;
+            box-shadow: 0 8px 24px rgba(185, 43, 39, 0.3);
+            transform: scale(1.1);
+        }
+
+        .step.completed .step-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+            box-shadow: 0 4px 15px rgba(28, 28, 30, 0.3);
+        }
+
+        .step.completed .step-circle::after {
+            content: '✓';
+            position: absolute;
+            font-size: 1.2rem;
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 8px 24px rgba(185, 43, 39, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 32px rgba(185, 43, 39, 0.5);
+            }
+        }
+
+        /* Input Group */
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .phone-input {
+            width: 100%;
+            padding: 20px 24px;
+            border: 2px solid var(--light-gray);
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+        }
+
+        .phone-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow:
+                0 0 0 4px rgba(185, 43, 39, 0.08),
+                0 4px 20px rgba(185, 43, 39, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 22px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+            box-shadow: 0 8px 30px rgba(185, 43, 39, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(185, 43, 39, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 4px 15px rgba(142, 142, 147, 0.2);
+        }
+
+        .btn.loading {
+            color: transparent;
+        }
+
+        .btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            left: 50%;
+            margin-left: -12px;
+            margin-top: -12px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Status Box */
+        .status-box {
+            background: linear-gradient(135deg, var(--light-gray) 0%, rgba(242, 242, 247, 0.5) 100%);
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 24px;
+            display: none;
+        }
+
+        .status-box.show {
+            display: block;
+            animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .status-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .status-text {
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dark);
+            font-weight: 500;
+            white-space: pre-line;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, var(--success) 0%, #28a745 100%);
+            color: white;
+            padding: 32px;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 24px;
+            display: none;
+            box-shadow: 0 10px 40px rgba(52, 199, 89, 0.3);
+        }
+
+        .success-message.show {
+            display: block;
+            animation: celebrationPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes celebrationPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotate(-5deg);
+            }
+            60% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        .success-message h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .success-message p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: linear-gradient(135deg, #ff3b30 0%, #e0301e 100%);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin-top: 20px;
+            display: none;
+            box-shadow: 0 8px 24px rgba(255, 59, 48, 0.3);
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        #form-section, #waiting-section {
+            display: none;
+        }
+
+        #form-section.show, #waiting-section.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+
+        /* GDPR Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 30px;
+            padding: 48px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .modal-close {
+            background: var(--light-gray);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 24px;
+            color: var(--gray);
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-section {
+            margin-bottom: 32px;
+        }
+
+        .modal-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-section p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 12px;
+        }
+
+        .modal-section li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .modal-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        /* Scrollbar */
+        .modal-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .demo-card {
+                padding: 60px 50px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding: 30px 16px;
+            }
+
+            .demo-card {
+                padding: 40px 32px;
+                border-radius: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .demo-card {
+                padding: 36px 24px;
+                border-radius: 20px;
+            }
+
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo-img {
+                max-width: 140px;
+            }
+
+            .step-circle {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .step-label {
+                font-size: 0.7rem;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+                border-radius: 24px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 20px 28px;
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language & Theme Switcher -->
+    <div class="switcher-container">
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="switchLanguage('ko')" data-lang="ko">한</button>
+            <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('ja')" data-lang="ja">日</button>
+            <button class="lang-btn" onclick="switchLanguage('pt')" data-lang="pt">PT</button>
+        </div>
+        <div class="theme-toggle">
+            <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="demo-card">
+            <div class="logo">
+                <img src="https://imsms.im/assets/images/imsms-logo.png" alt="IMSMS Logo" class="logo-img">
+                <p data-i18n="subtitle">프리미엄 메시지 무료 체험</p>
+            </div>
+
+            <div class="iphone-notice">
+                <strong data-i18n="iphoneOnly">📱 iPhone 전용</strong>
+                <span data-i18n="iphoneNotice">이 데모는 iPhone 사용자만 체험 가능합니다</span>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step active" id="step1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label" data-i18n="step1">번호입력</div>
+                </div>
+                <div class="step" id="step2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label" data-i18n="step2">iPhone검증</div>
+                </div>
+                <div class="step" id="step3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label" data-i18n="step3">수신동의</div>
+                </div>
+                <div class="step" id="step4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label" data-i18n="step4">발송완료</div>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div id="form-section" class="show">
+                <div class="input-group">
+                    <label for="phoneNumber" data-i18n="phoneLabel">전화번호 (국제번호 포함)</label>
+                    <input
+                        type="tel"
+                        id="phoneNumber"
+                        class="phone-input"
+                        data-i18n-placeholder="phonePlaceholder"
+                        placeholder="821012345678"
+                        autocomplete="tel"
+                    >
+                    <div class="hint" data-i18n="phoneHint">국제번호를 포함한 전화번호를 입력하세요 (예: 821012345678)</div>
+                </div>
+
+                <button class="btn" id="startBtn" onclick="startDemo()" data-i18n="startBtn">
+                    데모 시작하기
+                </button>
+
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+
+            <!-- Waiting Section -->
+            <div id="waiting-section">
+                <div class="status-box show">
+                    <div class="status-item">
+                        <div class="status-icon">⏳</div>
+                        <div class="status-text" id="statusText">처리 중...</div>
+                    </div>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <h3 data-i18n="successTitle">🎉 데모 발송 완료!</h3>
+                    <p data-i18n="successMsg">iPhone으로 IMSMS 메시지를 확인해보세요</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-text">
+                    <span data-i18n="poweredBy">제공:</span>
+                    <a href="https://teamplayer.co.kr" target="_blank" class="footer-link">TEAMPLAYER</a>
+                    <span> · </span>
+                    <a href="https://imsms.im" target="_blank" class="footer-link">IMSMS.IM</a>
+                    <br>
+                    <a onclick="openGdprModal()" class="footer-link" data-i18n="gdprLink">🔐 GDPR 준수</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GDPR Modal -->
+    <div class="modal" id="gdprModal" style="display: none;">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h2 class="modal-title" data-i18n="privacyTitle">IMSMS Privacy Policy (GDPR Compliant)</h2>
+                <button class="modal-close" onclick="closeGdprModal()">&times;</button>
+            </div>
+
+            <p style="color: #666; font-size: 14px; margin-bottom: 20px;" data-i18n="privacyDate">Effective Date: Jan 2025 | Last Updated: Jan 2025</p>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy1Title">1. Introduction</h3>
+                <p data-i18n="privacy1Content">This Privacy Policy explains how TeamPlayer Co., Ltd. ("Company", "we", "our", "us") collects, uses, processes, and protects personal data when users interact with the IMSMS messaging platform (the "Service"). By using the Service, you acknowledge that you have read and understood this Privacy Policy.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy2Title">2. Data Controller</h3>
+                <p><strong>TeamPlayer Co., Ltd.</strong><br>
+                <span data-i18n="privacy2Registered">Registered in: Republic of Korea</span><br>
+                Email: support@teamplayer.co.kr</p>
+                <p data-i18n="privacy2EU">For EU/EEA users, we may appoint an EU representative if required by law.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy3Title">3. Personal Data We Collect</h3>
+                <p data-i18n="privacy3Intro">We collect only the minimum personal data necessary to provide and secure IMSMS.</p>
+                <h4 data-i18n="privacy3_1Title">3.1 Identification Data</h4>
+                <ul>
+                    <li data-i18n="privacy3_1Item1">Phone number (MSISDN)</li>
+                    <li data-i18n="privacy3_1Item2">Country code and network information</li>
+                    <li data-i18n="privacy3_1Item3">Hashed device identifier (used for routing and security)</li>
+                </ul>
+                <h4 data-i18n="privacy3_2Title">3.2 Communication Data</h4>
+                <ul>
+                    <li data-i18n="privacy3_2Item1">Message content (text and media) processed through IMSMS</li>
+                    <li data-i18n="privacy3_2Item2">Attachments (images, files) where provided by the sender</li>
+                </ul>
+                <h4 data-i18n="privacy3_3Title">3.3 Technical and Usage Data</h4>
+                <ul>
+                    <li data-i18n="privacy3_3Item1">IP address, timestamps, device OS and client type</li>
+                    <li data-i18n="privacy3_3Item2">Delivery status and message channel used</li>
+                </ul>
+                <h4 data-i18n="privacy3_4Title">3.4 Consent and Preference Data</h4>
+                <ul>
+                    <li data-i18n="privacy3_4Item1">Records of opt-in/opt-out for marketing messages</li>
+                    <li data-i18n="privacy3_4Item2">Logs of consent time, source, and method</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy4Title">4. Legal Basis for Processing (GDPR Article 6)</h3>
+                <ul>
+                    <li data-i18n="privacy4Item1"><strong>Consent:</strong> When a user has given clear consent to receive messages</li>
+                    <li data-i18n="privacy4Item2"><strong>Contractual Necessity:</strong> To perform contracts (send messages, provide delivery reports)</li>
+                    <li data-i18n="privacy4Item3"><strong>Legal Obligation:</strong> To comply with telecommunications and regulatory requirements</li>
+                    <li data-i18n="privacy4Item4"><strong>Legitimate Interests:</strong> Service reliability, fraud prevention, network security</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy5Title">5. How We Use Personal Data</h3>
+                <ul>
+                    <li data-i18n="privacy5Item1">Transmit and deliver messages via SMS, iMessage, RCS</li>
+                    <li data-i18n="privacy5Item2">Determine optimal routing path</li>
+                    <li data-i18n="privacy5Item3">Generate delivery status reports</li>
+                    <li data-i18n="privacy5Item4">Maintain logs for troubleshooting and compliance</li>
+                    <li data-i18n="privacy5Item5">Detect and prevent spam, fraud, and abuse</li>
+                </ul>
+                <p><strong data-i18n="privacy5NoSell">We do not sell personal data to third parties.</strong></p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy6Title">6. Sharing and Disclosure</h3>
+                <ul>
+                    <li data-i18n="privacy6Item1"><strong>Telecom Operators:</strong> For message routing and delivery</li>
+                    <li data-i18n="privacy6Item2"><strong>Business Customers:</strong> Delivery status and performance reports</li>
+                    <li data-i18n="privacy6Item3"><strong>Service Providers:</strong> Hosting, security, analytics (as processors)</li>
+                    <li data-i18n="privacy6Item4"><strong>Legal Authorities:</strong> When required by law</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy7Title">7. International Data Transfers</h3>
+                <p data-i18n="privacy7Content">Data may be transferred outside EU/EEA with appropriate safeguards including Standard Contractual Clauses (SCC), encryption, and data minimization.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy8Title">8. Data Retention</h3>
+                <ul>
+                    <li data-i18n="privacy8Item1"><strong>Message content:</strong> Deleted within 72 hours</li>
+                    <li data-i18n="privacy8Item2"><strong>Metadata/logs:</strong> 3-12 months per regulations</li>
+                    <li data-i18n="privacy8Item3"><strong>Consent records:</strong> At least 3 years</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy9Title">9. User Rights (GDPR Articles 12-23)</h3>
+                <ul>
+                    <li data-i18n="privacy9Item1">Right of access</li>
+                    <li data-i18n="privacy9Item2">Right to rectification</li>
+                    <li data-i18n="privacy9Item3">Right to erasure ("right to be forgotten")</li>
+                    <li data-i18n="privacy9Item4">Right to restriction of processing</li>
+                    <li data-i18n="privacy9Item5">Right to data portability</li>
+                    <li data-i18n="privacy9Item6">Right to object</li>
+                    <li data-i18n="privacy9Item7">Right to withdraw consent</li>
+                </ul>
+                <p data-i18n="privacy9Contact">Contact: support@teamplayer.co.kr (Response within 30 days)</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy10Title">10. Security Measures</h3>
+                <p data-i18n="privacy10Content">We apply encryption (TLS), access controls, logging, monitoring, and regular security reviews to protect personal data.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy11Title">11. Children's Privacy</h3>
+                <p data-i18n="privacy11Content">IMSMS is not intended for children under 16. We do not knowingly collect data from children.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy12Title">12. Changes to This Policy</h3>
+                <p data-i18n="privacy12Content">We may update this policy and will provide notice of material changes via our website.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3 data-i18n="privacy13Title">13. Contact Information</h3>
+                <p><strong>Data Protection Office</strong><br>
+                TeamPlayer Co., Ltd.<br>
+                Email: support@teamplayer.co.kr</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API_BASE - 상대 경로 사용 (Mixed Content 문제 해결)
+        const API_BASE = '';
+
+        let sessionId = null;
+        let statusCheckInterval = null;
+        let startTime = null;
+        const MAX_WAIT_TIME = 7000; // 7초 최대 대기시간
+        let currentLang = 'ko';
+
+        // Translations
+        const translations = {
+            ko: {
+                subtitle: '프리미엄 메시지 무료 체험',
+                iphoneOnly: '📱 iPhone 전용',
+                iphoneNotice: '이 데모는 iPhone 사용자만 체험 가능합니다',
+                step1: '번호입력', step2: 'iPhone검증', step3: '수신동의', step4: '발송완료',
+                phoneLabel: '전화번호 (국제번호 포함)',
+                phonePlaceholder: '821012345678',
+                phoneHint: '국제번호를 포함한 전화번호를 입력하세요 (예: 821012345678)',
+                startBtn: '데모 시작하기',
+                successTitle: '🎉 데모 발송 완료!',
+                successMsg: 'iPhone으로 IMSMS 메시지를 확인해보세요',
+                poweredBy: '제공:',
+                gdprLink: '🔐 GDPR 준수',
+                gdprTitle: 'GDPR 준수',
+                gdprSection1Title: '데이터 보호',
+                gdprSection1Content: '모든 개인정보는 전송 및 저장 시 암호화됩니다. 종단간 암호화를 구현하여 각 단계에서 데이터를 보호합니다.',
+                gdprSection2Title: '수집하는 데이터',
+                gdprSection2Item1: '전화번호 (데모 메시지 발송용)',
+                gdprSection2Item2: '기기 호환성 정보 (iPhone 검증)',
+                gdprSection2Item3: '메시지 전송 상태',
+                gdprSection3Title: '데이터 보관',
+                gdprSection3Content: '데모 세션 데이터는 24시간 후 자동 삭제됩니다. 명시적 동의 없이 개인정보를 장기 보관하지 않습니다.',
+                gdprSection4Title: '귀하의 권리',
+                gdprSection4Item1: '데이터 접근 권리',
+                gdprSection4Item2: '데이터 정정 권리',
+                gdprSection4Item3: '삭제 권리 (잊힐 권리)',
+                gdprSection4Item4: '데이터 이동 권리',
+                gdprSection4Item5: '처리 거부 권리',
+                gdprSection5Title: '국제 규정 준수',
+                gdprSection5Content: 'EU GDPR, 캘리포니아 CCPA 및 기타 국제 데이터 보호 규정을 준수합니다. ISO 27001 인증 보안 표준을 따릅니다.',
+                // Privacy Policy
+                privacyTitle: 'IMSMS 개인정보 처리방침 (GDPR 준수)',
+                privacyDate: '시행일: 2025년 1월 | 최종 수정: 2025년 1월',
+                privacy1Title: '1. 소개',
+                privacy1Content: '본 개인정보 처리방침은 TeamPlayer Co., Ltd.(이하 "회사")가 IMSMS 메시징 플랫폼(이하 "서비스") 이용 시 개인정보를 어떻게 수집, 사용, 처리, 보호하는지 설명합니다. 서비스를 이용함으로써 귀하는 본 개인정보 처리방침을 읽고 이해했음을 인정합니다.',
+                privacy2Title: '2. 개인정보 관리자',
+                privacy2Registered: '등록지: 대한민국',
+                privacy2EU: 'EU/EEA 사용자의 경우, 법적 요구 시 EU 대리인을 지정할 수 있습니다.',
+                privacy3Title: '3. 수집하는 개인정보',
+                privacy3Intro: 'IMSMS 제공 및 보안에 필요한 최소한의 개인정보만 수집합니다.',
+                privacy3_1Title: '3.1 식별 정보',
+                privacy3_1Item1: '전화번호 (MSISDN)',
+                privacy3_1Item2: '국가 코드 및 통신사 정보',
+                privacy3_1Item3: '해시된 기기 식별자 (라우팅 및 보안용)',
+                privacy3_2Title: '3.2 통신 데이터',
+                privacy3_2Item1: 'IMSMS를 통해 처리되는 메시지 내용 (텍스트 및 미디어)',
+                privacy3_2Item2: '발신자가 제공한 첨부파일 (이미지, 파일)',
+                privacy3_3Title: '3.3 기술 및 사용 데이터',
+                privacy3_3Item1: 'IP 주소, 타임스탬프, 기기 OS 및 클라이언트 유형',
+                privacy3_3Item2: '전송 상태 및 사용된 메시지 채널',
+                privacy3_4Title: '3.4 동의 및 설정 데이터',
+                privacy3_4Item1: '마케팅 메시지 수신 동의/거부 기록',
+                privacy3_4Item2: '동의 시간, 출처, 방법 로그',
+                privacy4Title: '4. 처리의 법적 근거 (GDPR 제6조)',
+                privacy4Item1: '<strong>동의:</strong> 사용자가 메시지 수신에 명확한 동의를 한 경우',
+                privacy4Item2: '<strong>계약 이행:</strong> 계약 수행 (메시지 전송, 전송 보고서 제공)',
+                privacy4Item3: '<strong>법적 의무:</strong> 통신 및 규제 요건 준수',
+                privacy4Item4: '<strong>정당한 이익:</strong> 서비스 안정성, 사기 방지, 네트워크 보안',
+                privacy5Title: '5. 개인정보 사용 방법',
+                privacy5Item1: 'SMS, iMessage, RCS를 통한 메시지 전송 및 전달',
+                privacy5Item2: '최적의 라우팅 경로 결정',
+                privacy5Item3: '전송 상태 보고서 생성',
+                privacy5Item4: '문제 해결 및 규정 준수를 위한 로그 유지',
+                privacy5Item5: '스팸, 사기, 악용 탐지 및 방지',
+                privacy5NoSell: '제3자에게 개인정보를 판매하지 않습니다.',
+                privacy6Title: '6. 공유 및 공개',
+                privacy6Item1: '<strong>통신사:</strong> 메시지 라우팅 및 전달용',
+                privacy6Item2: '<strong>기업 고객:</strong> 전송 상태 및 성과 보고서',
+                privacy6Item3: '<strong>서비스 제공업체:</strong> 호스팅, 보안, 분석 (처리자로서)',
+                privacy6Item4: '<strong>법적 기관:</strong> 법적 요구 시',
+                privacy7Title: '7. 국제 데이터 전송',
+                privacy7Content: '표준계약조항(SCC), 암호화, 데이터 최소화 등 적절한 보호 조치를 통해 EU/EEA 외부로 데이터가 전송될 수 있습니다.',
+                privacy8Title: '8. 데이터 보관',
+                privacy8Item1: '<strong>메시지 내용:</strong> 72시간 이내 삭제',
+                privacy8Item2: '<strong>메타데이터/로그:</strong> 규정에 따라 3-12개월',
+                privacy8Item3: '<strong>동의 기록:</strong> 최소 3년',
+                privacy9Title: '9. 사용자 권리 (GDPR 제12-23조)',
+                privacy9Item1: '접근권',
+                privacy9Item2: '정정권',
+                privacy9Item3: '삭제권 ("잊힐 권리")',
+                privacy9Item4: '처리 제한권',
+                privacy9Item5: '데이터 이동권',
+                privacy9Item6: '반대권',
+                privacy9Item7: '동의 철회권',
+                privacy9Contact: '연락처: support@teamplayer.co.kr (30일 이내 응답)',
+                privacy10Title: '10. 보안 조치',
+                privacy10Content: '암호화(TLS), 접근 제어, 로깅, 모니터링, 정기 보안 검토를 적용하여 개인정보를 보호합니다.',
+                privacy11Title: '11. 아동 개인정보',
+                privacy11Content: 'IMSMS는 16세 미만 아동을 대상으로 하지 않습니다. 아동의 데이터를 고의로 수집하지 않습니다.',
+                privacy12Title: '12. 정책 변경',
+                privacy12Content: '본 정책을 업데이트할 수 있으며, 중요한 변경 사항은 웹사이트를 통해 공지합니다.',
+                privacy13Title: '13. 연락처 정보'
+            },
+            en: {
+                subtitle: 'Free Premium Message Trial',
+                iphoneOnly: '📱 iPhone Only',
+                iphoneNotice: 'This demo is available only for iPhone users',
+                step1: 'Enter', step2: 'Verify', step3: 'Consent', step4: 'Complete',
+                phoneLabel: 'Phone Number (with country code)',
+                phonePlaceholder: '821012345678',
+                phoneHint: 'Enter your phone number with country code (e.g., 821012345678)',
+                startBtn: 'Start Demo',
+                successTitle: '🎉 Demo Sent!',
+                successMsg: 'Check your IMSMS message on iPhone',
+                poweredBy: 'Powered by:',
+                gdprLink: '🔐 GDPR Compliant',
+                gdprTitle: 'GDPR Compliance',
+                gdprSection1Title: 'Data Protection',
+                gdprSection1Content: 'All personal information is encrypted during transmission and storage. End-to-end encryption is implemented to protect data at every stage.',
+                gdprSection2Title: 'Data We Collect',
+                gdprSection2Item1: 'Phone number (for demo message delivery)',
+                gdprSection2Item2: 'Device compatibility information (iPhone verification)',
+                gdprSection2Item3: 'Message delivery status',
+                gdprSection3Title: 'Data Retention',
+                gdprSection3Content: 'Demo session data is automatically deleted after 24 hours. We do not retain personal information without explicit consent.',
+                gdprSection4Title: 'Your Rights',
+                gdprSection4Item1: 'Right of access',
+                gdprSection4Item2: 'Right to rectification',
+                gdprSection4Item3: 'Right to erasure (right to be forgotten)',
+                gdprSection4Item4: 'Right to data portability',
+                gdprSection4Item5: 'Right to object to processing',
+                gdprSection5Title: 'International Compliance',
+                gdprSection5Content: 'We comply with EU GDPR, California CCPA, and other international data protection regulations. We follow ISO 27001 certified security standards.',
+                // Privacy Policy
+                privacyTitle: 'IMSMS Privacy Policy (GDPR Compliant)',
+                privacyDate: 'Effective Date: Jan 2025 | Last Updated: Jan 2025',
+                privacy1Title: '1. Introduction',
+                privacy1Content: 'This Privacy Policy explains how TeamPlayer Co., Ltd. ("Company", "we", "our", "us") collects, uses, processes, and protects personal data when users interact with the IMSMS messaging platform (the "Service"). By using the Service, you acknowledge that you have read and understood this Privacy Policy.',
+                privacy2Title: '2. Data Controller',
+                privacy2Registered: 'Registered in: Republic of Korea',
+                privacy2EU: 'For EU/EEA users, we may appoint an EU representative if required by law.',
+                privacy3Title: '3. Personal Data We Collect',
+                privacy3Intro: 'We collect only the minimum personal data necessary to provide and secure IMSMS.',
+                privacy3_1Title: '3.1 Identification Data',
+                privacy3_1Item1: 'Phone number (MSISDN)',
+                privacy3_1Item2: 'Country code and network information',
+                privacy3_1Item3: 'Hashed device identifier (used for routing and security)',
+                privacy3_2Title: '3.2 Communication Data',
+                privacy3_2Item1: 'Message content (text and media) processed through IMSMS',
+                privacy3_2Item2: 'Attachments (images, files) where provided by the sender',
+                privacy3_3Title: '3.3 Technical and Usage Data',
+                privacy3_3Item1: 'IP address, timestamps, device OS and client type',
+                privacy3_3Item2: 'Delivery status and message channel used',
+                privacy3_4Title: '3.4 Consent and Preference Data',
+                privacy3_4Item1: 'Records of opt-in/opt-out for marketing messages',
+                privacy3_4Item2: 'Logs of consent time, source, and method',
+                privacy4Title: '4. Legal Basis for Processing (GDPR Article 6)',
+                privacy4Item1: '<strong>Consent:</strong> When a user has given clear consent to receive messages',
+                privacy4Item2: '<strong>Contractual Necessity:</strong> To perform contracts (send messages, provide delivery reports)',
+                privacy4Item3: '<strong>Legal Obligation:</strong> To comply with telecommunications and regulatory requirements',
+                privacy4Item4: '<strong>Legitimate Interests:</strong> Service reliability, fraud prevention, network security',
+                privacy5Title: '5. How We Use Personal Data',
+                privacy5Item1: 'Transmit and deliver messages via SMS, iMessage, RCS',
+                privacy5Item2: 'Determine optimal routing path',
+                privacy5Item3: 'Generate delivery status reports',
+                privacy5Item4: 'Maintain logs for troubleshooting and compliance',
+                privacy5Item5: 'Detect and prevent spam, fraud, and abuse',
+                privacy5NoSell: 'We do not sell personal data to third parties.',
+                privacy6Title: '6. Sharing and Disclosure',
+                privacy6Item1: '<strong>Telecom Operators:</strong> For message routing and delivery',
+                privacy6Item2: '<strong>Business Customers:</strong> Delivery status and performance reports',
+                privacy6Item3: '<strong>Service Providers:</strong> Hosting, security, analytics (as processors)',
+                privacy6Item4: '<strong>Legal Authorities:</strong> When required by law',
+                privacy7Title: '7. International Data Transfers',
+                privacy7Content: 'Data may be transferred outside EU/EEA with appropriate safeguards including Standard Contractual Clauses (SCC), encryption, and data minimization.',
+                privacy8Title: '8. Data Retention',
+                privacy8Item1: '<strong>Message content:</strong> Deleted within 72 hours',
+                privacy8Item2: '<strong>Metadata/logs:</strong> 3-12 months per regulations',
+                privacy8Item3: '<strong>Consent records:</strong> At least 3 years',
+                privacy9Title: '9. User Rights (GDPR Articles 12-23)',
+                privacy9Item1: 'Right of access',
+                privacy9Item2: 'Right to rectification',
+                privacy9Item3: 'Right to erasure ("right to be forgotten")',
+                privacy9Item4: 'Right to restriction of processing',
+                privacy9Item5: 'Right to data portability',
+                privacy9Item6: 'Right to object',
+                privacy9Item7: 'Right to withdraw consent',
+                privacy9Contact: 'Contact: support@teamplayer.co.kr (Response within 30 days)',
+                privacy10Title: '10. Security Measures',
+                privacy10Content: 'We apply encryption (TLS), access controls, logging, monitoring, and regular security reviews to protect personal data.',
+                privacy11Title: '11. Children\'s Privacy',
+                privacy11Content: 'IMSMS is not intended for children under 16. We do not knowingly collect data from children.',
+                privacy12Title: '12. Changes to This Policy',
+                privacy12Content: 'We may update this policy and will provide notice of material changes via our website.',
+                privacy13Title: '13. Contact Information'
+            },
+            ja: {
+                subtitle: 'プレミアムメッセージ無料体験',
+                iphoneOnly: '📱 iPhone専用',
+                iphoneNotice: 'このデモはiPhoneユーザーのみ利用可能です',
+                step1: '番号入力', step2: 'iPhone確認', step3: '受信同意', step4: '送信完了',
+                phoneLabel: '電話番号（国際番号を含む）',
+                phonePlaceholder: '821012345678',
+                phoneHint: '国際番号を含む電話番号を入力してください（例：821012345678）',
+                startBtn: 'デモ開始',
+                successTitle: '🎉 デモ送信完了！',
+                successMsg: 'iPhoneでIMSMSメッセージをご確認ください',
+                poweredBy: '提供:',
+                gdprLink: '🔐 GDPR準拠',
+                gdprTitle: 'GDPR準拠',
+                gdprSection1Title: 'データ保護',
+                gdprSection1Content: 'すべての個人情報は送信および保存時に暗号化されます。エンドツーエンド暗号化を実装して、各段階でデータを保護します。',
+                gdprSection2Title: '収集するデータ',
+                gdprSection2Item1: '電話番号（デモメッセージ配信用）',
+                gdprSection2Item2: 'デバイス互換性情報（iPhone検証）',
+                gdprSection2Item3: 'メッセージ配信ステータス',
+                gdprSection3Title: 'データ保管',
+                gdprSection3Content: 'デモセッションデータは24時間後に自動削除されます。明示的な同意なしに個人情報を長期保管しません。',
+                gdprSection4Title: 'あなたの権利',
+                gdprSection4Item1: 'アクセス権',
+                gdprSection4Item2: '訂正権',
+                gdprSection4Item3: '削除権（忘れられる権利）',
+                gdprSection4Item4: 'データポータビリティ権',
+                gdprSection4Item5: '処理に対する異議権',
+                gdprSection5Title: '国際規制への準拠',
+                gdprSection5Content: 'EU GDPR、カリフォルニアCCPA、その他の国際データ保護規制に準拠しています。ISO 27001認証セキュリティ標準に従っています。',
+                // Privacy Policy
+                privacyTitle: 'IMSMSプライバシーポリシー（GDPR準拠）',
+                privacyDate: '施行日：2025年1月 | 最終更新：2025年1月',
+                privacy1Title: '1. はじめに',
+                privacy1Content: '本プライバシーポリシーは、TeamPlayer Co., Ltd.（以下「当社」）がIMSMSメッセージングプラットフォーム（以下「サービス」）の利用時に個人データをどのように収集、使用、処理、保護するかを説明します。サービスを利用することで、本プライバシーポリシーを読み、理解したことを認めます。',
+                privacy2Title: '2. データ管理者',
+                privacy2Registered: '登録地：大韓民国',
+                privacy2EU: 'EU/EEAユーザーについては、法律で要求される場合、EU代理人を任命することがあります。',
+                privacy3Title: '3. 収集する個人データ',
+                privacy3Intro: 'IMSMSの提供とセキュリティに必要な最小限の個人データのみを収集します。',
+                privacy3_1Title: '3.1 識別データ',
+                privacy3_1Item1: '電話番号（MSISDN）',
+                privacy3_1Item2: '国コードとネットワーク情報',
+                privacy3_1Item3: 'ハッシュ化されたデバイス識別子（ルーティングとセキュリティ用）',
+                privacy3_2Title: '3.2 通信データ',
+                privacy3_2Item1: 'IMSMSを通じて処理されるメッセージコンテンツ（テキストとメディア）',
+                privacy3_2Item2: '送信者が提供した添付ファイル（画像、ファイル）',
+                privacy3_3Title: '3.3 技術・利用データ',
+                privacy3_3Item1: 'IPアドレス、タイムスタンプ、デバイスOSとクライアントタイプ',
+                privacy3_3Item2: '配信ステータスと使用されたメッセージチャネル',
+                privacy3_4Title: '3.4 同意・設定データ',
+                privacy3_4Item1: 'マーケティングメッセージのオプトイン/オプトアウト記録',
+                privacy3_4Item2: '同意時刻、ソース、方法のログ',
+                privacy4Title: '4. 処理の法的根拠（GDPR第6条）',
+                privacy4Item1: '<strong>同意：</strong> ユーザーがメッセージ受信に明確な同意を与えた場合',
+                privacy4Item2: '<strong>契約履行：</strong> 契約の実行（メッセージ送信、配信レポートの提供）',
+                privacy4Item3: '<strong>法的義務：</strong> 電気通信および規制要件の遵守',
+                privacy4Item4: '<strong>正当な利益：</strong> サービスの信頼性、詐欺防止、ネットワークセキュリティ',
+                privacy5Title: '5. 個人データの使用方法',
+                privacy5Item1: 'SMS、iMessage、RCSを介したメッセージの送信と配信',
+                privacy5Item2: '最適なルーティングパスの決定',
+                privacy5Item3: '配信ステータスレポートの生成',
+                privacy5Item4: 'トラブルシューティングとコンプライアンスのためのログ維持',
+                privacy5Item5: 'スパム、詐欺、悪用の検出と防止',
+                privacy5NoSell: '第三者に個人データを販売しません。',
+                privacy6Title: '6. 共有と開示',
+                privacy6Item1: '<strong>通信事業者：</strong> メッセージのルーティングと配信用',
+                privacy6Item2: '<strong>ビジネス顧客：</strong> 配信ステータスとパフォーマンスレポート',
+                privacy6Item3: '<strong>サービスプロバイダー：</strong> ホスティング、セキュリティ、分析（処理者として）',
+                privacy6Item4: '<strong>法的機関：</strong> 法律で要求される場合',
+                privacy7Title: '7. 国際データ転送',
+                privacy7Content: '標準契約条項（SCC）、暗号化、データ最小化などの適切な保護措置を講じて、EU/EEA外にデータを転送する場合があります。',
+                privacy8Title: '8. データ保持',
+                privacy8Item1: '<strong>メッセージコンテンツ：</strong> 72時間以内に削除',
+                privacy8Item2: '<strong>メタデータ/ログ：</strong> 規制に応じて3〜12ヶ月',
+                privacy8Item3: '<strong>同意記録：</strong> 少なくとも3年',
+                privacy9Title: '9. ユーザーの権利（GDPR第12〜23条）',
+                privacy9Item1: 'アクセス権',
+                privacy9Item2: '訂正権',
+                privacy9Item3: '削除権（「忘れられる権利」）',
+                privacy9Item4: '処理制限権',
+                privacy9Item5: 'データポータビリティ権',
+                privacy9Item6: '異議申立権',
+                privacy9Item7: '同意撤回権',
+                privacy9Contact: '連絡先：support@teamplayer.co.kr（30日以内に回答）',
+                privacy10Title: '10. セキュリティ対策',
+                privacy10Content: '暗号化（TLS）、アクセス制御、ログ記録、監視、定期的なセキュリティレビューを適用して個人データを保護します。',
+                privacy11Title: '11. 子供のプライバシー',
+                privacy11Content: 'IMSMSは16歳未満の子供を対象としていません。子供のデータを故意に収集しません。',
+                privacy12Title: '12. ポリシーの変更',
+                privacy12Content: 'このポリシーを更新する場合があり、重要な変更についてはウェブサイトで通知します。',
+                privacy13Title: '13. 連絡先情報'
+            },
+            pt: {
+                subtitle: 'Teste Gratuito de Mensagem Premium',
+                iphoneOnly: '📱 Apenas iPhone',
+                iphoneNotice: 'Esta demonstração está disponível apenas para usuários de iPhone',
+                step1: 'Inserir', step2: 'Verificar', step3: 'Consentir', step4: 'Concluído',
+                phoneLabel: 'Número de Telefone (com código do país)',
+                phonePlaceholder: '821012345678',
+                phoneHint: 'Digite seu número de telefone com código do país (ex: 821012345678)',
+                startBtn: 'Iniciar Demo',
+                successTitle: '🎉 Demo Enviado!',
+                successMsg: 'Verifique sua mensagem IMSMS no iPhone',
+                poweredBy: 'Fornecido por:',
+                gdprLink: '🔐 Conforme GDPR',
+                gdprTitle: 'Conformidade GDPR',
+                gdprSection1Title: 'Proteção de Dados',
+                gdprSection1Content: 'Todas as informações pessoais são criptografadas durante a transmissão e armazenamento. A criptografia de ponta a ponta é implementada para proteger dados em todas as etapas.',
+                gdprSection2Title: 'Dados que Coletamos',
+                gdprSection2Item1: 'Número de telefone (para entrega de mensagem demo)',
+                gdprSection2Item2: 'Informações de compatibilidade do dispositivo (verificação do iPhone)',
+                gdprSection2Item3: 'Status de entrega da mensagem',
+                gdprSection3Title: 'Retenção de Dados',
+                gdprSection3Content: 'Os dados da sessão de demonstração são excluídos automaticamente após 24 horas. Não retemos informações pessoais sem consentimento explícito.',
+                gdprSection4Title: 'Seus Direitos',
+                gdprSection4Item1: 'Direito de acesso',
+                gdprSection4Item2: 'Direito de retificação',
+                gdprSection4Item3: 'Direito ao apagamento (direito ao esquecimento)',
+                gdprSection4Item4: 'Direito à portabilidade de dados',
+                gdprSection4Item5: 'Direito de se opor ao processamento',
+                gdprSection5Title: 'Conformidade Internacional',
+                gdprSection5Content: 'Cumprimos o GDPR da UE, CCPA da Califórnia e outros regulamentos internacionais de proteção de dados. Seguimos os padrões de segurança certificados ISO 27001.',
+                // Privacy Policy
+                privacyTitle: 'Política de Privacidade IMSMS (Conforme GDPR)',
+                privacyDate: 'Data de Vigência: Jan 2025 | Última Atualização: Jan 2025',
+                privacy1Title: '1. Introdução',
+                privacy1Content: 'Esta Política de Privacidade explica como a TeamPlayer Co., Ltd. ("Empresa", "nós", "nosso") coleta, usa, processa e protege dados pessoais quando os usuários interagem com a plataforma de mensagens IMSMS (o "Serviço"). Ao usar o Serviço, você reconhece que leu e entendeu esta Política de Privacidade.',
+                privacy2Title: '2. Controlador de Dados',
+                privacy2Registered: 'Registrado em: República da Coreia',
+                privacy2EU: 'Para usuários da UE/EEE, podemos nomear um representante da UE se exigido por lei.',
+                privacy3Title: '3. Dados Pessoais que Coletamos',
+                privacy3Intro: 'Coletamos apenas os dados pessoais mínimos necessários para fornecer e proteger o IMSMS.',
+                privacy3_1Title: '3.1 Dados de Identificação',
+                privacy3_1Item1: 'Número de telefone (MSISDN)',
+                privacy3_1Item2: 'Código do país e informações de rede',
+                privacy3_1Item3: 'Identificador de dispositivo hash (usado para roteamento e segurança)',
+                privacy3_2Title: '3.2 Dados de Comunicação',
+                privacy3_2Item1: 'Conteúdo da mensagem (texto e mídia) processado através do IMSMS',
+                privacy3_2Item2: 'Anexos (imagens, arquivos) fornecidos pelo remetente',
+                privacy3_3Title: '3.3 Dados Técnicos e de Uso',
+                privacy3_3Item1: 'Endereço IP, timestamps, SO do dispositivo e tipo de cliente',
+                privacy3_3Item2: 'Status de entrega e canal de mensagem usado',
+                privacy3_4Title: '3.4 Dados de Consentimento e Preferência',
+                privacy3_4Item1: 'Registros de opt-in/opt-out para mensagens de marketing',
+                privacy3_4Item2: 'Logs de tempo, fonte e método de consentimento',
+                privacy4Title: '4. Base Legal para Processamento (Artigo 6 do GDPR)',
+                privacy4Item1: '<strong>Consentimento:</strong> Quando o usuário deu consentimento claro para receber mensagens',
+                privacy4Item2: '<strong>Necessidade Contratual:</strong> Para executar contratos (enviar mensagens, fornecer relatórios de entrega)',
+                privacy4Item3: '<strong>Obrigação Legal:</strong> Para cumprir requisitos de telecomunicações e regulamentares',
+                privacy4Item4: '<strong>Interesses Legítimos:</strong> Confiabilidade do serviço, prevenção de fraudes, segurança de rede',
+                privacy5Title: '5. Como Usamos Dados Pessoais',
+                privacy5Item1: 'Transmitir e entregar mensagens via SMS, iMessage, RCS',
+                privacy5Item2: 'Determinar o caminho de roteamento ideal',
+                privacy5Item3: 'Gerar relatórios de status de entrega',
+                privacy5Item4: 'Manter logs para solução de problemas e conformidade',
+                privacy5Item5: 'Detectar e prevenir spam, fraude e abuso',
+                privacy5NoSell: 'Não vendemos dados pessoais a terceiros.',
+                privacy6Title: '6. Compartilhamento e Divulgação',
+                privacy6Item1: '<strong>Operadoras de Telecomunicações:</strong> Para roteamento e entrega de mensagens',
+                privacy6Item2: '<strong>Clientes Empresariais:</strong> Status de entrega e relatórios de desempenho',
+                privacy6Item3: '<strong>Provedores de Serviço:</strong> Hospedagem, segurança, análise (como processadores)',
+                privacy6Item4: '<strong>Autoridades Legais:</strong> Quando exigido por lei',
+                privacy7Title: '7. Transferências Internacionais de Dados',
+                privacy7Content: 'Os dados podem ser transferidos para fora da UE/EEE com salvaguardas apropriadas, incluindo Cláusulas Contratuais Padrão (SCC), criptografia e minimização de dados.',
+                privacy8Title: '8. Retenção de Dados',
+                privacy8Item1: '<strong>Conteúdo da mensagem:</strong> Excluído em 72 horas',
+                privacy8Item2: '<strong>Metadados/logs:</strong> 3-12 meses conforme regulamentos',
+                privacy8Item3: '<strong>Registros de consentimento:</strong> Pelo menos 3 anos',
+                privacy9Title: '9. Direitos do Usuário (Artigos 12-23 do GDPR)',
+                privacy9Item1: 'Direito de acesso',
+                privacy9Item2: 'Direito de retificação',
+                privacy9Item3: 'Direito ao apagamento ("direito ao esquecimento")',
+                privacy9Item4: 'Direito à restrição de processamento',
+                privacy9Item5: 'Direito à portabilidade de dados',
+                privacy9Item6: 'Direito de objeção',
+                privacy9Item7: 'Direito de retirar consentimento',
+                privacy9Contact: 'Contato: support@teamplayer.co.kr (Resposta em 30 dias)',
+                privacy10Title: '10. Medidas de Segurança',
+                privacy10Content: 'Aplicamos criptografia (TLS), controles de acesso, registro, monitoramento e revisões regulares de segurança para proteger dados pessoais.',
+                privacy11Title: '11. Privacidade de Crianças',
+                privacy11Content: 'O IMSMS não é destinado a crianças menores de 16 anos. Não coletamos dados de crianças intencionalmente.',
+                privacy12Title: '12. Alterações nesta Política',
+                privacy12Content: 'Podemos atualizar esta política e notificaremos sobre alterações materiais através do nosso site.',
+                privacy13Title: '13. Informações de Contato'
+            }
+        };
+
+        // Language Switcher
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Use innerHTML for elements that may contain HTML tags
+                    if (translations[lang][key].includes('<')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update placeholder
+            const phoneInput = document.getElementById('phoneNumber');
+            if (phoneInput && translations[lang].phonePlaceholder) {
+                phoneInput.placeholder = translations[lang].phonePlaceholder;
+            }
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update button emoji
+            const themeBtn = document.querySelector('.theme-btn');
+            themeBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
+            const savedTheme = localStorage.getItem('theme') || 'light';
+
+            if (savedLang && translations[savedLang]) {
+                switchLanguage(savedLang);
+            }
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-btn').textContent = '☀️';
+            }
+        });
+
+        function formatPhoneNumber(phone) {
+            let cleaned = phone.replace(/\D/g, '');
+
+            if (cleaned.startsWith('0')) {
+                cleaned = '82' + cleaned.substring(1);
+            }
+
+            if (!cleaned.startsWith('82') && !cleaned.startsWith('1')) {
+                cleaned = '82' + cleaned;
+            }
+
+            return '+' + cleaned;
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+
+            setTimeout(() => {
+                errorEl.classList.remove('show');
+            }, 5000);
+        }
+
+        function updateStep(stepNumber) {
+            for (let i = 1; i <= 4; i++) {
+                const step = document.getElementById(`step${i}`);
+                step.classList.remove('active', 'completed');
+
+                if (i < stepNumber) {
+                    step.classList.add('completed');
+                } else if (i === stepNumber) {
+                    step.classList.add('active');
+                }
+            }
+        }
+
+        function updateStatus(text) {
+            document.getElementById('statusText').textContent = text;
+        }
+
+        async function startDemo() {
+            const phoneInput = document.getElementById('phoneNumber');
+            const phone = phoneInput.value.trim();
+
+            if (!phone) {
+                showError('전화번호를 입력해주세요');
+                return;
+            }
+
+            const formattedPhone = formatPhoneNumber(phone);
+            console.log('Formatted phone:', formattedPhone);
+
+            const btn = document.getElementById('startBtn');
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE}/api/demo/start`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ phoneNumber: formattedPhone })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    sessionId = data.sessionId;
+
+                    document.getElementById('form-section').classList.remove('show');
+                    document.getElementById('waiting-section').classList.add('show');
+
+                    updateStep(2);
+                    updateStatus('iPhone 검증 중...');
+
+                    startStatusCheck();
+                } else {
+                    showError(data.message || '오류가 발생했습니다');
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('서버 연결에 실패했습니다');
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
+        }
+
+        function startStatusCheck() {
+            startTime = Date.now();
+
+            statusCheckInterval = setInterval(async () => {
+                if (!sessionId) return;
+
+                // 타임아웃 체크
+                const elapsedTime = Date.now() - startTime;
+                if (elapsedTime > MAX_WAIT_TIME) {
+                    updateStatus('⏱️ 시간 초과');
+                    showError('검증 시간이 초과되었습니다. 다시 시도해주세요.');
+                    stopStatusCheck();
+
+                    setTimeout(() => {
+                        document.getElementById('waiting-section').classList.remove('show');
+                        document.getElementById('form-section').classList.add('show');
+                        updateStep(1);
+                    }, 3000);
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`${API_BASE}/api/demo/status/${sessionId}`);
+                    const data = await response.json();
+
+                    handleStatusUpdate(data);
+                } catch (error) {
+                    console.error('Status check error:', error);
+
+                    // 네트워크 에러가 지속되면 타임아웃
+                    if (elapsedTime > 5000) { // 5초 이상 에러 발생시
+                        updateStatus('❌ 연결 오류');
+                        showError('서버 연결에 실패했습니다. 다시 시도해주세요.');
+                        stopStatusCheck();
+
+                        setTimeout(() => {
+                            document.getElementById('waiting-section').classList.remove('show');
+                            document.getElementById('form-section').classList.add('show');
+                            updateStep(1);
+                        }, 3000);
+                    }
+                }
+            }, 800); // 0.8초마다 체크 (더 빠른 업데이트)
+        }
+
+        function handleStatusUpdate(data) {
+            const { status, isCompatible, consentProcess, consentStatus } = data;
+
+            switch (status) {
+                case 'lookup':
+                    updateStep(2);
+                    updateStatus('iPhone 검증 중...');
+                    break;
+
+                case 'not_compatible':
+                    updateStep(2);
+                    updateStatus('❌ iPhone이 아닙니다');
+                    showError('이 번호는 iPhone이 아닙니다. iPhone으로 다시 시도해주세요.');
+                    stopStatusCheck();
+                    break;
+
+                case 'consent_requesting':
+                case 'consent_requested':
+                    updateStep(3);
+                    updateStatus('📱 수신동의 요청 중...\nIMS가 수신동의를 먼저 처리합니다');
+                    break;
+
+                case 'consent_pending':
+                    updateStep(3);
+                    updateStatus('⏳ 수신동의 대기 중...\niPhone에서 수신 동의를 확인해주세요');
+                    break;
+
+                case 'consent_granted':
+                    updateStep(3);
+                    updateStatus('✅ 수신 동의 완료!\n데모 메시지 발송 중...');
+                    break;
+
+                case 'demo_sent':
+                    updateStep(4);
+                    updateStatus('🎉 데모 메시지 발송 완료!');
+                    document.getElementById('successMessage').classList.add('show');
+                    stopStatusCheck();
+                    break;
+
+                case 'consent_declined':
+                    updateStep(3);
+                    updateStatus('❌ 수신 거부됨');
+                    showError('사용자가 수신을 거부했습니다.');
+                    stopStatusCheck();
+                    break;
+
+                case 'consent_timeout':
+                    updateStep(3);
+                    updateStatus('⏱️ 수신동의 시간 초과');
+                    showError('수신동의 응답 시간이 초과되었습니다.');
+                    stopStatusCheck();
+                    break;
+
+                case 'message_sent':
+                    updateStep(4);
+                    updateStatus('🎉 메시지 발송 완료!');
+                    document.getElementById('successMessage').classList.add('show');
+                    stopStatusCheck();
+                    break;
+
+                case 'completed':
+                    updateStep(4);
+                    updateStatus('✅ 완료되었습니다!');
+                    document.getElementById('successMessage').classList.add('show');
+                    stopStatusCheck();
+                    break;
+
+                case 'error':
+                    updateStatus('❌ 오류 발생');
+                    const errorMsg = data.error || '처리 중 오류가 발생했습니다';
+                    console.error('Demo error:', data);
+                    showError(errorMsg);
+                    stopStatusCheck();
+
+                    setTimeout(() => {
+                        document.getElementById('waiting-section').classList.remove('show');
+                        document.getElementById('form-section').classList.add('show');
+                        updateStep(1);
+                    }, 5000);
+                    break;
+            }
+        }
+
+        function stopStatusCheck() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+                statusCheckInterval = null;
+            }
+        }
+
+        document.getElementById('phoneNumber').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                startDemo();
+            }
+        });
+
+        document.getElementById('phoneNumber').addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+
+            if (value.length > 13) {
+                value = value.slice(0, 13);
+            }
+
+            e.target.value = value;
+        });
+
+        // GDPR Modal Functions
+        function openGdprModal() {
+            document.getElementById('gdprModal').style.display = 'flex';
+        }
+
+        function closeGdprModal() {
+            document.getElementById('gdprModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'gdprModal') {
+                closeGdprModal();
+            }
+        });
+    </script>
+</body>
+</html>
