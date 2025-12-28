@@ -3663,7 +3663,7 @@
                 <div class="demo-qr-section" id="qrSection">
                     <div class="demo-qr-box">
                         <div id="qrcode" class="qr-code"></div>
-                        <p class="qr-instruction" data-i18n="demo.qrInstruction">📱 QR 스캔 시 메시지앱이 열립니다.<br>'IMSMS 데모 수신동의' 메시지를 그대로 전송하세요.<br>데모 메시지를 즉시 보내드립니다.</p>
+                        <p class="qr-instruction" data-i18n="demo.qrInstruction">📱 QR 스캔 시 메시지앱이 열립니다.<br>'start' 메시지를 그대로 전송하세요.<br>데모 메시지를 즉시 보내드립니다.</p>
                     </div>
                 </div>
 
@@ -4198,9 +4198,8 @@
             const qrcodeElement = document.getElementById('qrcode');
             if (qrcodeElement && typeof QRCode !== 'undefined') {
                 qrcodeElement.innerHTML = ''; // Clear previous QR code
-                const message = encodeURIComponent('IMSMS 데모 수신동의');
                 new QRCode(qrcodeElement, {
-                    text: 'imessage://demo@teamplayer.co.kr?body=' + message,
+                    text: 'http://13.125.2.83:3000/demo.html',
                     width: 250,
                     height: 250,
                     colorDark: '#000000',
@@ -4221,7 +4220,7 @@
 
             demoSendBtn.addEventListener('click', function() {
                 // iMessage URL scheme
-                const message = encodeURIComponent('IMSMS 데모 수신동의');
+                const message = encodeURIComponent('start');
                 const imessageUrl = 'imessage://demo@teamplayer.co.kr?body=' + message;
 
                 // Check if iOS device

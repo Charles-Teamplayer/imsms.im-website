@@ -1021,27 +1021,7 @@
     </div>
 
     <script>
-        /**
-         * IMSMS Demo - API 문서 참조
-         *
-         * 이 페이지는 demo-server.js를 통해 IMSMS API를 호출합니다.
-         *
-         * API 문서 (assets/api_document):
-         * - API v1.0.pdf: 메세지 전송/상태 체크 API
-         *   - POST /api/imsms/send (메세지 전송)
-         *   - GET /api/imsms/info?imsId=xxx (상태 체크)
-         *
-         * - LookUp API.pdf: 전화번호 호환성 체크 API
-         *   - POST /api/imsms/phone/lookup
-         *
-         * - User Consent API (Callback).pdf: 수신동의 콜백 API
-         *   - Callback으로 수신동의 상태 전달
-         *
-         * API Endpoint: http://ec2-3-34-72-7.ap-northeast-2.compute.amazonaws.com:9999/
-         * X-API-KEY: d49855bc-0da6-4214-baf1-543564b25cfc (웹 프론트 전용)
-         */
-
-        // API_BASE - 상대 경로 사용 (demo-server.js 프록시 경유)
+        // API_BASE - 상대 경로 사용 (Mixed Content 문제 해결)
         const API_BASE = '';
 
         let sessionId = null;
@@ -1692,17 +1672,7 @@
 
                 case 'error':
                     updateStatus('❌ 오류 발생');
-                    // API v1.0 문서 결과코드 기반 에러 메시지
-                    // 000: OK, 100: 전화번호 형식 오류, 110: 전화번호 유효성 실패
-                    // 120: 메세지 비어있음, 130: 메세지 전송 실패, 200: 메세지 취소 실패
-                    let errorMsg = data.error || '처리 중 오류가 발생했습니다';
-                    if (data.error && data.error.includes('100')) {
-                        errorMsg = '전화번호 형식이 올바르지 않습니다.';
-                    } else if (data.error && data.error.includes('110')) {
-                        errorMsg = '전화번호 유효성 검증에 실패했습니다.';
-                    } else if (data.error && data.error.includes('130')) {
-                        errorMsg = '메시지 전송에 실패했습니다.';
-                    }
+                    const errorMsg = data.error || '처리 중 오류가 발생했습니다';
                     console.error('Demo error:', data);
                     showError(errorMsg);
                     stopStatusCheck();
