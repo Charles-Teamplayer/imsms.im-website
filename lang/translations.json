@@ -104,7 +104,10 @@
       "imsms": {
         "title": "IMSMS",
         "price": "무료",
-        "unit": "SMS와 함께"
+        "unit": "SMS와 함께",
+        "feature1": "SMS 1건 + IMSMS 1건",
+        "feature2": "IMSMS 실패 시 SMS 자동 발송",
+        "feature3": "메시지 내용에 맞춘 비용 절감"
       },
       "ctaMain": "같은 가격, 2배의 메시지 발송\n고객사의 발송량과 용도에 맞는 최적의 요금제를 제안해드립니다",
       "comparison": {
@@ -499,7 +502,10 @@
       "imsms": {
         "title": "IMSMS",
         "price": "FREE",
-        "unit": "with SMS"
+        "unit": "with SMS",
+        "feature1": "1 SMS + 1 IMSMS",
+        "feature2": "Automatic SMS fallback if IMSMS fails",
+        "feature3": "Cost savings tailored to message content"
       },
       "ctaMain": "Same price, double the messages\nWe'll propose the optimal pricing plan for your sending volume and purpose",
       "comparison": {
@@ -894,7 +900,10 @@
       "imsms": {
         "title": "IMSMS",
         "price": "無料",
-        "unit": "SMSと"
+        "unit": "SMSと",
+        "feature1": "SMS 1件 + IMSMS 1件",
+        "feature2": "IMSMS失敗時にSMSへ自動切替",
+        "feature3": "メッセージ内容に応じたコスト削減"
       },
       "ctaMain": "同価格2倍送信\n最適プラン提案",
       "comparison": {
@@ -1289,7 +1298,10 @@
       "imsms": {
         "title": "IMSMS",
         "price": "GRÁTIS",
-        "unit": "com SMS"
+        "unit": "com SMS",
+        "feature1": "1 SMS + 1 IMSMS",
+        "feature2": "Envio automático de SMS se o IMSMS falhar",
+        "feature3": "Economia de custos conforme o conteúdo da mensagem"
       },
       "ctaMain": "Mesmo preço, dobro de mensagens\nProporemos o plano de preços ideal para seu volume e finalidade de envio",
       "comparison": {

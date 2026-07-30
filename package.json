@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node demo-server.js",
     "dev": "nodemon demo-server.js",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "node scripts/check-i18n.js"
   },
   "keywords": [
     "imsms",
