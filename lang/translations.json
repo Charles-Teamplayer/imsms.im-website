@@ -1,5 +1,9 @@
 {
   "ko": {
+    "seo": {
+      "title": "IMSMS - 1+1 메시지 혁명 | SMS 보내면 IMSMS 무료!",
+      "description": "Apple iMessage 기반 프리미엄 기업 메시징. 월 25만원 이상 사용 기업을 위한 최고의 비용 효율 솔루션"
+    },
     "nav": {
       "about": "IMSMS란",
       "checkLabel": "확인",
@@ -152,7 +156,12 @@
       "volume5": "100만건 이상",
       "message": "문의 내용",
       "messagePlaceholder": "자세한 문의 내용을 입력해주세요",
-      "submit": "견적 문의하기"
+      "submit": "견적 문의하기",
+      "submitting": "전송 중...",
+      "responseError": "서버 응답을 처리할 수 없습니다.",
+      "successMessage": "{name} 님. 견적문의주셔서 감사드립니다.\n빠른 시일 내에 연락드리겠습니다.",
+      "sendError": "전송 중 오류가 발생했습니다.",
+      "retryError": "전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
     },
     "demo": {
       "title": "당신의 iPhone에서 직접 체험해보세요",
@@ -163,7 +172,8 @@
       "consentText": "메시지 수신을 동의합니다",
       "consentNotice": "* 데모 메시지 1회 발송 후 자동으로 삭제됩니다",
       "sendButton": "iMessage로 데모 신청하기",
-      "note": "* iPhone 사용자만 체험 가능하며, 수신동의 메시지 발송 시에 별도의 비용이 발생하지 않습니다."
+      "note": "* iPhone 사용자만 체험 가능하며, 수신동의 메시지 발송 시에 별도의 비용이 발생하지 않습니다.",
+      "iphoneOnlyAlert": "이 기능은 iPhone에서만 사용 가능합니다.\n\n데스크톱에서는 QR 코드를 iPhone 카메라로 스캔해주세요."
     },
     "faq": {
       "title": "자주 묻는 질문",
@@ -182,6 +192,7 @@
       "title": "IMSMS 소식",
       "subtitle": "최신 뉴스와 업데이트를 확인하세요",
       "loadMore": "더 많은 소식 보기",
+      "loadError": "뉴스를 불러올 수 없습니다.",
       "categories": {
         "all": "전체",
         "award": "수상",
@@ -398,6 +409,10 @@
     }
   },
   "en": {
+    "seo": {
+      "title": "IMSMS - 1+1 Messaging | Send SMS, Get IMSMS Free",
+      "description": "Premium Apple iMessage-based business messaging with cost-efficient plans for high-volume SMS senders."
+    },
     "nav": {
       "about": "About IMSMS",
       "checkLabel": "Check",
@@ -550,7 +565,12 @@
       "volume5": "Over 1M",
       "message": "Message",
       "messagePlaceholder": "Please enter detailed inquiry",
-      "submit": "Request Quote"
+      "submit": "Request Quote",
+      "submitting": "Sending...",
+      "responseError": "Unable to process the server response.",
+      "successMessage": "Thank you, {name}. We received your quote request.\nWe'll contact you shortly.",
+      "sendError": "An error occurred while sending.",
+      "retryError": "An error occurred while sending. Please try again shortly."
     },
     "demo": {
       "title": "Experience it Directly on Your iPhone",
@@ -561,7 +581,8 @@
       "consentText": "I agree to receive messages",
       "consentNotice": "* Automatically deleted after sending demo message once",
       "sendButton": "Request Demo via iMessage",
-      "note": "* Available for iPhone users only. No charge for opt-in message sending."
+      "note": "* Available for iPhone users only. No charge for opt-in message sending.",
+      "iphoneOnlyAlert": "This feature is available on iPhone only.\n\nOn desktop, scan the QR code with your iPhone camera."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -580,6 +601,7 @@
       "title": "Company News",
       "subtitle": "Stay updated with IMSMS latest news",
       "loadMore": "Load More News",
+      "loadError": "Unable to load news.",
       "categories": {
         "all": "All",
         "award": "Awards",
@@ -796,6 +818,10 @@
     }
   },
   "ja": {
+    "seo": {
+      "title": "IMSMS - 1+1メッセージング | SMS送信でIMSMS無料",
+      "description": "Apple iMessageを活用した企業向けプレミアムメッセージング。大量のSMS送信に適した高コスト効率のソリューションです。"
+    },
     "nav": {
       "about": "概要",
       "checkLabel": "確認",
@@ -948,7 +974,12 @@
       "volume5": "100万件以上",
       "message": "お問い合わせ内容",
       "messagePlaceholder": "詳細なお問い合わせ内容を入力してください",
-      "submit": "見積もり依頼"
+      "submit": "見積もり依頼",
+      "submitting": "送信中...",
+      "responseError": "サーバーの応答を処理できません。",
+      "successMessage": "{name}様、お見積もり依頼ありがとうございます。\n近日中にご連絡いたします。",
+      "sendError": "送信中にエラーが発生しました。",
+      "retryError": "送信中にエラーが発生しました。しばらくしてからもう一度お試しください。"
     },
     "demo": {
       "title": "あなたのiPhoneで直接体験してください",
@@ -959,7 +990,8 @@
       "consentText": "メッセージ受信に同意します",
       "consentNotice": "* デモメッセージ1回送信後、自動的に削除されます",
       "sendButton": "iMessageでデモ申請",
-      "note": "* iPhoneユーザーのみ体験可能で、受信同意メッセージ送信時に別途費用は発生しません。"
+      "note": "* iPhoneユーザーのみ体験可能で、受信同意メッセージ送信時に別途費用は発生しません。",
+      "iphoneOnlyAlert": "この機能はiPhoneでのみ利用できます。\n\nデスクトップでは、iPhoneのカメラでQRコードをスキャンしてください。"
     },
     "faq": {
       "title": "よくある質問",
@@ -978,6 +1010,7 @@
       "title": "ニュース",
       "subtitle": "IMSMSの最新情報をご確認ください",
       "loadMore": "もっと見る",
+      "loadError": "ニュースを読み込めません。",
       "categories": {
         "all": "全て",
         "award": "受賞",
@@ -1194,6 +1227,10 @@
     }
   },
   "pt": {
+    "seo": {
+      "title": "IMSMS - Mensagens 1+1 | Envie SMS e ganhe IMSMS grátis",
+      "description": "Mensagens empresariais premium via Apple iMessage com planos econômicos para grandes volumes de SMS."
+    },
     "nav": {
       "about": "Sobre IMSMS",
       "checkLabel": "Verificar",
@@ -1346,7 +1383,12 @@
       "volume5": "Mais de 1M",
       "message": "Mensagem",
       "messagePlaceholder": "Por favor, insira consulta detalhada",
-      "submit": "Solicitar Orçamento"
+      "submit": "Solicitar Orçamento",
+      "submitting": "Enviando...",
+      "responseError": "Não foi possível processar a resposta do servidor.",
+      "successMessage": "Obrigado, {name}. Recebemos sua solicitação de orçamento.\nEntraremos em contato em breve.",
+      "sendError": "Ocorreu um erro durante o envio.",
+      "retryError": "Ocorreu um erro durante o envio. Tente novamente em instantes."
     },
     "demo": {
       "title": "Experimente Diretamente no Seu iPhone",
@@ -1357,7 +1399,8 @@
       "consentText": "Concordo em receber mensagens",
       "consentNotice": "* Automaticamente excluído após enviar mensagem demo uma vez",
       "sendButton": "Solicitar Demo via iMessage",
-      "note": "* Disponível apenas para usuários iPhone. Sem cobrança pelo envio de mensagem de opt-in."
+      "note": "* Disponível apenas para usuários iPhone. Sem cobrança pelo envio de mensagem de opt-in.",
+      "iphoneOnlyAlert": "Este recurso está disponível apenas no iPhone.\n\nNo computador, escaneie o código QR com a câmera do iPhone."
     },
     "faq": {
       "title": "Perguntas Frequentes",
@@ -1376,6 +1419,7 @@
       "title": "Notícias da Empresa",
       "subtitle": "Mantenha-se atualizado com as últimas notícias do IMSMS",
       "loadMore": "Carregar Mais Notícias",
+      "loadError": "Não foi possível carregar as notícias.",
       "categories": {
         "all": "Todos",
         "award": "Prêmios",

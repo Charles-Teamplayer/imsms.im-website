@@ -21,6 +21,10 @@ function flatten(value, prefix = '', result = {}) {
 
 const keyPattern = /data-i18n(?:-placeholder)?="([^"]+)"/g;
 const requiredKeys = new Set(Array.from(html.matchAll(keyPattern), match => match[1]));
+const runtimeKeyPattern = /getTranslation\('([^']+)'/g;
+for (const match of html.matchAll(runtimeKeyPattern)) {
+    requiredKeys.add(match[1]);
+}
 const failures = [];
 const flattenedTranslations = Object.fromEntries(
     Object.entries(translations).map(([language, values]) => [language, flatten(values)])

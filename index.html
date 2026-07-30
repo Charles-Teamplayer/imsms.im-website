@@ -3918,7 +3918,8 @@
                 displayNews(6);
             } catch (error) {
                 console.error('Failed to load news:', error);
-                document.getElementById('newsGrid').innerHTML = '<p style="text-align: center; color: var(--gray);">뉴스를 불러올 수 없습니다.</p>';
+                const message = getTranslation('news.loadError', currentLang) || '뉴스를 불러올 수 없습니다.';
+                document.getElementById('newsGrid').innerHTML = `<p style="text-align: center; color: var(--gray);">${message}</p>`;
             }
         }
 
@@ -4229,7 +4230,8 @@
                 if (isIOS) {
                     window.location.href = imessageUrl;
                 } else {
-                    alert('이 기능은 iPhone에서만 사용 가능합니다.\n\n데스크톱에서는 QR 코드를 iPhone 카메라로 스캔해주세요.');
+                    alert(getTranslation('demo.iphoneOnlyAlert', currentLang)
+                        || '이 기능은 iPhone에서만 사용 가능합니다.\n\n데스크톱에서는 QR 코드를 iPhone 카메라로 스캔해주세요.');
                 }
             });
         }
@@ -4239,8 +4241,7 @@
             e.preventDefault();
 
             const submitBtn = this.querySelector('.quote-submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = '전송 중...';
+            submitBtn.textContent = getTranslation('form.submitting', currentLang) || '전송 중...';
             submitBtn.disabled = true;
 
             const formData = {
@@ -4272,24 +4273,32 @@
                     result = JSON.parse(responseText);
                 } catch (e) {
                     console.error('Failed to parse JSON:', e);
-                    throw new Error('서버 응답을 처리할 수 없습니다.');
+                    throw new Error(getTranslation('form.responseError', currentLang)
+                        || '서버 응답을 처리할 수 없습니다.');
                 }
 
                 console.log('Parsed result:', result);
 
                 if (response.ok && result.success !== false) {
-                    alert(`${formData.contactName} 님. 견적문의주셔서 감사드립니다.\n빠른 시일 내에 연락드리겠습니다.`);
+                    const message = (getTranslation('form.successMessage', currentLang)
+                        || '{name} 님. 견적문의주셔서 감사드립니다.\n빠른 시일 내에 연락드리겠습니다.')
+                        .replace('{name}', formData.contactName);
+                    alert(message);
                     this.reset();
                 } else {
-                    const errorMsg = result.error || result.details || '전송 중 오류가 발생했습니다.';
+                    const errorMsg = result.error || result.details
+                        || getTranslation('form.sendError', currentLang)
+                        || '전송 중 오류가 발생했습니다.';
                     alert('❌ ' + errorMsg);
                     console.error('Server error:', result);
                 }
             } catch (error) {
                 console.error('Fetch error:', error);
-                alert('❌ 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.\n' + error.message);
+                const message = getTranslation('form.retryError', currentLang)
+                    || '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+                alert('❌ ' + message + '\n' + error.message);
             } finally {
-                submitBtn.textContent = originalText;
+                submitBtn.textContent = getTranslation('form.submit', currentLang) || '견적 문의하기';
                 submitBtn.disabled = false;
             }
         });
@@ -4479,6 +4488,17 @@
 
             // Update HTML lang attribute
             document.documentElement.lang = lang;
+
+            // Update localized browser metadata
+            const localizedTitle = getTranslation('seo.title', lang);
+            if (localizedTitle) {
+                document.title = localizedTitle;
+            }
+            const metaDescription = document.querySelector('meta[name="description"]');
+            const localizedDescription = getTranslation('seo.description', lang);
+            if (metaDescription && localizedDescription) {
+                metaDescription.content = localizedDescription;
+            }
 
             // Refresh news display with current language
             if (typeof displayNews === 'function' && typeof currentNewsCount !== 'undefined') {
