@@ -2043,6 +2043,20 @@
             font-weight: 600;
         }
 
+        .comparison-card .price .currency-prefix {
+            display: none;
+        }
+
+        html[lang="en"] .comparison-card .price .currency-prefix,
+        html[lang="pt"] .comparison-card .price .currency-prefix {
+            display: inline;
+        }
+
+        html[lang="en"] .comparison-card .price .currency-suffix,
+        html[lang="pt"] .comparison-card .price .currency-suffix {
+            display: none;
+        }
+
         .comparison-card .price-label {
             font-size: 1rem;
             opacity: 0.85;
@@ -3569,7 +3583,9 @@
                         <h3 data-i18n="pricing.othersTitle">타사 평균</h3>
                         <div class="price-container">
                             <div class="price">
-                                <span data-i18n="pricing.comparisonPrice">9원</span>
+                                <span class="won currency-prefix" data-i18n="pricing.currency">원</span>
+                                <span data-i18n="pricing.comparisonAmount">9</span>
+                                <span class="won currency-suffix" data-i18n="pricing.currency">원</span>
                             </div>
                             <div class="formula-badge">1+0</div>
                             <div class="price-label" data-i18n="pricing.oneMessage">1건 발송</div>
@@ -3587,7 +3603,9 @@
                         <h3>IMSMS</h3>
                         <div class="price-container">
                             <div class="price">
-                                <span data-i18n="pricing.comparisonPrice">9원</span>
+                                <span class="won currency-prefix" data-i18n="pricing.currency">원</span>
+                                <span data-i18n="pricing.comparisonAmount">9</span>
+                                <span class="won currency-suffix" data-i18n="pricing.currency">원</span>
                             </div>
                             <div class="formula-badge">1+1</div>
                             <div class="price-label" data-i18n="pricing.twoMessages">2건 발송</div>
