@@ -1827,6 +1827,22 @@
         // Language and theme management
         let translations = {};
         let currentLang = 'ko';
+        const supportedLanguages = new Set(['ko', 'en', 'ja', 'pt']);
+
+        function getInitialLanguage() {
+            const urlLang = new URLSearchParams(window.location.search).get('lang');
+            const savedLang = localStorage.getItem('preferredLanguage');
+
+            if (supportedLanguages.has(urlLang)) return urlLang;
+            if (supportedLanguages.has(savedLang)) return savedLang;
+            return 'ko';
+        }
+
+        function updateLanguageUrl(lang) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState(null, '', url.href);
+        }
 
         // Load translations
         async function loadTranslations() {
@@ -1840,9 +1856,11 @@
         }
 
         // Switch language
-        function switchLanguage(lang) {
+        function switchLanguage(lang, updateUrl = true) {
+            if (!supportedLanguages.has(lang)) return;
             currentLang = lang;
             localStorage.setItem('preferredLanguage', lang);
+            if (updateUrl) updateLanguageUrl(lang);
 
             // Update all elements with data-i18n attribute
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -1898,8 +1916,8 @@
             await loadTranslations();
 
             // Restore saved language preference
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
-            switchLanguage(savedLang);
+            const initialLang = getInitialLanguage();
+            switchLanguage(initialLang, false);
 
             // Restore saved theme preference
             const savedTheme = localStorage.getItem('theme');

@@ -26,6 +26,25 @@ for (const match of html.matchAll(runtimeKeyPattern)) {
     requiredKeys.add(match[1]);
 }
 const failures = [];
+const languagePages = ['index.html', 'what-is-imsms.html', 'terms.html', 'demo.html'];
+
+for (const page of languagePages) {
+    const source = fs.readFileSync(path.join(root, page), 'utf8');
+    const requiredContracts = [
+        "new Set(['ko', 'en', 'ja', 'pt'])",
+        'new URLSearchParams(window.location.search)',
+        'function getInitialLanguage()',
+        'function updateLanguageUrl(lang)',
+        "url.searchParams.set('lang', lang)",
+        "window.history.replaceState(null, '', url.href)"
+    ];
+
+    for (const contract of requiredContracts) {
+        if (!source.includes(contract)) {
+            failures.push(`${page}: missing language-link contract ${contract}`);
+        }
+    }
+}
 const flattenedTranslations = Object.fromEntries(
     Object.entries(translations).map(([language, values]) => [language, flatten(values)])
 );
@@ -65,3 +84,4 @@ if (failures.length) {
 }
 
 console.log(`${requiredKeys.size} homepage translation keys verified across ${Object.keys(translations).length} languages.`);
+console.log(`${languagePages.length} pages verified for direct language links.`);

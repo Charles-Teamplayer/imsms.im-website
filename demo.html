@@ -1049,6 +1049,22 @@
         let startTime = null;
         const MAX_WAIT_TIME = 7000; // 7초 최대 대기시간
         let currentLang = 'ko';
+        const supportedLanguages = new Set(['ko', 'en', 'ja', 'pt']);
+
+        function getInitialLanguage() {
+            const urlLang = new URLSearchParams(window.location.search).get('lang');
+            const savedLang = localStorage.getItem('preferredLanguage');
+
+            if (supportedLanguages.has(urlLang)) return urlLang;
+            if (supportedLanguages.has(savedLang)) return savedLang;
+            return 'ko';
+        }
+
+        function updateLanguageUrl(lang) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            window.history.replaceState(null, '', url.href);
+        }
 
         // Translations
         const translations = {
@@ -1427,9 +1443,11 @@
         };
 
         // Language Switcher
-        function switchLanguage(lang) {
+        function switchLanguage(lang, updateUrl = true) {
+            if (!supportedLanguages.has(lang)) return;
             currentLang = lang;
             localStorage.setItem('preferredLanguage', lang);
+            if (updateUrl) updateLanguageUrl(lang);
 
             // Update all elements with data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1457,6 +1475,8 @@
                     btn.classList.add('active');
                 }
             });
+
+            document.documentElement.setAttribute('lang', lang);
         }
 
         // Theme Toggle
@@ -1474,11 +1494,11 @@
 
         // Load saved preferences
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
+            const initialLang = getInitialLanguage();
             const savedTheme = localStorage.getItem('theme') || 'light';
 
-            if (savedLang && translations[savedLang]) {
-                switchLanguage(savedLang);
+            if (translations[initialLang]) {
+                switchLanguage(initialLang, false);
             }
 
             if (savedTheme === 'dark') {
